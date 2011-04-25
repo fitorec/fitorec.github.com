@@ -60,7 +60,7 @@ ul ul, ol ol    { margin-top: 0; margin-bottom: 0 }
 u, ins          { text-decoration: underline }
 br:before       { content: "\A"; white-space: pre-line }
 center          { text-align: center }
-:link, :visited { text-decoration: underline }
+:link, :visited { text-decoration: none }
 :focus          { outline: thin dotted invert }
 
 /* Begin bidirectionality settings (do not change) */
@@ -79,19 +79,22 @@ BDO[DIR="rtl"]  { direction: rtl; unicode-bidi: bidi-override }
 
 /* @group Reset */
 body{
-background: #FFF;
-color: #000;
-font-family: rial,helvetica,sans-serif;
-font-size: 1.1em;
-text-align: justify;
-width: 95% ;
-margin-left: auto ;
-margin-right: auto ;
+	background: #4D4D4D URL(bg.png);
+	color: #000;
+	font-family: rial,helvetica,sans-serif;
+	font-size: 1.1em;
+	text-align: justify;
+	width: 95% ;
+	margin-left: auto ;
+	margin-right: auto ;
 }
 a{
 	text-decoration: none;
+	color: #004294;
 }
-
+a:hover{
+	color: #942500;
+}
 @font-face {
 	font-family: "Ubuntu-R";
 	src: url(./Ubuntu-R.ttf) format("truetype");
@@ -102,15 +105,16 @@ a{
 }
 h1,h2,h3,h4,h5,h6 {
 	font-family: "Ubuntu-R", sans-serif;
-	color: #000000;
+	color: #E83F00;
+	text-shadow: #FFF 3px 3px 5px, #FFF -3px -3px 5px;
 }
 
 h2 {
-	color: #0C0C0C;
+	color: #292929;
 }
 
 h3,h4,h5,h6{
-	color: #353535;
+	color: #292929;
 }
 /* #----------------- */
 del{
@@ -147,4 +151,16 @@ pre:hover{
 .shellcode {
   background: #1A1A1A url(img/shell.gif) no-repeat scroll 5px 5px;
   color: #00FF08;
+}
+div#content{
+	width: 750px;
+	margin: auto;
+	background: #fff URL(bg_white.jpg);
+	padding: 30px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border: 10px #efefef solid;
+	/*box-shadow: 10px 10px 5px #ddd;
+	-moz-box-shadow: 10px 10px 5px #333;
+	-webkit-box-shadow: 10px 10px 5px #ddd;*/
 }
