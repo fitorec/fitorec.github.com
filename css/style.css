@@ -134,7 +134,7 @@ em{
 
 /* -------------------------class of pre-format--------------------------------- */
 pre{
-  background: #DBE7EA url(img/shell.gif) no-repeat scroll 5px 5px;
+  background: #DBE7EA url(code.png) no-repeat scroll 5px 5px;
   font-family:"Bitstream Vera Sans Mono",Monaco,"Lucida Console",monospace;
   margin: 10px 5px;
   padding:10px 10px 10px 35px;
@@ -149,9 +149,20 @@ pre:hover{
 }
 
 .shellcode {
-  background: #1A1A1A url(img/shell.gif) no-repeat scroll 5px 5px;
+  background: #1A1A1A url(shell.gif) no-repeat scroll 5px 5px;
   color: #00FF08;
 }
+.shellcode:hover {
+  background: #101010 url(shell.gif) no-repeat scroll 5px 5px;
+  color: #61FF00;
+}
+
+.php {
+  background: #F3F3F3 url(php.png) no-repeat scroll 5px 5px;
+  color: #1A1A1A;
+}
+.php:hover{ background-color: white }
+
 div#content{
 	width: 750px;
 	margin: auto;

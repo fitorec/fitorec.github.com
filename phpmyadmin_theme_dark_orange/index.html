@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>phpmyadmin theme dark orange</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+</head>
+<body>	
+
+<div id='content'>
+<h1>fitoDarkOrange</h1>
+<h3><i>phpmyadmin theme dark orange</i></h3>
+
+<p>Es un tema para el administrador <a href="http://www.phpmyadmin.net/home_page/themes.php"><strong>phpmyadmin</strong></a> basado en el tema de <a href="https://twitter.com/mikehomme">@mikehomme</a>.</p>
+
+<p><img src="../img/phpmyadmin_theme_dark_orange_pantallazo.png" alt="imagen " title="" /></p>
+
+<h2>Caracteristicas principales</h2>
+
+<ul>
+<li>Colores: negro, anaranjado y azul.</li>
+<li>CSS3, webkit, moz</li>
+<li><strong>No Javascript</strong></li>
+</ul>
+
+<h2>Ventajas</h2>
+
+<ul>
+<li>Mejora la usabilidad
+<ul>
+<li>Resalta los <code>divs</code>,<code>inputs</code>,<code>buttons</code> al posicionar el <code>focus</code> </li>
+</ul></li>
+<li>Se mejoro los <a href="http://www.famfamfam.com/lab/icons/silk/">iconografia</a></li>
+
+</ul>
+
+<h2>Como instalar en linux.</h2>
+
+<pre class='shellcode'><code>#Clone el proyecto con el **git** o descargar desde la web y descomprime
+# ejecutar como administrador (`root`) el archivo install.sh
+$ cd ./phpmyadmin_theme_dark_orange/
+$ sudo ./install.sh
+</code></pre>
+
+<p><strong>Nota:</strong> para instalación manual basta con copiar la estructura de directorios de <code>themes/fitoDarkOrange/</code> la carpeta de nuestro <em>phpmyadmin</em> tipocamente los directorios  son:</p>
+
+<ul>
+<li><strong>En Linux</strong>
+<ul>
+<li>/usr/share/phpmyadmin/themes/</li>
+<li>/opt/lampp/phpmyadmin/themes/</li>
+</ul></li>
+<li><strong>En Windows</strong>
+<ul>
+<li>c:[path to xampp]\phpmyadmin\themes\</li>
+<li>c:[path to apache2]\public_html\phpmyadmin\themes\</li>
+
+</ul></li>
+</ul>
+
+<h2>Estructura de directorios</h2>
+
+<pre><code>themes/fitoDarkOrange/
+                     |-- css
+                     |   |-- theme_left.css.php
+                     |   |-- theme_print.css.php
+                     |   `-- theme_right.css.php
+                     |-- img
+                     |   |-- arrow_ltr.png
+                     |   |--....
+                     |   `-- window-new.png
+                     |-- info.inc.php
+                     |-- layout.inc.php
+                     `-- screen.png
+</code></pre>
+
+<h2>Plus</h2>
+
+<p>Se recomienda cambiar la configuracion de nuestro archivo <code>phpmyadmin/config.inc.php</code> cambiando y declarando las siguientes variables:</p>
+
+<pre class='php'><code>#Esta cadena de configuración se debe de cambiar por seguridad
+$cfg['blowfish_secret'] = 'gfy7e7nanpbbpxz'; //cadena hash ocupada para la autenticar cookies
+#ponemos el tema fitoDarkOrange por defecto
+$cfg['ThemeDefault'] = 'fitoDarkOrange';
+$cfg['ThemePath']   = './themes';
+$cfg['ThemeManager']    = TRUE;
+</code></pre>
+
+<p>Una forma de optener cadenas areatorias desde linea de comandos el linux es:</p>
+
+<pre class='shellcode'><code>#cadena areatoria de 15 caracteres
+echo `&lt;/dev/urandom tr -dc a-z0-9 | head -c 15`
+</code></pre>
+</div>
+</body>
+</html>
