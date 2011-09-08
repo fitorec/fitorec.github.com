@@ -5,7 +5,7 @@ Es un muy ligero calendario escrito en _Javascript_ el cual proporciona un conju
 
 Demos en linea:
 -----------------------------------------------
-<http://vivoenhuajuapan.com/calendario/>
+<http://fitorec.github.com/proyectos/fCalendar/>
 
 Principales características
 --------------------------------------------
