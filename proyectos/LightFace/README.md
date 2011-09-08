@@ -27,7 +27,9 @@ function formFunction() {
 LightFace
 =============================================
 
-Es es un proyecto original de [darkwing](https://github.com/darkwing) el cual es muy interesante sus principales caracteristicas son:
+Plugin para `mootools` que nos proporciona un cojunto de objetos para construir ventanas flotantes facilmente controlables.
+
+Es es un proyecto original de [darkwing](https://github.com/darkwing) el cual he estado haciendo mis propias modificaciones, este proyecto es muy interesante sus principales caracteristicas son:
 
  - **Soporte arrastrable**: puedes arrastrar las ventanas si incorporas el objeto `drug` del nucleo de **mootools**.
  - **Soporte de galeria**: Puedes crear una galeria del tipo `lightBox` con este plugin.
