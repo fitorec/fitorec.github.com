@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+  __ _ _                      
+ / _(_) |_ ___  _ __ ___  ___ 
+| |_| | __/ _ \| '__/ _ \/ __|
+|  _| | || (_) | | |  __/ (__ 
+|_| |_|\__\___/|_|  \___|\___|                              
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Fitorec - Proyectos de código abierto</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/commons.css" />
+</head>
+<body>	
+
+<div id="content">
+<script src="https://ajax.googleapis.com/ajax/libs/mootools/1.3.0/mootools.js"></script>
+<script src="mootools-more-drag.js"></script>
+<script src="https://github.com/fitorec/LightFace/raw/master/Source/LightFace.js"></script>
+
+<link rel="stylesheet" href="./dark/darkBox.css" />
+
+<script>
+function formFunction() {
+        return new LightFace({
+        title: $('demotitle').value,
+        content: $('democontent').value,
+        baseClass: 'darkface',
+        draggable: true
+    }).open();
+}
+</script>
+<style>
+#demotitle,#democontent{
+	font-size:1.5em;
+	background:#eee;
+	color:#222;
+}
+#democontent{
+	font-size:1.2em;
+}
+</style>
+
+<h1>LightFace</h1>
+
+<p>Es es un proyecto original de <a href="https://github.com/darkwing">darkwing</a> el cual es muy interesante sus principales caracteristicas son:</p>
+
+<ul>
+<li><strong>Soporte arrastrable</strong>: puedes arrastrar las ventanas si incorporas el objeto <code>drug</code> del nucleo de <strong>mootools</strong>.</li>
+<li><strong>Soporte de galeria</strong>: Puedes crear una galeria del tipo <code>lightBox</code> con este plugin.</li>
+<li><strong>Soporte de frames</strong>: Soporte de embedido de ventanas p.e. usted puede abrir google.</li>
+
+<li><strong>Soporte Ajax</strong>: El objeto <code>LightBoxRequest</code> probe de metodos que facilitan las solicitudes asictronas.</li>
+<li><strong>Soporte de eventos</strong>: puedes ligar muy facilmente estas ventanas con eventos en tu sitio.</li>
+<li><strong>Soporte de plantillas</strong>: Estos cambios son nuevos y los estoy implementando.</li>
+</ul>
+
+<h3>Ejemplo simple con plantilla.</h3>
+
+<p><input type="text" id="demotitle" value="Titulo ventana de Ejemplo" onFocus='this.value=""' onblur='this.value=(this.value)? this.value : "Titulo ventana de Ejemplo"'/><br>
+<textarea id="democontent" cols='60'>Esto es el contenido que aparecera en la ventana</textarea><br>
+<input type="button" value="Mostrar" onclick="javascript: formFunction();" />
+<br /><br /></p>
+
+<p><a href='https://github.com/fitorec/LightFace' class='get-code'>Acceder al repositorio</a></p>
+
+	<small style='float:right'>
+		<a href='README.md'>descargar esta pagina en formato <strong>markdown</strong></a>
+	</small>
+</div>
+</body>
+</html>

@@ -1,0 +1,251 @@
+
+.darkface {
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+	position: absolute;
+	top: -9000px;
+	left: -9000px;
+	width: 422px;
+}
+.darkface:hover{
+	box-shadow: 0 0 1px #FFF;
+	-moz-box-shadow: 0 0 1px #FFF;
+	-webkit-box-shadow: 0 0 1px #FFF;
+}
+
+.darkface td {
+	padding: 0;
+	margin: 0;
+	background-color: transparent;
+	vertical-align: top;
+	font-family: 'Verdana';
+	font-size: 11px;
+}
+
+.darkface .centerLeft, .darkface .centerRight {
+	width: 10px;
+	height: auto;
+	background-image: url(b.png);
+	background-repeat: repeat-y;
+}
+
+.darkface .topLeft, .darkface .topRight, .darkface .bottomLeft, .darkface .bottomRight {
+	width: 10px;
+	height: 10px;
+	background-image: url(corners.png);
+	background-repeat: no-repeat;
+}
+.darkface .topLeft {
+	background-position: top left;
+}
+
+.darkface .topRight {
+	background-position: top right;
+}
+
+.darkface .bottomLeft {
+	background-position: bottom left;
+}
+
+.darkface .bottomRight {
+	background-position: bottom right;
+}
+
+.darkface .topCenter, .darkface .bottomCenter {
+	width: auto;
+	height: 10px;
+	background-image: url(b.png);
+	background-repeat: repeat-x;
+}
+
+.darkface .darkfaceContent {
+	background-color: #fff;
+	border: 1px solid #333;
+	position: relative;
+}
+
+.darkface .loading {
+	display: block;
+	margin: 10px auto;
+}
+
+.darkface .darkfaceContent .darkfaceTitle {
+	font-size: 14px;
+	color: #0089C6;
+	background-color: #111;
+	background: -moz-linear-gradient(100% 100% 90deg, #111111, #333333);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#111111), to(#333333));
+	text-shadow: none;
+	border: 1px solid #000000;
+	font-weight: bold;
+	margin: -1px;
+	margin-bottom: 0;
+	padding: 5px 10px;
+}
+.darkface .darkfaceContent .darkfaceTitle:hover {	
+	color: #31B1EA;
+	background-color: #000;
+	background: -moz-linear-gradient(100% 100% 90deg, #000, #222);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#000), to(#222));
+	text-shadow: -1px -1px 1px #000,0 0 10px #000;
+}
+
+.darkface .darkfaceContent .darkfaceDraggable {
+	cursor:move;
+}
+
+.darkface .darkfaceContent .darkfaceMessage {
+	overflow: auto;
+	margin: 0;
+	position: relative;
+	padding: 5px 10px;
+	border: 1px solid #fff;
+}
+
+.darkface .darkfaceContent .darkfaceMessage h3,
+.darkface .darkfaceContent .darkfaceMessage h4,
+.darkface .darkfaceContent .darkfaceMessage h5,
+.darkface .darkfaceContent .darkfaceMessage h6 {
+	margin-top: 6px;
+}
+
+.darkface .darkfaceContent .darkfaceFooter {
+	background-color: #f2f2f2;
+	border-top: 1px solid #ccc;
+	padding: 6px 10px;
+	text-align: right;
+}
+/*
+.darkface .darkfaceFooter input[type='button'] {
+	border: 1px solid #666;
+	border-top-color: #e7e7e7;
+	border-left-color: #e7e7e7;
+	background-color: #f0f0f0;
+	padding: 1px 0 2px;
+	line-height: 16px;
+	vertical-align: middle;
+	margin-left: 5px;
+	cursor: pointer;
+	font-size: 13px;
+	display: inline-block;
+	font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+	font-weight: bold;
+	white-space: nowrap;
+	border:2px outset buttonface;
+	border-style: inset;
+	text-align:center;
+}
+
+.darkface .darkfaceFooter input[type='button'].darkfaceBlue {
+	border-color: #0e1f5b;
+	border-top-color: #d9dfea;
+	border-left-color: #d9dfea;
+	background-color: #3b598a;
+	color: #fff;
+}
+*/
+
+.darkface .darkfaceFooter label {
+	font-size: 13px;
+	border-style: solid;
+	background-image:url(button.png);
+	cursor:pointer;
+	font-weight:bold;
+	padding:2px 6px 2px 6px;
+	text-align:center;
+	vertical-align:top;
+	white-space:nowrap;
+	border-width:1px;
+	margin-left:3px;
+	background-position:0 0;
+	border-color:#999;
+	line-height:normal !important;
+	display:inline-block;
+}
+
+.darkface .darkfaceFooter label input {
+	background:none;
+	border:0 !important;
+	cursor:pointer;
+	font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+	font-weight:bold;
+	margin:0;
+	padding:1px 0 2px;
+	white-space:nowrap;
+	text-align:center;
+	color:#fff;
+	font-size:13px;
+	border: 2px outset buttonface;
+	text-indent:0;
+	text-shadow:none;
+	display:inline-block;
+	color:#444;
+	font-size:13px;
+}
+/* ie6 hacks */
+* html .darkface .darkfaceFooter label input { border:0; }
+
+.darkface .darkfaceFooter label.darkfacered {
+	border-color: #F14100 #DD1800 #FF4800;
+	background-position:0 -48px;
+}
+.darkface .darkfaceFooter label.darkfaceblue.darkfacefocusred { background-color: #C61600; color: white; background-image:none; }
+
+.darkface .darkfaceFooter label.darkfacered input{ color: #F14100;}
+
+.darkface .darkfaceFooter label.darkfaceblue {
+	border-color: #29447E #29447E #1A356E;
+	background-position:0 -48px;
+}
+.darkface .darkfaceFooter label.darkfaceblue.darkfacefocusblue { background-color: #0089C6; color: white; background-image:none; }
+
+.darkface .darkfaceFooter label.darkfacegreen {
+	border-color: #3B6E22 #3B6E22 #2C5115;
+	background-position:0 -96px;
+}
+.darkface .darkfaceFooter label.darkfacegreen.darkfacefocusgreen { background-color: #69A74E; background-image:none; }
+
+
+.darkface .darkfaceFooter label.darkfaceblue input,
+.darkface .darkfaceFooter label.darkfacegreen input {
+	color:#fff;
+}
+
+
+.darkface .hiddenButton {
+	visibility: hidden;
+}
+
+.darkface .darkfaceOverlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	/*
+	background-image: url(fbloader.gif);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: #fff;
+	*/
+	background:url(fbloader.gif) center center no-repeat #fff;
+}
+
+.darkface .darkfaceMessageBox	{ 
+	overflow: auto;
+	padding: 10px 10px;
+	min-height: 20px;
+	position:relative;
+	background: #EEE;
+}
+
+.darkface .darkfaceMessageBoxImage {
+	overflow: hidden;
+	padding: 0;
+	background:url(fbloader.gif) center center no-repeat #fff;
+}
+
+.darkface .darkfaceMessageBoxImage img {
+	display: block;
+}
