@@ -1,0 +1,170 @@
+.fCalendarJS{
+	font-family: Sans-serif;
+	font-size: 12px;
+	background-color: #111111;
+	background: -moz-linear-gradient(100% 100% 90deg, #111111, #333333);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#111111), to(#333333));
+	border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;
+	width: 215px;
+	padding: 5px;
+	padding-top: 0;
+}
+
+.fCalendarJS table{
+	font-size:13px;
+	padding: 0;
+	background: none;
+	margin: 0px;
+}
+
+.fCalendarJS table th,
+.fCalendarJS table td.fcalendarJS_disabled{
+	color: white !important;
+	padding: 1px;
+	border-radius: 5px !important;
+	-moz-border-radius: 5px !important;
+	-webkit-border-radius: 5px !important;
+	background-color: #000 !important;
+	background: -moz-linear-gradient(100% 100% 90deg, #000, #111) !important;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#000), to(#111)) !important;
+	height: 25px;
+	border: #090909 1px solid;
+	text-shadow: #000 1px 1px 0px, #000 -1px -1px 0px !important;
+}
+.fCalendarJS table td.fcalendarJS_disabled{
+	border: black 1px solid !important;
+	cursor: text;
+}
+
+.fCalendarJS table th.fcalendarJS_corrent_day{
+	color: #0C6EDF !important;
+	border: #000 1px solid;
+}
+
+.fCalendarJS th,.fCalendarJS td{
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	padding: 5px 1px 5px 1px;
+	font-family: Fixed, monospace;
+}
+
+.fCalendarJS td{
+	text-align: center;
+	color: #000 !important;
+	border-top: #E9E9E9 1px solid !important;
+	border-left: #E9E9E9 1px solid !important;
+	border-bottom: #393939 1px solid !important;
+	border-right: #393939 1px solid !important;
+	background-color: #B7B7B7 !important;
+	background: -moz-linear-gradient(100% 100% 90deg, #8A8A8A, #B7B7B7) !important;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#B7B7B7), to(#8A8A8A)) !important;
+	cursor:pointer;
+}
+
+.fCalendarJS td:hover{
+	color: #fff !important;
+	border-top: #FF8900 1px solid !important;
+	border-left: #FF8900 1px solid !important;
+	border-bottom: #890800 1px solid !important;
+	border-right: #890800 1px solid !important;
+	background-color: #FF4B00 !important;
+	background: -moz-linear-gradient(100% 100% 90deg, #FF0F00, #FF4B00) !important;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF4B00), to(#FF0F00)) !important;
+}
+
+.fCalendarJS .fCalendarJSTitle{
+	color: #000;
+	font-size: 1.1em;
+	font-weight: bold;
+	margin: 0 Auto 0 Auto;
+	text-align: center;
+	text-shadow: #4C4C4C 1px 1px 4px, #4C4C4C -1px -1px 4px;
+	background-color: #004A92;
+	background: -moz-linear-gradient(100% 100% 90deg, #002B58, #004A92);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#004A92), to(#002B58));
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-bottom: #393939 1px solid;
+	border-right: #393939 1px solid;
+}
+
+.fCalendarJS .fCalendarJSTitle .fCalendarYearNext,
+.fCalendarJS .fCalendarJSTitle .fCalendarMonthNext,
+.fCalendarJS .fCalendarJSTitle .fCalendarYearPrev,
+.fCalendarJS .fCalendarJSTitle .fCalendarMonthPrev{
+	color: #fff;
+	padding: 0 5px 0 5px;
+	margin: 0;
+	text-align: center;
+	text-shadow: #4C4C4C 1px 1px 4px, #4C4C4C -1px -1px 4px;
+	background: #002B58;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	cursor:pointer;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	text-decoration: none;
+}
+
+.fCalendarJS .fCalendarJSTitle .fCalendarMonthNext,
+.fCalendarJS .fCalendarJSTitle .fCalendarYearNext{
+	float: right;
+}
+
+.fCalendarJS .fCalendarJSTitle .fCalendarYearPrev,
+.fCalendarJS .fCalendarJSTitle .fCalendarMonthPrev{
+	float: left;
+}
+
+.fCalendarJS .fCalendarJSTitle .fCalendarMonthNext:hover,
+.fCalendarJS .fCalendarJSTitle .fCalendarMonthPrev:hover{
+	color: #FFF !important;
+	background-color: #000913 !important;
+	text-shadow: #4C4C4C 1px 1px 4px, #4C4C4C -1px -1px 4px !important;
+}
+
+.fCalendarJS .fCalendarJSTitle .fCalendarYearNext:hover,
+.fCalendarJS .fCalendarJSTitle .fCalendarYearPrev:hover{
+	background-color: #AA0A00 !important;
+	color: #FFF !important;
+	text-shadow: #4C4C4C 1px 1px 4px, #4C4C4C -1px -1px 4px !important;
+}
+/** other days */
+.fCalendarJS td.dayTypeA{
+	color: #000 !important;
+	border-top: #06FF00 1px solid !important;
+	border-left: #06FF00 1px solid !important;
+	border-bottom: #026C00 1px solid !important;
+	border-right: #026C00 1px solid !important;
+	background-color: #05C000 !important;
+	background: -moz-linear-gradient(100% 100% 90deg, #026C00, #05C000) !important;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#05C000), to(#026C00)) !important;
+}
+
+.fCalendarJS td.dayTypeB{
+	color: #000 !important;
+	font-size: 1.1em !important;
+	font-weight: bold !important;
+	margin: 0 Auto 0 Auto !important;
+	text-align: center !important;
+	text-shadow: #4C4C4C 1px 1px 4px, #4C4C4C -1px -1px 4px !important;
+	background-color: #004A92 !important;
+	background: -moz-linear-gradient(100% 100% 90deg, #002B58, #004A92) !important;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#004A92), to(#002B58)) !important;
+	border: #005BB3 1px solid !important;
+	border-bottom: #002447 1px solid !important;
+	border-right: #002447 1px solid !important;
+}
+
+.fCalendarJS td.dayTypeC{
+	color: #fff !important;
+	border-top: #FF8900 1px solid !important;
+	border-left: #FF8900 1px solid !important;
+	border-bottom: #890800 1px solid !important;
+	border-right: #890800 1px solid !important;
+	background-color: #FF4B00 !important;
+	background: -moz-linear-gradient(100% 100% 90deg, #FF0F00, #FF4B00) !important;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF4B00), to(#FF0F00)) !important;
+}

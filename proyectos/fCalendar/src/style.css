@@ -1,0 +1,88 @@
+/* @group Reset */
+body{
+background: #FFF;
+color: #000;
+font-family: rial,helvetica,sans-serif;
+font-size: 1.1em;
+text-align: justify;
+width: 95% ;
+margin-left: auto ;
+margin-right: auto ;
+}
+@font-face {
+	font-family: "Ubuntu-R";
+	src: url(./Ubuntu-R.ttf) format("truetype");
+}
+@font-face {
+	font-family: "cursive_standard";
+	src: url(./cursive_standard.ttf) format("truetype");
+}
+h1,h2,h3,h4,h5,h6 {
+	font-family: "Ubuntu-R", sans-serif;
+	color: #353535;
+}
+
+h2 {
+	color: #0C0C0C;
+}
+
+h1{
+	text-align: center;
+}
+h3,h4,h5,h6{
+	color: #000000;
+}
+/* #----------------- */
+del{
+	color: #BFBFBF; 
+}
+cite{
+	color: #4D4D4D;
+	background: #FFFDD1;
+	font-family: sans-serif;
+}
+p{
+	text-align: justify;
+}
+em{
+	background: #FFFEC5;
+}
+#editor{
+	color: #F9F9F9;
+	background: #282828;
+	font-size: 1.1em;
+	text-align: justify;
+}
+/* ----------------------- class of the semantic sites ------------------------- */
+.contribute, .warning, .great{
+	background:#FFF7B8;
+	margin: 10px 5px;
+	padding:10px 10px 10px 35px;
+	width: 95%;
+	border:1px solid #ddd;
+	
+}
+
+.warning{
+	background:#FFC0CB;
+}
+
+.great{
+	background:#B5FFA5;
+}
+/* -------------------------class of pre-format--------------------------------- */
+.code,.shellcode{
+  background: #d6f1f9;
+  font-family:"Bitstream Vera Sans Mono",Monaco,"Lucida Console",monospace;
+  margin: 10px 5px;
+  padding:10px 10px 10px 35px;
+  color: #1A1A1A;
+  border: 1px solid #ddd;
+  width: 95%;
+  overflow: auto;
+  white-space: pre;
+}
+.shellcode {
+  background: #1A1A1A;
+  color: #00FF08;
+}

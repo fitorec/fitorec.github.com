@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<!--
+  __  ___      _             _          
+ / _|/ __|__ _| |___ _ _  __| |__ _ _ _ 
+|  _| (__/ _` | / -_) ' \/ _` / _` | '_|
+|_|  \___\__,_|_\___|_||_\__,_\__,_|_| - Fcalendar Demo
+"Join us now and share the software, You'll be free, hackers, you'll be free!!" - RMS.
+-->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>Basic FCalendar Test</title>
+	<link rel="stylesheet" type="text/css" href="src/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/commons.css" />
+	<script type="text/javascript" src="src/fcalendar.js" language='Javascript'></script>
+	<script type="text/javascript" src="src/fcal-lang-es.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="src/templates/white.css" />
+	<link rel="stylesheet" type="text/css" href="src/templates/default.css" />
+	<script>
+	window.onload = function (){
+		//por defecto arranca con el id del objeto como unico parametro
+		miCalendario = new FCalendar('miFCalendarJS',{style:'white'})
+		
+		//para cambiar fecha usar metodo FCalendar.setDate(YYYY, MM) (ene=0,feb=1,..dic=11)
+		miCalendarioConEventos = new FCalendar('miCalendarioConEventos',{year:2000,month:9})
+		//a determinados días de un año puedo eventos y enlasarlos a mis funciones de usuarios
+		//(util para combinar con otros scripts)
+		//Por ejemplo puedo def. alguna funcio como cita, agendarEvento,etc.
+		// eta funcion recibe 4 parametros ver definicion "miFunciondiasA"
+		miCalendarioConEventos.appendEventsDays({
+			'class': 'dayTypeA',
+			'event' : 'miFunciondiasA',
+			'year' : 2000,
+			'msg' : 'Click sobre el día %day% mes %month% año %year%',
+			'days' : [ '10/01', '11/06', '9/15', '9/16', '9/17' ,'8/15' , '11/02' ]
+		})
+		//agregamos días de otros tipo
+		miCalendarioConEventos.appendEventsDays({
+			'class': 'dayTypeB',
+			'event' : 'miFunciondiasB',
+			'year' : 2000,
+			'msg' : 'Este del día %day% mes %month% año %year% evento sera admistrado por miFunciondiasB',
+			'days' : [ '9/1', '9/25', '9/05' ]
+		})
+		//
+		miCalendarioConEventos.appendEventsDays({
+			'class': 'dayTypeC',
+			'year' : 2000,
+			'msg' : 'día del tipoC día %day% mes %month% año %year% no sera administrado por ninguna función',
+			'days' : [ '9/3', '9/29', '9/04' ]
+		})
+		//asi sucesivamente puedo agregar mientras, defina funciones y/o estilos en el css
+		//..
+		
+		//por defecto puedo agregar una funcio por defecto a todos los días
+		miCalendarioConEventos.defaultEventForDay(miFuncionPorDefecto, 'Hoy  %year%/%month%/%day% es un día normal')
+	}
+	
+	//Prototipo funcion def. por el usauario para manejar determinados días del año
+	function miFunciondiasA(year, month, day, div_id){
+		alert('año'+year+' mes'+month+' día'+day)
+		document.getElementById('inputDate').value = year+'/'+month+'/'+day
+	}
+	//Prototipo funcion def. por el usauario para manejar determinados días del año
+	function miFunciondiasB(year, month, day, div_id){
+		window.location += year+'/'+month+'/'+day
+	}
+	
+	//Prototipo funcion def. por el usauario por defecto sobre los días
+	function miFuncionPorDefecto(year, month, day, div_id){
+		alert('Funcion por defecto: '+year+' mes '+month + ' día'+ day+' Identificador del Div '+div_id )
+		document.getElementById('inputDate').value = year+'-'+month+'-'+day
+	}
+	</script>
+</head>
+<body>
+	<h1>fCalendar</h1>
+<div style='background: #D4FFAE'>
+	<h2>Principales características</h2>
+	<ul>
+		<li>Ligero
+			<ul>
+				<li>No usa ni descarga imagenes encambio implementa técnicas de CSS3, webkit y moz</li>
+				<li>Tiene una implementación de control de eventos que no sobre carga el DOM</li>
+				<li>La libreria principal <b>fcalendar.js</b> sólo pesa 7.5kb</li>
+			</ul>
+		</li>
+		<li>Multi idiomas
+			<UL>
+				<li>Versión en español fcal-lang-es.js</li>
+				<li>Versión en ingles fcal-lang-en.js (inconclusa)</li>
+				<li>Futuras versiones: Frances, Portuges, Aleman </li>
+			</UL>
+		</li>
+		<li>Compatibilidad
+			<ul>
+				<li>Emplea unicamente javascript apegado la mayor parte al ECMAScript ISO 16262</li>
+				<li>No redefine ningun prototypo de DOM</li>
+				<li>Compatible con cualquier frameWork</li>
+				<li>CrossBrowser (probado con firefox, opera, chromium, safari)</li>
+			</ul>
+		</li>
+		<li>Eventos y Controles
+			<ul>
+				<li>Su manejador de eventos nos permite incorporarlos al vuelo</li>
+				<li>El usuario tiene control pleno sobre Estos eventos</li>
+				<li>Al poder usarse con frameWorks lo podemos combinar, facilmente</li>
+			</ul>
+		</li>
+			
+		<li>Multiplantillas incorporadas
+			<ul>
+				<li>dark(Implementada)</li>
+				<li>orange(Implementada versión 0.01)</li>
+				<li>blue</li>
+				<li>white</li>
+			</ul>
+		</li>
+	</ul>
+</DIV>
+
+<br clear='all'>
+	<h1 id='test_title'>fCalendar Test</h1>
+	
+	<h2>Ejemplo1 - Probando controlles y estilos</h2>
+	<p>
+		En este calendario se esta probando con controles externos, usted puede instanciar el fCalendar, usar sus métodos y hacer sus propios controles personalizados.
+	</p>
+	<div id="miFCalendarJS">
+	</div>
+	<!-- para agregar controles externos usar funcion setDate sobre el objeto FCalendar -->
+	<select id='anio' onchange='miCalendario.setDate(this.value,document.getElementById("mountId").selectedIndex)'>
+		<option>2010</option> 
+		<option>2011</option>
+		<option>2012</option>
+	</select>
+	<select id='mountId' onchange='miCalendario.setDate(document.getElementById("anio").value,this.selectedIndex)'>
+		<option value='0'>Enero</option>
+		<option value='1'>Febrero</option>
+		<option value='2'>Marzo</option>
+		<option value='3'>Abril</option>
+		<option value='4'>Mayo</option>
+		<option value='5'>Junio</option>
+		<option value='6'>Julio</option>
+		<option value='7'>Agosto</option>
+		<option value='7'>Septiembre</option>
+		<option value='9'>October</option>
+		<option value='10'>Noviembre</option>
+		<option value='11'>Diciembre</option>
+	</select>
+	<h4>1. Código base - insertando las librerias necesarias</h4>
+	<div class="code">&lt;!-- código en el &lt;head&gt; Librerias a utilizar --&gt;
+&lt;script type="text/javascript" src="<b>src/fcalendar.js</b>" language='Javascript'&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="<b>src/fcal-lang-es.js</b>"&gt;&lt;/script&gt;
+&lt;!-- Agregamos la hoja de estilo para la plantilla white --&gt;
+&lt;link rel="stylesheet" type="text/css" href="<b>src/templates/white.css</b>" /&gt;
+</div>
+
+<h4>2. En tu sitio asigna un div(s) vacio(s) con identificador(es)</h4>
+<div class="code">&lt;div id="<b>miFCalendarJS</b>"&gt;&lt;/div&gt;</div>
+
+<h4>3. Creando el objeto, puedes crear tantos calendarios como divs hayas destinados</h4>
+<div class="code">window.onload = function (){
+    //FCalendar por defecto arranca con el id(<b>miFCalendarJS</b>) del div contenedor para nuestro calendario
+    //ademas en este caso queremos agregarle el estilo blanco(white)
+    <b>miCalendario = new FCalendar('miFCalendarJS', {style:white})</b>
+}
+</div>
+
+<h4>4. Agregando controles - Jugando con el fCalendar </h4>
+<div class="code">&lt;!-- Podemos enlasar nuestros inputs y agregarle en sus eventos acciones sobre nuestro fCalendar --&gt;
+&lt;select id='anio' onchange='<b>miCalendario</b>.setDate(this.value,document.getElementById("mountId").selectedIndex)'&gt;
+&lt;/select&gt;
+&lt;select id='mountId' onchange='<b>miCalendario</b>.setDate(document.getElementById("anio").value,this.selectedIndex)'&gt;
+&lt;/select&gt;
+</div>
+p><b>fCalendar</b> cuenta con algunas funciones de control, podemos agregar, eventos para días específicos ó para todos, el calendario también cuenta para sobre el control del mes,año a mostrar, lista de funciones útiles </p>
+
+<ul>
+<li><p><strong>defaultEventForDay(function userFunction)</strong> : agrega una función definida por el usuario la cual se ejecutara al hacer click sobre cualquier día del calendario que no tenga asignado un evento, fCAlendar le manda a dicha función los siguientes parámetros:</p>
+
+<ul><li><strong>year</strong> el año actual del calendario</li>
+<li><strong>month</strong>  el mes actual del calendario</li>
+
+<li><strong>day</strong>    el día sobre el cual provoco dicho evento</li>
+<li><strong>div_id</strong>  el identificador del div contenedor del calendario.</li></ul></li>
+<li><p><strong>appendEventsDays(object list)</strong>  Permite agregar días con eventos, estilos específicos, los eventos son administrador por una función def. por el usuario con un prototipo análoga a la función por defecto.</p></li>
+<li><p><strong>setDate(year, month)</strong> Permite cambiar la fecha del calendario.</p></li>
+
+</ul>
+
+	<!-- EJEMPLO2 -->
+	<h2>Ejemplo 2 - Usando las funciones, agregando eventos, días</h2>
+	<div id="miCalendarioConEventos"></div>
+	<input id='inputDate' >
+	<p>Usted puede crear tantos calendarios como necesite, también puede definir los eventos de determinados días, veamos esta prueba.</p>
+
+<h3>1. En nuestra pagina asignamos un div para el nuestro calendario.</h3>
+
+<div class="code"> &lt;div id="miCalendarioConEventos"&gt;&lt;/div&gt;
+ &lt;!-- este input solo para hacer pruebas con las funciones de usuario (revisar el punto 4) --&gt;
+ &lt;input id='inputDate' &gt;
+
+</div>
+
+<h3>2. En la cabecera Creamos un calendario con una fecha especifica(previamente se incorporan las librerias).</h3>
+
+<div class="code">window.onload = function (){
+   miCalendarioConEventos = new FCalendar('miCalendarioConEventos',<b>2000</b>,<b>9</b>)
+}
+</div>
+
+<h3>3.- Agregar días y eventos predeterminados y especifcos</h3>
+
+<div class="code">miCalendarioConEventos.<b>appendEventsDays</b>({
+    'class': <b>'dayTypeA'</b>,
+    'event' : <b>'miFunciondiasA'</b>,
+    'year' : <b>2000</b>,
+    'msg' : <b>'Click sobre el día %<b>day</b>% mes %<b>month</b>% año %<b>year%</b>'</b>,
+    'days' : <b>[ '10/01', '11/06', '9/15', '9/16', '9/17' ,'8/15' , '11/02' ]</b>
+})
+//<b>agregamos días de otros tipo</b>
+miCalendarioConEventos.<b>appendEventsDays</b>({
+    'class': <b>'dayTypeB'</b>,
+    'event' : <b>'miFunciondiasB'</b>,
+    'year' : 2000,
+    'msg' : 'Este del día %<b>day</b>% mes %<b>month</b>% año %<b>year</b>% evento sera admistrado por miFunciondiasB',
+    'days' : [ '9/1', '9/25', '9/05' ]
+})
+//<b>agregamos días del tipoC, Notar que no es neceario que la funcion la administre un evento</b>
+miCalendarioConEventos.<b>appendEventsDays</b>({
+    'class': <b>'dayTypeC'</b>,
+    'year' : 2000,
+    'msg' : 'día del tipoC día %<b>day</b>% mes %<b>month</b>% año %<b>year</b>% no sera administrado por ninguna función',
+    'days' : [ '9/3', '9/29', '9/04' ]
+})
+//<b>asi sucesivamente se pueden seguir agregando mientras se defina funciones y/o estilos en el css</b>
+//..
+//<b>se puede agregar una función por defecto a todos los días, con una notación ligeramente mas simple</b>
+miCalendarioConEventos.<b>defaultEventForDay(miFuncionPorDefecto, 'Hoy  %year%/%month%/%day% es un día normal')</b>
+</div>
+
+<p><strong>Nota:</strong> los patrones <strong>%day%</strong>, <strong>%month%</strong> y <strong>%year%</strong> son sustituidos por sus valores correspondientes antes el renderizado del jCalendar.</p>
+
+<p><strong>Nota2:</strong> La mayor diferencia entre <b>fCalendar.defaultEventForDay(...)</b> y <b>fCalendar.appendEventsDays(...)</b> esta en el manejador de eventos, la primera recibe <em>la función administradora del evento </em>y la ejecuta en el evento click, mientras que <em>appendEventsDays</em> recibe <em>el nombre de la función administradora del evento </em> la cual es evaluada en el evento click.</p>
+
+<h3>4.- Se Agrega también el el area del código javascript en el head, las siguientes funciones.</h3>
+
+<div class="code">//<b>Prototipo funcion def. por el usauario para manejar determinados días del año</b>
+function <b>miFunciondiasA(</b>year, month, day, div_id){
+    alert('año'+<b>year</b>+' mes'+<b>month</b>+' día'+<b>day</b>)
+    //cambiamos el valor del input de abajo
+    document.getElementById('<b>inputDate</b>').value = <b>year</b>+'/'+<b>month</b>+'/'+<b>day</b>
+}
+//<b>Prototipo funcion def. por el usauario para manejar determinados días del año</b>
+function <b>miFunciondiasB(</b>year, month, day, div_id){
+    window.location += <b>year</b>+'/'+<b>month</b>+'/'+<b>day</b>
+}
+
+//<b>Prototipo funcion def. por el usauario por defecto sobre los días</b>
+function <b>miFuncionPorDefecto(</b>year, month, day, div_id){
+    alert('Funcion por defecto: '+<b>year</b>+' mes '+<b>month</b> + ' día'+ <b>day</b>+' Identificador del Div '+<b>div_id</b> )
+    //cambiamos el valor del input de abajo
+    document.getElementById('<b>inputDate</b>').value = <b>year</b>+'-'+<b>month</b>+'-'+<b>day</b>
+}
+</div>
+	
+<a href='https://github.com/fitorec/fCalendar' class='get-code'>Acceder al repositorio</a>
+
+</body>
+</html>
