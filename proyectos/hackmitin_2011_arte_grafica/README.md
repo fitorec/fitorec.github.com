@@ -13,6 +13,11 @@ Arte gráfica hackmitin 2011 __La Cereza__.
 
 [https://github.com/fitorec/arte-grafica-hackmitin-2011](https://github.com/fitorec/arte-grafica-hackmitin-2011)
 
+##Archivos fuentes:
+
+ - [Formato zip](https://github.com/fitorec/arte-grafica-hackmitin-2011/zipball/master)
+ - [Formato tar.gz](https://github.com/fitorec/arte-grafica-hackmitin-2011/tarball/master)
+
 ##Fuentes a utilizadas.
 
 La carpeta `truetype` es una extracción de las fuentes utilizadas, las cuales provienen de mi directorio `/usr/share/fonts/truetype`, si tiene problemas para abrir alguna imagen de modo edicion(inkscape), deberia agregar las siguientes fuentes:
