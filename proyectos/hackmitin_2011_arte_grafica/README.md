@@ -3,9 +3,8 @@
 ##La cereza - Arte gráfica.
 
 
-![Banner Naranja](banner_naranja.png)
+![Archivo de ejemplo unión de chava y letras](ejemplo_union_chava_letras.png)
 ![Banner Morado](banner_morado.png)
-
 
 ##Descripción:
 
