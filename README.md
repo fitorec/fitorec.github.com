@@ -14,7 +14,8 @@ Fitorec
 
 ##Manuales & documentación.
 
-- **openCart plugin** - Código & manual del desarrollo de un _plugin_ de _openCart_ para redes sociales.
+ - **openCart plugin** - Código & manual del desarrollo de un _plugin_ de _openCart_ para redes sociales.
+ - [**Inkscape dibuja Libremente**](./inkscape_dibuja_libremente/)
 
 
 ##Blog personal.
