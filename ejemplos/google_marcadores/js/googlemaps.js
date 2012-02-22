@@ -92,14 +92,16 @@ var map;
 var markersArray = [];
 
 function initialize() {
+	 var latlng = new google.maps.LatLng(17.077051,-96.708269);
         var myOptions = {
           zoom: 10,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+		center: latlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP          
         };
         map = new google.maps.Map(document.getElementById('map_canvas'),
             myOptions);
 
-        // Try HTML5 geolocation
+        /*// Try HTML5 geolocation
         if(navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = new google.maps.LatLng(position.coords.latitude,
@@ -118,7 +120,8 @@ function initialize() {
         } else {
           // Browser doesn't support Geolocation
           handleNoGeolocation(false);
-        }
+        }*/
+        
       }
 
       function handleNoGeolocation(errorFlag) {
