@@ -1,0 +1,137 @@
+h1, h2, h3, h4, h5, h6, p, a, ul, ol, li
+{
+    margin: 0;
+    padding: 0;
+}
+
+#contenedor_lista_marcadores{
+	width: 200px;
+	height:300px;
+	padding: 0;
+	background: #222222;
+}
+#contenedor_lista_marcadores li{
+	padding: 15px 10px 20px 10px;
+	font-size: 20px;
+	font-family:"Bitstream Vera Sans Mono",Monaco,"Lucida Console",monospace;
+	display:block;
+	color:white;
+	border-bottom: 1px solid #000;
+	background: #222222;
+	cursor:pointer;cursor:hand;
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #222222, #111111);
+	background-image: -ms-linear-gradient(top, #222222, #111111);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#222222), to(#111111));
+	background-image: -webkit-linear-gradient(top, #222222, #111111);
+	background-image: -o-linear-gradient(top, #222222, #111111);
+	background-image: linear-gradient(top, #222222, #111111);
+}
+
+#contenedor_lista_marcadores li:hover, #contenedor_lista_marcadores li.active{
+	color:black;
+	background: #e2407e;
+	border-bottom: 1px solid #540020;
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #e2407e, #810031);
+	background-image: -ms-linear-gradient(top, #e2407e, #810031);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#e2407e), to(#810031));
+	background-image: -webkit-linear-gradient(top, #e2407e, #810031);
+	background-image: -o-linear-gradient(top, #e2407e, #810031);
+	background-image: linear-gradient(top, #e2407e, #810031);
+}
+#contenedor_lista_marcadores li .marcador_icon{
+	width: 32px;
+	height:37px;
+	display:block;
+	float:left;
+}
+
+#contenedor_lista_marcadores li#marcador_bomberos .marcador_icon{
+  background: url(../img/bomberos.png) no-repeat;
+}
+#contenedor_lista_marcadores li#marcador_hospital .marcador_icon{
+  background: url(../img/hospital.png) no-repeat;
+}
+#contenedor_lista_marcadores li#marcador_paramedico .marcador_icon{
+  background: url(../img/paramedico.png) no-repeat;
+}
+#contenedor_lista_marcadores li#marcador_policia .marcador_icon{
+  background: url(../img/policia.png) no-repeat;
+}
+#contenedor_lista_marcadores li#marcador_transito .marcador_icon{
+  background: url(../img/transito.png) no-repeat;
+}
+/*
+ * Agregando pie para los nuevos msgs
+ */
+#pie_twitter_msg{
+	display:block;
+	width: 830px;
+	height: 78px;
+	padding: 10px;
+	background: #222;
+	border-top: 2px solid #333;
+	border-bottom: 1px solid #111;
+	-moz-border-radius: 0 0 10px 10px;
+	-webkit-border-radius: 0 0 10px 10px;
+	border-radius: 0 0 10px 10px;
+	overflow-y:automatic;
+	overflow-x:hidden;
+}
+
+#pie_twitter_msg a.item{
+	float: left;
+	margin-left: 10px;
+	margin-bottom: 15px;
+	width: 780px;
+	height: 58px;
+	background: #111;
+	padding:10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius:  10px;
+	text-decoration:none;
+	font-weight:bold;
+	font-size: 15px;
+	color: white;
+}
+
+#pie_twitter_msg a.item:hover{
+	color:black;
+	background: #e2407e;
+	border-bottom: 1px solid #540020;
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #e2407e, #810031);
+	background-image: -ms-linear-gradient(top, #e2407e, #810031);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#e2407e), to(#810031));
+	background-image: -webkit-linear-gradient(top, #e2407e, #810031);
+	background-image: -o-linear-gradient(top, #e2407e, #810031);
+	background-image: linear-gradient(top, #e2407e, #810031);
+}
+#pie_twitter_msg a.item img{
+	border: 5px solid #000;
+	width:48px;
+	height:48px;
+	display:block;
+	float:left;
+	margin-right: 5px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+}
+#pie_twitter_msg a.item em{
+	text-decoration: underline;
+}
+
+/* mapa canvas google */
+#map_canvas{
+	background: #efebe2;
+	border:1px solid #BCBAB7;
+	width:648px;
+	height:298px
+	display:block;
+	position:absolute;
+	margin-left: 200px;
+	margin-top: -300px;
+}
