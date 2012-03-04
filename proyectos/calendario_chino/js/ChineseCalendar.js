@@ -138,7 +138,7 @@ ChineseCalendar.prototype.element = function (){
 		case 6: return "Metal";
 		case 7: return "Metal";
 		case 8: return "Tierra";
-		case 9: return "Tierra";
+		case 9: return "Fuego";
 		default: return null;
 	}
 }
