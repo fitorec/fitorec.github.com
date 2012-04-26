@@ -13,40 +13,144 @@
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/commons.css" />
+	<!-- archivos para el reloj regresivo -->
+	<script language="Javascript"  type="text/javascript" src="http://fitorec.github.com/clockCountdown.js/javascripts/clockCountdown.js"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="http://fitorec.github.com/clockCountdown.js/stylesheets/clockCountdown.example.css" />
+	<!-- archivos para el reloj regresivo -->
+	<script type="text/javascript" src="http://fitorec.github.com/proyectos/fCalendar/src/fcalendar.js" language='Javascript'></script>
+	<script type="text/javascript" src="http://fitorec.github.com/proyectos/fCalendar/src/fcal-lang-es.js"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="http://fitorec.github.com/proyectos/fCalendar/src/templates/default.css" />
+	
+<script language="Javascript"  type="text/javascript"><!--
+window.onload = function (){
+	//ejemplo corriendo el clockCountdown
+	r = new clockCountdown('clock',{'days':5,'hours':20,'minutes':00,'seconds':3});
+
+	///////////////////////////////////////////////////////////////////////////////////////
+	//Ejemplo FCalendar
+	//para cambiar fecha usar metodo FCalendar.setDate(YYYY, MM) (ene=0,feb=1,..dic=11)
+	miCalendarioConEventos = new FCalendar('miCalendarioConEventos',{year:2000,month:9})
+	//a determinados días de un año puedo eventos y enlasarlos a mis funciones de usuarios
+	//(util para combinar con otros scripts)
+	//Por ejemplo puedo def. alguna funcio como cita, agendarEvento,etc.
+	// eta funcion recibe 4 parametros ver definicion "miFunciondiasA"
+	miCalendarioConEventos.appendEventsDays({
+		'class': 'dayTypeA',
+		'event' : 'miFunciondiasA',
+		'year' : 2000,
+		'msg' : 'Click sobre el día %day% mes %month% año %year%',
+		'days' : [ '10/01', '11/06', '9/15', '9/16', '9/17' ,'8/15' , '11/02' ]
+	})
+	//agregamos días de otros tipo
+	miCalendarioConEventos.appendEventsDays({
+		'class': 'dayTypeB',
+		'event' : 'miFunciondiasB',
+		'year' : 2000,
+		'msg' : 'Este del día %day% mes %month% año %year% evento sera admistrado por miFunciondiasB',
+		'days' : [ '9/1', '9/25', '9/05' ]
+	})
+	//
+	miCalendarioConEventos.appendEventsDays({
+		'class': 'dayTypeC',
+		'year' : 2000,
+		'msg' : 'día del tipoC día %day% mes %month% año %year% no sera administrado por ninguna función',
+		'days' : [ '9/3', '9/29', '9/04' ]
+	})
+	//asi sucesivamente puedo agregar mientras, defina funciones y/o estilos en el css
+	//por defecto puedo agregar una funcio por defecto a todos los días
+	miCalendarioConEventos.defaultEventForDay(miFuncionPorDefecto, 'Hoy  %year%/%month%/%day% es un día normal');
+}// -->
+//Prototipo funcion def. por el usauario para manejar determinados días del año
+function miFunciondiasA(year, month, day, div_id){
+	alert('año'+year+' mes'+month+' día'+day)
+	document.getElementById('inputDate').value = year+'/'+month+'/'+day
+}
+//Prototipo funcion def. por el usauario para manejar determinados días del año
+function miFunciondiasB(year, month, day, div_id){
+	alert('aqui podemos ir a un enlace p.e.: '+ window.location + '/' + year+'/'+month+'/'+day);
+}
+//Prototipo funcion def. por el usauario por defecto sobre los días
+function miFuncionPorDefecto(year, month, day, div_id){
+	alert('Funcion por defecto: '+year+' mes '+month + ' día'+ day+' Identificador del Div '+div_id )
+	document.getElementById('inputDate').value = year+'-'+month+'-'+day
+}
+	
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+</script>
+<!-- Piwik -->
+<script type="text/javascript">
+var pkBaseURL = "http://mundosica.com/piwik/";
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+try {
+	var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 7);
+	piwikTracker.trackPageView();
+	piwikTracker.enableLinkTracking();
+}catch( err ) {}
+</script><noscript><p><img src="http://mundosica.com/piwik/piwik.php?idsite=7" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
 </head>
-<body>	
+<body>
 
 <div id="content">
+
 <h1>Fitorec</h1>
 
-<h2>Lista de proyectos de código abierto</h2>
+<h2>Mis proyectos de código abierto:</h2>
 
-<ul>
-<li><a href="http://fitorec.github.com/proyectos/fCalendar/"><strong>fCalendar</strong></a> - Calendario con soporte de eventos en <em>Javascript</em>.</li>
-<li><a href="https://github.com/fitorec/diasql"><strong>DiaSQL</strong></a> - <em>Plugins</em> de soporte <strong>SQL</strong> para el manejador de diagramas <strong>Dia</strong>.</li>
+<h3><a href="http://fitorec.github.com/clockCountdown.js/">clockCountdown</a></h3>
 
-<li><a href="http://fitorec.github.com/proyectos/phpmyadmin_theme_dark_orange/"><strong>fitorecDarkOrange</strong></a> - un tema para <strong>phpmyadmin</strong>.</li>
-<li><a href="http://fitorec.github.com/proyectos/fCalendar/"><strong>prettyDay</strong></a> - Plugin para mootools que muestra la fecha/hora de forma bonita :¬).</li>
-<li><a href="http://fitorec.github.com/proyectos/LightFace/"><strong>LightFace</strong></a> - Plugin para mootools para generear ventanas flotantes, con soporte de arrastre, solicitudes asincronas y plantillas(<code>nueva modificación</code>).</li>
-<li><a href="https://github.com/fitorec/basic-ubuntu10.10"><strong>basic-ubuntu10.10</strong></a> - Instala lo básico para Ubuntu <strong>10.10</strong> (<code>descontinuado</code>).</li>
+<p><strong>Faltando: 5 dias, 20  Horas, 00 minutos y 3segundos</strong></p>
 
-</ul>
+<div id='clock'></div>
+
+<p>Reloj del tipo cuenta regresiva desarrollado con <em>javascript puro</em>.</p>
+
+<h3><a href="http://fitorec.github.com/proyectos/calendario_chino/">Calendario Chino</a></h3>
+
+<p>Calculo de tu número <strong>Kua</strong>,signo zodiacal, elemento(fuego,madera,metal,tierra,agua) y demas datos del <em>fengshui</em>. Desarrollado con <em>Javascript puro</em>.</p>
+
+<h3><a href="http://fitorec.github.com/proyectos/fCalendar/">fCalendar</a></h3>
+
+<p>Calendario con soporte de eventos en <em>Javascript</em>.</p>
+
+<div id="miCalendarioConEventos"></div>
+
+<p><input id='inputDate' ></p>
+
+<h3><a href="https://github.com/fitorec/diasql">DiaSQL</a></h3>
+
+<p><em>Plugins</em> de soporte <strong>SQL</strong> para el manejador de diagramas <strong>Dia</strong> desarrollado con <em>python</em>.</p>
+
+<h3><a href="http://fitorec.github.com/proyectos/phpmyadmin_theme_dark_orange/">fitorecDarkOrange</a></h3>
+
+<p>Tema para <strong>phpmyadmin</strong> desarrollado con <em>CSS</em> una pisca de <em>javascript</em> y <em>php</em>.</p>
+
+<h3><a href="https://github.com/fitorec/prettydate">prettyDay</a></h3>
+
+<p><em>Plugin</em> para <em>mootools</em> que muestra la fecha/hora de forma bonita :¬).</p>
+
+<h3><a href="http://fitorec.github.com/proyectos/LightFace/">LightFace</a></h3>
+
+<p>Plugin para <em>mootools</em> para generear ventanas flotantes, con soporte de arrastre, solicitudes asincronas y plantillas(<code>nueva modificación</code>).</p>
+
+<h3><a href="https://github.com/fitorec/basic-ubuntu10.10">basic-ubuntu10.10</a></h3>
+
+<p>Instala lo básico para Ubuntu <strong>10.10</strong> (<code>Proyecto descontinuado</code>).</p>
 
 <h2>Manuales &amp; documentación.</h2>
 
 <ul>
 <li><a href="./manual_php/"><strong>Manual en PHP</strong></a></li>
 <li><strong>openCart plugin</strong> - Código &amp; manual del desarrollo de un <em>plugin</em> de <em>openCart</em> para redes sociales.</li>
-
 <li><a href="./inkscape_dibuja_libremente/"><strong>Inkscape dibuja Libremente</strong></a></li>
 </ul>
 
 <h2>Blog personal.</h2>
 
 <ul>
-<li><a href="http://fitorec.wordpress.com/"><strong>http://fitorec.wordpress.com/</strong></a></li>
+	<li><a href="http://fitorec.wordpress.com/"><strong>http://fitorec.wordpress.com/</strong></a></li>
 </ul>
-
 </div>
 </body>
 </html>
