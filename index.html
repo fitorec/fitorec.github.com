@@ -78,18 +78,6 @@ function miFuncionPorDefecto(year, month, day, div_id){
 ///////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////
 </script>
-<!-- Piwik -->
-<script type="text/javascript">
-var pkBaseURL = (("https:" == document.location.protocol) ? "https://mundosica.com/piwik/" : "http://mundosica.com/piwik/");
-document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-</script><script type="text/javascript">
-try {
-var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 8);
-piwikTracker.trackPageView();
-piwikTracker.enableLinkTracking();
-} catch( err ) {}
-</script><noscript><p><img src="http://mundosica.com/piwik/piwik.php?idsite=8" style="border:0" alt="" /></p></noscript>
-<!-- End Piwik Tracking Code -->
 </head>
 <body>
 
@@ -153,5 +141,17 @@ piwikTracker.enableLinkTracking();
 	<li><a href="http://fitorec.wordpress.com/"><strong>http://fitorec.wordpress.com/</strong></a></li>
 </ul>
 </div>
+<!-- Piwik -->
+<script language="Javascript"  type="text/javascript" src="http://mundosica.com/piwik/piwik.js"></script>
+<script type="text/javascript">
+var pkBaseURL = "http://mundosica.com/piwik/";
+try {
+	var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 8);
+	piwikTracker.trackPageView();
+	piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script>
+<noscript><p><img src="http://mundosica.com/piwik/piwik.php?idsite=8" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
 </body>
 </html>
