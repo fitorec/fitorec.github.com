@@ -52,14 +52,11 @@ $(document).ready(function(){
 
 		<p>Este ejemplo lo pongo como recordatorio.<strong>Nota</strong> requiere <strong>jQuery</strong> y <strong>jQuery-UI</strong>:</p>
 <pre><code>$(document).ready(function(){
-$('.get-code').hover(function(){
-	kidsSound.play(); 
-	});
-	colors = ['#FFB30C', '#58EC00', '#0087EC', '#EEEEEE', '#FF5A00' ]
+	colors = ['#FFB30C', '#58EC00', '#0087EC', '#EEEEEE', '#FF5A00' ];
 	var i = 0;
-	animate_loop = function() {
+	animate_loop = function() {      
 	$('body').animate({backgroundColor:colors[(i++)%colors.length]
-		}, 500, function(){
+		}, 900, function(){
 			animate_loop();
 		});
 	}
