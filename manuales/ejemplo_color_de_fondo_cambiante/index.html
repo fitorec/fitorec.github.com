@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Efecto cambio de color de fondo con jQuery</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="icon" type="image/png" href="favicon.png">
+	<link rel="stylesheet" type="text/css" media="all" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="../../css/commons.css" />
+	<style type="text/css" media="all">
+	body{
+		background: #585858;
+	}
+	div#content{
+		border:15px solid rgba(0,0,0,0.4);
+		background:RGBA(0,0,0,0.9);
+		color:#EEE;
+		text-shadow:1px 1px 1px #000;
+	}
+	div#content h1{
+		text-shadow:3px 3px 1px #000;
+	}
+	</style>
+	<script language="Javascript"  type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
+	<script language="Javascript"  type="text/javascript" src="../../js/jquery-ui-1.8.20.custom.min.js"></script>
+	<script language="Javascript"  type="text/javascript" src="buzz.js"></script>
+	<script language="Javascript"  type="text/javascript"><!--//
+kidsSound = new buzz.sound( './kids', { formats: [ 'ogg', 'mp3' ] } );
+$(document).ready(function(){
+	$('.get-code').hover(function(){
+		kidsSound.play(); 
+	});
+	kidsSound.play(); 
+    colors = ['#FFB30C', '#58EC00', '#0087EC', '#EEEEEE', '#FF5A00' ]
+    var i = 0;
+    animate_loop = function() {
+            $('body').animate({backgroundColor:colors[(i++)%colors.length]
+            }, 900, function(){
+						$('#title_post').animate({color:colors[i%colors.length]},900,null);
+						$('#fitorec').animate({backgroundColor:colors[i%colors.length]},900,null);
+                       animate_loop();
+            });
+    }
+    animate_loop();
+});//-->
+</script>
+</head>
+<body>
+	<div id="content">
+		<a id='fitorec' href='http://fitorec.github.com' title='Visitar mi espacio'></a>
+		<h1 id='title_post'>Ejemplo animación jQuery</h1>
+
+		<p>Este ejemplo lo pongo como recordatorio.<strong>Nota</strong> requiere <strong>jQuery</strong> y <strong>jQuery-UI</strong>:</p>
+<pre><code>$(document).ready(function(){
+$('.get-code').hover(function(){
+	kidsSound.play(); 
+	});
+	colors = ['#FFB30C', '#58EC00', '#0087EC', '#EEEEEE', '#FF5A00' ]
+	var i = 0;
+	animate_loop = function() {
+	$('body').animate({backgroundColor:colors[(i++)%colors.length]
+		}, 500, function(){
+			animate_loop();
+		});
+	}
+		animate_loop();
+});</code></pre>
+
+		<a href='http://fitorec.github.com/manuales/color_de_fondo_cambiante/codigo.tar.gz' class='get-code'>Descarga código fuente</a>
+	</div>
+</body>
+
+</html>
