@@ -44,9 +44,10 @@ Plugin para _mootools_ para generear ventanas flotantes, con soporte de arrastre
 Instala lo básico para Ubuntu **10.10** (`Proyecto descontinuado`).
 
 
-##Manuales & documentación.
+##Manuales, documentación y ejemplos.
 
  - [**Manual en PHP**](./manual_php/)
+ - [**Ejemplo cambiando el color de fondo de multiples colores con jQuery**](./manuales/ejemplo_color_de_fondo_cambiante/)
  - **openCart plugin** - Código & manual del desarrollo de un _plugin_ de _openCart_ para redes sociales.
  - [**Inkscape dibuja Libremente**](./inkscape_dibuja_libremente/)
 

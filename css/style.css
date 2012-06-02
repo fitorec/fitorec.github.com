@@ -76,7 +76,8 @@ BDO[DIR="rtl"]  { direction: rtl; unicode-bidi: bidi-override }
   h4, h5, h6    { page-break-after: avoid }
   ul, ol, dl    { page-break-before: avoid }
 }
-
+::selection { background: #0078D7; color:#FFF; text-shadow:none !important; }
+::-moz-selection { background: #0078D7;color:#FFF;text-shadow:none !important; }
 /* @group Reset */
 body{
 	background: #4D4D4D URL(bg.png);
@@ -145,6 +146,7 @@ pre{
   width: 95%;
   overflow: auto;
   white-space: pre;
+  text-shadow:1px 1px 1px #FFF;
 }
 pre:hover{
 	background-color: #d6f1f9;
