@@ -107,7 +107,7 @@ a:hover{
 h1,h2,h3,h4,h5,h6 {
 	font-family: "Ubuntu-R", sans-serif;
 	color: #E83F00;
-	text-shadow: #FFF 3px 3px 5px, #FFF -3px -3px 5px;
+	text-shadow:1px 1px 0 #FFF,-1px -1px 0 #FFF;
 }
 
 h2 {
@@ -170,14 +170,16 @@ pre:hover{
 div#content{
 	width: 750px;
 	margin: auto;
-	background: #fff URL(bg_white.jpg);
+	background: #fff URL(bg-content.png);
 	padding: 30px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
-	border: 10px #efefef solid;
-	/*box-shadow: 10px 10px 5px #ddd;
-	-moz-box-shadow: 10px 10px 5px #333;
-	-webkit-box-shadow: 10px 10px 5px #ddd;*/
+	border:10px #FFF solid;
+	-webkit-box-shadow: inset 0 1px 0 #7A7A7A;
+	-moz-box-shadow: inset 0 1px 0 #7A7A7A;
+	-ms-box-shadow: inset 0 1px 0 #7A7A7A;
+	-o-box-shadow: inset 0 1px 0 #7A7A7A;
+	box-shadow:inset 1px 1px 3px #444,inset -1px -1px 1px #444,0 0 30px #000;
 }
 a#fitorec{
 	background:#BFBFBF URL(logo.png) no-repeat;

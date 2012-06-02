@@ -1,6 +1,3 @@
-Fitorec
-==========================================
-
 ##Mis proyectos de código abierto:
  
 ###[clockCountdown](http://fitorec.github.com/clockCountdown.js/)
@@ -48,6 +45,7 @@ Instala lo básico para Ubuntu **10.10** (`Proyecto descontinuado`).
 
  - [**Manual en PHP**](./manual_php/)
  - [**Ejemplo cambiando el color de fondo de multiples colores con jQuery**](./manuales/ejemplo_color_de_fondo_cambiante/)
+ - [**Manual barras de proceso con CSS**](http://fitorec.github.com/manual_css_barras_de_proceso/)
  - **openCart plugin** - Código & manual del desarrollo de un _plugin_ de _openCart_ para redes sociales.
  - [**Inkscape dibuja Libremente**](./inkscape_dibuja_libremente/)
 
