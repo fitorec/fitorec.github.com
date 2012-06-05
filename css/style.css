@@ -208,3 +208,7 @@ a#fitorec{
 	-o-box-shadow: inset 0 1px 0 #7A7A7A;
 	box-shadow: inset 0 0 20px #111,0 0 5px #AAA;
 }
+a#fitorec:hover{
+	transform: rotate(375deg);
+	transition: 1s transform;
+}
