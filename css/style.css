@@ -184,6 +184,8 @@ div#content{
 	-ms-box-shadow: inset 0 1px 0 #7A7A7A;
 	-o-box-shadow: inset 0 1px 0 #7A7A7A;
 	box-shadow:inset 1px 1px 3px #444,inset -1px -1px 1px #444,0 0 30px #000;
+	min-width:600px;
+	max-width:99%;
 	resize: both;
 	overflow: auto; 
 }
@@ -200,7 +202,6 @@ a#fitorec{
 	position:absolute;
 	margin:-55px 0 0 700px;
 	border:5px solid #000;
-	
 	-webkit-box-shadow: inset 0 1px 0 #7A7A7A;
 	-moz-box-shadow: inset 0 1px 0 #7A7A7A;
 	-ms-box-shadow: inset 0 1px 0 #7A7A7A;
