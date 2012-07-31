@@ -212,3 +212,9 @@ a#fitorec:hover{
 	transform: rotate(375deg);
 	transition: 1s transform;
 }
+.twitter-follow-button {
+    margin-top: 30px;
+}
+.repo__updated{
+	font-size: 0.8em;
+}
