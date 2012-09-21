@@ -86,3 +86,7 @@ em{
   background: #1A1A1A;
   color: #00FF08;
 }
+.code b{
+	outline:0.2em solid RGBA(255,0,0,0.2);
+	outline-offset:0.1em;
+}
