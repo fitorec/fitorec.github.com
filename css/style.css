@@ -91,10 +91,13 @@ body{
 }
 a{
 	text-decoration: none;
+	outline: 0;
 	color: #004294;
 }
 a:hover{
-	color: #942500;
+	color: #FF4D3D;
+	background:RGBA(255,255,255,0.2);
+	text-shadow:-1px -1px 0 #FFF,1px 1px 0 #FFF,0 0 3px #FFF;
 }
 @font-face {
 	font-family: "Ubuntu-R";
