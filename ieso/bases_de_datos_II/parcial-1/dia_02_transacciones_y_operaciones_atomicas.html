@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Transacciones y operaciones Atomicas</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap.min.css" />
+    <meta charset="utf-8">
+</head>
+
+<body>
+<!-- Titulo -->
+<header role="banner" id="top" class="navbar navbar-static-top navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="../">Bases de datos II</a>
+    </div>
+    <nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a href="../parcial-1/">Parcial 1</a>
+        </li>
+        <li>
+        <li>
+          <a href="../parcial-2/">Parcial 2</a>
+        </li>
+        <li>
+          <a href="../parcial-3/">Parcial 3</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a href="http://fitorec.github.io/">Fitorec</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<!-- Titulo -->
+<div class="container bs-docs-container" id="page">
+<div class="section">
+<div class="titlepage"><div><div>
+    <h1 class="page-header">
+        Mysql - Transacciones y operaciones atómicas
+    </h1>
+</div>
+</div></div>
+<blockquote class="text-info" cite="http://dev.mysql.com/doc/refman/5.0/es/ansi-diff-transactions.html">
+    <strong>Atención:</strong> Esta documentación fue extraida de la documentación oficial de MYSQL, usted puede consultar la fuente original para mayores informes:
+    <a href="http://dev.mysql.com/doc/refman/5.0/es/ansi-diff-transactions.html">
+        dev.mysql.com/doc/refman/5.0/es/ansi-diff-transactions.html
+    </a>
+</blockquote>
+<a name="idm47457556184192" class="indexterm"></a><a name="idm47457556183120" class="indexterm"></a><a name="idm47457556182048" class="indexterm"></a><a name="idm47457556180560" class="indexterm"></a><a name="idm47457556179488" class="indexterm"></a><a name="idm47457556178000" class="indexterm"></a><a name="idm47457556176512" class="indexterm"></a><a name="idm47457556174880" class="indexterm"></a><a name="idm47457556173248" class="indexterm"></a><p>
+          MySQL Server (versiones 3.23-max y todas las versiones 4.0 y
+          posteriores) soportan transacciones con los motores
+          trasaccionales <code class="literal">InnoDB</code> y
+          <code class="literal">BDB</code> . <code class="literal">InnoDB</code> proporciona
+          <span class="emphasis"><em>completa</em></span> compatibilidad
+          <code class="literal">ACID</code>. Consulte
+          <a title="Capítulo 14. Motores de almacenamiento de MySQL y tipos de tablas" href="storage-engines.html" class="xref">Capítulo&nbsp;14, <i>Motores de almacenamiento de MySQL y tipos de tablas</i></a>.
+        </p>
+<p>
+          Los otros motores no transaccionales en MySQL Server (como
+          <code class="literal">MyISAM</code>) siguen un paradigma diferente para
+          integridad de datos llamado "operaciones atómicas". En
+          términos transaccionales, tablas <code class="literal">MyISAM</code>
+          operan en modo <code class="literal">AUTOCOMMIT=1</code>. Operaciones
+          atómicas a menudo ofrecen integridad comparable con mejor
+          rendimiento.
+        </p>
+<p>
+          MySQL Server soporta ambos paradigmas, puede decidir si su
+          aplicación necesita la velocidad de operaciones atómicas o
+          el uso de características transaccionales. Esta elección
+          puede hacerse para cada tabla.
+        </p>
+<p>
+          Como se ha dicho, el compromiso entre tipos de tablas
+          transaccionales y no transaccionales reside principalmente en
+          el rendimiento. Tablas transaccionales tienen requerimientos
+          significativamente mayores para memoria y espacio de disco, y
+          mayor carga de CPU. Por otra parte, tipos de tablas
+          transaccionales como <code class="literal">InnoDB</code> también ofrece
+          muchas características significativas. El diseño modular de
+          MySQL Server permite el uso concurrente de distintos motores
+          de almacenamiento para cumplir distintos requerimientos y
+          mostrarse óptimo en todas las situaciones.
+        </p>
+<p>
+          Pero, ¿cómo usar las características de MySQL Server para
+          mantener integridad de forma rigurosa incluso en tablas no
+          transaccionales como <code class="literal">MyISAM</code> , y cómo se
+          comparan estas características con los tipos de tablas
+          transaccionales?
+        </p>
+<div class="orderedlist"><ol type="1" class="orderedlist">
+<li class="listitem">
+<p>
+              Si su aplicación está escrita de forma que dependa en
+              que pueda llamar a <code class="literal">ROLLBACK</code> en lugar de
+              <code class="literal">COMMIT</code> en situaciones críticas, es
+              preferible usar transacciones. Transacciones aseguran que
+              actualizaciones no acabadas o actividades corruptas no se
+              ejectuen en la base de datos; el servidor tiene la
+              oportunidad de hacer un rollback automático para mantener
+              la base de datos a salvo.
+            </p>
+<p>
+              Si usa tablas no transaccionales, MySQL Server le permite
+              solucionar problemas potenciales en prácticamente todos
+              los casos simplemente incluyendo chequeos antes de las
+              actualizaciones y ejecutando scripts sencillos que
+              comprueban que la consistencia de la base de datos, dando
+              una advertencia o reparando automáticamente cualquier
+              incosistencia. Simplemente usando el log de MySQL o
+              añadiendo un log extra, normalmente puede arreglar tablas
+              sin pérdida de integridad en los datos.
+            </p>
+</li>
+<li class="listitem"><p>
+              Normalmente, las actualizaciones transaccionales críticas
+              pueden reescribirse como atómicas.Generalmente hablando,
+              todos los problemas de integridad que resuelven las
+              transacciones pueden resolverse con <code class="literal">LOCK
+              TABLES</code> o actualizaciones atómicas, asegurando
+              que no se aborten automáticamente desde el servidor, el
+              cuál es un problema habitual en sistemas de bases de
+              datos transaccionales.
+            </p></li>
+<li class="listitem"><p>
+              Para tener un entorno fiable de MySQL, usando tablas
+              transaccionales o no, sólo necesita tener copias de
+              seguridad y el log binario activado. Con ello, puede
+              recuperarse de cualquier situación de la que pueda
+              hacerlo con cualquier otro sistema transaccional. Siempre
+              es bueno tener copias de seguridad, independientemente del
+              sistema de bases de datos usado.
+            </p></li>
+</ol></div>
+<p>
+          El paradigma transaccional tiene sus ventajas y desventajas.
+          Muchos usuarios y desarrolladores de aplicaciones dependen en
+          la facilidad con la que pueden solucionar problemas donde un
+          aborto parece ser o es necesario. Sin embargo, incluso si el
+          paradigma de operaciones atómicas le es desconocido o está
+          más familiarizado con las transacciones, considere el
+          beneficio de la velocidad que pueden ofrecer las tablas no
+          transaccionales, que puede ser de tres a cinco veces más
+          rápido que las más optimizadas tablas transaccionales.
+        </p>
+<p>
+          En las situaciones en las que la integridad es de máxima
+          importancia, MySQL Server ofrece integridad a nivel de
+          transacción incluso para tablas no transaccionales. Si
+          bloquea tablas con <code class="literal">LOCK TABLES</code>, todas las
+          actualizaciones se bloquean hasta que se hacen las
+          comprobaciones necesarias. Si obtiene un bloqueo <code class="literal">READ
+          LOCAL</code> (el contrario a un bloqueo de escritura) para
+          una tabla que permita inserciones concurrentes al final de la
+          tabla, las lecturas están permitidas, así como las
+          inserciones de otros clientes. Los registros insertados no
+          puede verlos el cliente que tenga el bloqueo hasta que lo
+          libere. Con <code class="literal">INSERT DELAYED</code>, puede encolar
+          inserciones en una cola local, hasta que los bloqueos se
+          liberan, sin tener que esperar el cliente a que acabe la
+          inserción. Consulte <a title="13.2.4.2. Sintaxis de INSERT DELAYED" href="insert-delayed.html" class="xref">Sección&nbsp;13.2.4.2, “Sintaxis de <code class="literal">INSERT DELAYED</code>”</a>.
+        </p>
+<p>
+          "Atómico", en el sentido en que nos referimos, no es nada
+          mágico. Se trata que puede asegurar que mientras cada
+          actualización específica está ejecutándose, ningún otro
+          usuario puede interferir con ellas, y que nunca puede haber un
+          rollback automático (lo que puede ocurrir con tablas
+          transaccionales si no se es muy cuidadoso). MySQL Server
+          garantiza que no hay dirty reads (lecturas sucias).
+        </p>
+<p>
+          A continación se presentan algunas técnicas para trabajar
+          con tablas no transaccionales:
+        </p>
+<div class="itemizedlist"><ul type="disc" class="itemizedlist">
+<li class="listitem"><p>
+              Los bucles que necesiten transacciones normalmente pueden
+              codificarse con la ayuda de <code class="literal">LOCK
+              TABLES</code>, y no necesita cursores para actualizar
+              registros en tiempo real.
+            </p></li>
+<li class="listitem">
+<p>
+              Para evitar usar <code class="literal">ROLLBACK</code>, puede usar
+              la siguiente estrategia:
+            </p>
+<div class="orderedlist"><ol type="1" class="orderedlist">
+<li class="listitem"><p>
+                  Use <code class="literal">LOCK TABLES</code> para bloquear todas
+                  las tablas a las que quiere acceder.
+                </p></li>
+<li class="listitem"><p>
+                  Compruebe las condiciones que deben darse antes de
+                  ejecutar la actualización.
+                </p></li>
+<li class="listitem"><p>
+                  Actualice si todo es correcto.
+                </p></li>
+<li class="listitem"><p>
+                  Use <code class="literal">UNLOCK TABLES</code> para liberar los
+                  bloqueos.
+                </p></li>
+</ol></div>
+<p>
+              Este es un método mucho más rápido que usar
+              transacciones con posibles rollbacks, aunque no siempre.
+              La única situación en que esta situación no funciona es
+              cuando alguien mata el thread durante una actualización.
+              En ese caso, todos los bloqueos se liberan pero algunas
+              actualizaciones pueden no ejecutarse.
+            </p>
+</li>
+<li class="listitem">
+<p>
+              Puede usar funciones para actualizar registros en una
+              única operación. Puede obtener una aplicación muy
+              eficiente usando las siguientes técnicas:
+            </p>
+<div class="itemizedlist"><ul type="circle" class="itemizedlist">
+<li class="listitem"><p>
+                  Modifique columnas con su valor actual.
+                </p></li>
+<li class="listitem"><p>
+                  Actualice sólo aquéllas que hayan cambiado.
+                </p></li>
+</ul></div>
+<p>
+              Por ejemplo, cuando estamos actualizando la información
+              de un cliente, sólo actualizamos los datos del cliente
+              que han cambiado y comprobamos que los datos cambiados o
+              datos que dependen de los datos cambiados, han cambiado
+              respecto a los datos originales. El test para datos
+              cambiados se hace con la cláusula
+              <code class="literal">WHERE</code> en el comando
+              <code class="literal">UPDATE</code> . Si el registro no se ha
+              actualizado, mostramos un mensaje al cliente: "Algunos de
+              los datos actualizados han sido cambiados por otro
+              usuario". A continuación mostramos los registros viejos
+              junto a los nuevos en una ventana para que el usuario
+              pueda decidir qué versión del registro de usuario usar.
+            </p>
+<p>
+              Esto nos da algo que es similar a bloqueo de columnas pero
+              es incluso mejor ya que sólo actualizamos algunas de las
+              columnas, usando valores que son relativos a sus valores
+              actuales. Eso significa que el típico comando
+              <code class="literal">UPDATE</code> será algo así:
+            </p>
+<pre class="programlisting">UPDATE tablename SET pay_back=pay_back+125;
+
+UPDATE customer
+  SET
+    customer_date='current_date',
+    address='new address',
+    phone='new phone',
+    money_owed_to_us=money_owed_to_us-125
+  WHERE
+    customer_id=id AND address='old address' AND phone='old phone';
+</pre>
+<p>
+              Esto es muy eficiente y funciona incluso si otro cliente
+              ha cambiado los valores en las columnas
+              <code class="literal">pay_back</code> o
+              <code class="literal">money_owed_to_us</code>.
+            </p>
+</li>
+<li class="listitem">
+<a name="idm47457556119888" class="indexterm"></a><a name="idm47457556118816" class="indexterm"></a><p>
+              En muchos casos, los usuarios han querido usar
+              <code class="literal">LOCK TABLES</code> y/o
+              <code class="literal">ROLLBACK</code> con la intención de
+              administrar identificadores únicos. Se puede tratar de
+              forma mucho más eficiente sin bloquear o rolling back
+              usando columnas <code class="literal">AUTO_INCREMENT</code> y la
+              función SQL <code class="literal">LAST_INSERT_ID()</code> o la
+              función de la API C <code class="literal">mysql_insert_id()</code>.
+              Consulte <a title="12.9.3. Funciones de información" href="information-functions.html" class="xref">Sección&nbsp;12.9.3, “Funciones de información”</a>. Consulte
+              <a title="24.2.3.34. mysql_insert_id()" href="mysql-insert-id.html" class="xref">Sección&nbsp;24.2.3.34, “<code class="literal">mysql_insert_id()</code>”</a>.
+            </p>
+<a name="idm47457556112032" class="indexterm"></a><a name="idm47457556110544" class="indexterm"></a><p>
+              Normalmente puede codificar la necesidad de bloqueo a
+              nivel de registro. Algunas situaciones realmente lo
+              necesitan, y las tablas <code class="literal">InnoDB</code> lo
+              soportan. Con tablas <code class="literal">MyISAM</code>, puede usar
+              una columna flag en la tabla y hacer algo como lo
+              siguiente:
+            </p>
+<pre class="programlisting">UPDATE <em class="replaceable"><code>tbl_name</code></em> SET row_flag=1 WHERE id=ID;
+</pre>
+<p>
+              MySQL retorna <code class="literal">1</code> para el número de
+              registros afectados si la fila ha sido encontrada y
+              <code class="literal">row_flag</code> no era <code class="literal">1</code> en
+              el registro original.
+            </p>
+<p>
+              Puede imaginarlo como si MySQL Server cambiase la consulta
+              anterior a:
+            </p>
+<pre class="programlisting">UPDATE <em class="replaceable"><code>tbl_name</code></em> SET row_flag=1 WHERE id=ID AND row_flag &lt;&gt; 1;
+</pre>
+</li>
+</ul></div>
+</div><div>
+<hr>
+<p>
+      Ésta es una traducción del manual de referencia de MySQL, que
+      puede encontrarse en
+      <a target="_top" href="http://dev.mysql.com/doc/mysql/en" class="ulink">dev.mysql.com</a>.
+      El manual de referencia original de MySQL está escrito en
+      inglés, y esta traducción no necesariamente está tan
+      actualizada como la versión original. Para cualquier sugerencia
+      sobre la traducción y para señalar errores de cualquier tipo, no
+      dude en dirigirse a
+      <a target="_top" href="mailto:mysql-es@vespito.com" class="ulink">mysql-es@vespito.com</a>.
+    </p>
+
+
+<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+</body>
+</html>
