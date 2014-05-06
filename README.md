@@ -40,6 +40,11 @@ Plugin para _mootools_ para generear ventanas flotantes, con soporte de arrastre
 
 Instala lo básico para Ubuntu **10.10** (`Proyecto descontinuado`).
 
+##Clases, cursos y talleres:
+
+ - [**Programación II**](./ieso/programacion_II/index.html)
+ - [**Bases de datos II**](./ieso/bases_de_datos_II/index.html)
+
 
 ##Manuales, documentación y ejemplos.
 
