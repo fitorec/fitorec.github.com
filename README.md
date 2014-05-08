@@ -46,7 +46,7 @@ Instala lo básico para Ubuntu **10.10** (`Proyecto descontinuado`).
  - [**Bases de datos II**](./ieso/bases_de_datos_II/index.html)
 
 
-##Manuales, documentación y ejemplos.
+##Manuales, documentación y ejemplos:
 
  - [**Manual en PHP**](./manual_php/)
  - [**Ejemplo cambiando el color de fondo de multiples colores con jQuery**](./manuales/ejemplo_color_de_fondo_cambiante/)
@@ -56,7 +56,7 @@ Instala lo básico para Ubuntu **10.10** (`Proyecto descontinuado`).
  - [**Inkscape dibuja Libremente**](./inkscape_dibuja_libremente/)
 
 
-##Blog personal.
+##Blog personal:
 
 - [**http://fitorec.wordpress.com/**](http://fitorec.wordpress.com/)
 

@@ -13,7 +13,7 @@ Programación II
  - Participación    **10%**
 
 ### Software necesario:
- - Editor de texto o IDE
+ - Netbeans como IDE
  - SDK de Java.
 
 ### Contacto:

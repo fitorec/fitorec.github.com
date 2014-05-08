@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>sesion_03-introduccion-a-mysql</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Sesión 03 - Introducción a mySQL</h1>
+<blockquote>
+<p>La siguiente referencia es un resumen de la documentación oficial de <strong>mysql</strong>, quizás usted quiera consultar la fuente original para aclarar algunas dudas:</p>
+<p><a href="https://dev.mysql.com/doc/refman/5.0/es/tutorial.html">https://dev.mysql.com/doc/refman/5.0/es/tutorial.html</a> </p>
+<p>Sí en cambio si desea descargar la referencia completa de <strong>mysql</strong> le recomiendo seguir el siguiente enlace:</p>
+<p><a href="http://downloads.mysql.com/docs/refman-5.0-es.pdf">http://downloads.mysql.com/docs/refman-5.0-es.pdf</a></p>
+</blockquote>
+<h2>Ayuda</h2>
+<p>Para ver una lista de las opciones utilizadas con <strong>mysql</strong>, ejecútelo con la opción <code>--help</code>: </p>
+<pre><code>shell&gt; mysql --help
+</code></pre>
+
+<h2>Base de datos de ejemplo</h2>
+<p>El siguiente diagrama nos representa una base de datos con tres tablas como se muestra a continuación:</p>
+<blockquote>
+<p><img src="./img/diagrama-base.png" alt="diagrama-base" />;</p>
+</blockquote>
+<p><strong>Usted puede descargar:</strong></p>
+<ul>
+<li><a href="./img/diagrama-base.dia">El Diagrama en DIA</a>;</li>
+<li><a href="./img/esquema-base.sql">El Esquema en SQL </a>;</li>
+</ul>
+<h2>Conectarse y desconectarse del servidor</h2>
+<pre><code>shell&gt; mysql -h host -u user -p
+Enter password: ********
+</code></pre>
+
+<h2>Información del sistema</h2>
+<pre><code>mysql&gt; SELECT VERSION(), CURRENT_DATE, NOW(), USER();
+</code></pre>
+
+<h2>Ver bases de datos existentes</h2>
+<pre><code>SHOW databases;
+</code></pre>
+
+<h2>Crear una Base de Datos</h2>
+<pre><code>CREATE DATABASE escuela;
+</code></pre>
+
+<h2>Usar una Base de datos especifica;</h2>
+<pre><code>USE escuela;
+</code></pre>
+
+<h2>Ver tablas existentes en la <code>BD</code> en uso</h2>
+<pre><code>SHOW tables;
+</code></pre>
+
+<h2>Creando una tabla.</h2>
+<pre><code>CREATE TABLE IF NOT EXISTS `alumnos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(150) NOT NULL,
+  `numerodeudos_pendientes` int(4) NOT NULL,
+  `total_adeudos` float NOT NULL,
+  PRIMARY KEY (`id`)
+);
+</code></pre>
+
+<h2>Ver información de una tabla</h2>
+<pre><code>DESCRIBE alumnos;
+</code></pre>
+
+<h2>Editando una tabla:</h2>
+<p>Supongamos que deseamos agregar un campo nuevo a la tabla alumnos, por ejemplo agregar el campo <code>email</code> para administrar las cuentas de correo electrónico de los alumnos:</p>
+<pre><code>ALTER TABLE `alumnos` ADD `email` VARCHAR( 50 ) NOT NULL AFTER `nombre`;
+
+-- Alterando el campo email agregado previamente
+ALTER TABLE `alumnos` CHANGE `email` `email` VARCHAR( 200 ) NOT NULL;
+</code></pre>
+
+<h2>Insertar elementos en una tabla:</h2>
+<pre><code>INSERT INTO `alumnos` 
+(`nombre` ,`numerodeudos_pendientes` ,`total_adeudos`)
+VALUES ('Adrian Ignacio Coronado Castillo', '0', '0');
+</code></pre>
+
+<h2>Extraer información de una tabla</h2>
+<p>La sentencia <code>SELECT</code> es utilizada para traer información desde una tabla. La sintaxis general de esta sentencia es:</p>
+<pre><code>SELECT seleccionar_Esto
+FROM desde_tabla
+WHERE condiciones;
+</code></pre>
+
+<p>Por ejemplo para seleccionar todos los los registros con todos sus campos de la tabla alumnos seria:</p>
+<pre><code>SELECT *
+    FROM `alumnos`
+    WHERE 1;
+</code></pre>
+
+<h2>Actualizar información en una tabla:</h2>
+<p><code>UPDATE</code> modifica solo el registro en cuestión y no requiere que se vuelva a llenar la tabla:</p>
+<pre><code>UPDATE alumnos
+    SET email = 'cyclop28@hotmail.com'
+    WHERE id = 1;
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
