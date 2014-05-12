@@ -25,6 +25,7 @@ public class Roman2Int {
 		Integer result = 0;
 		for(int i=0; i<this.cad.length(); i++)
 			result += this.mapPos(i);
+		///
 		if(result != valorEsperado){
 			System.out.println("Fallo en el "+this.cad+" valor esperado "+valorEsperado);
 		} else {
@@ -40,7 +41,7 @@ public class Roman2Int {
 		r.test("x", 10);
 		r.test("ix", 9);
 		r.test("xxxii", 32);
-		r.test("ixx", 19);
-		r.test("ixx", 23);
+		r.test("xix", 19);
+		r.test("xix", 23);
     }
 }
