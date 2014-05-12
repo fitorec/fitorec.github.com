@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Curso Backbone.js</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="./css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="css/screen.css">
+    
+    
+    <!-- /Styles -->
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="./js/slides.js"></script>
+    
+    
+    
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+      
+      <!-- slide source: .\01-modelos.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Curso Backbone.js</h1></header>
+            
+            
+            <section><p><img alt="backbone-logo" src="./img/backbone-logo.png" /></p>
+<p><strong>Backbone.js</strong> es una librería JavaScript que nos permite crear aplicaciones/sitios web que requieren de una basta interacción con el cliente, agregando la lógica del patrón MV* al ofrecer una estructura basada en <strong>modelos</strong> con la unión <code>clave-valor</code> , colecciones con una API de funciones enumerables, <strong>vistas</strong> asociadas con el control de eventos personalizados y mediante a su sistema de <strong>enrutamiento</strong> sincroniza las modelos/vistas/colecciones a la API JSON de tu aplicación/sitio.</p>
+<p>En el taller se desarrollara una aplicación sencilla en donde se explicara el uso de Backbone.js, sus conceptos básicos, aspectos de configuración y de como combinar esta herramienta con algún otro framework backend.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\01-modelos.md">.\01-modelos.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              1/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\01-modelos.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>¿Como funciona Backbone.js?</h1></header>
+            
+            
+            <section><p>La siguiente figura ilustra como funciona una típica aplicación con <strong>Backbone.js</strong>:</p>
+<p><img alt="Funcionamiento aplicación con Backbone.js" src="./img/funcionamiento-backbone.js.png" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\01-modelos.md">.\01-modelos.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              2/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\01-modelos.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>1 Modelos</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\01-modelos.md">.\01-modelos.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              3/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\01-modelos.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>1.0 - Modelos de Backbone</h1></header>
+            
+            
+            <section><p>Los modelos representan los datos de la aplicación y la lógica alrededor de estos datos.</p>
+<p>Creamos un archivo llamado platica en <code>/js/models/platica.js</code>, con el siguiente contenido:</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="kd">var</span> <span class="nx">Platica</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<span class="lineno"> 2</span>     <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<span class="lineno"> 3</span>         <span class="c1">//Aquí agregamos los callbacks del modelo</span>
+<span class="lineno"> 4</span>         <span class="k">this</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(){</span>
+<span class="lineno"> 5</span>             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="lineno"> 6</span>         <span class="p">});</span>
+<span class="lineno"> 7</span>     <span class="p">},</span>
+<span class="lineno"> 8</span>     <span class="nx">urlRoot</span> <span class="o">:</span> <span class="s1">&#39;/platicas&#39;</span>
+<span class="lineno"> 9</span>     <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span>
+<span class="lineno">10</span>         <span class="nx">nombre</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="lineno">11</span>         <span class="nx">ponente</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="lineno">12</span>         <span class="nx">hora</span>   <span class="o">:</span> <span class="s1">&#39;Por Confirmar&#39;</span>
+<span class="lineno">13</span>     <span class="p">}</span>
+<span class="lineno">14</span> <span class="p">});</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\01-modelos.md">.\01-modelos.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              4/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\01-modelos.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>1.1 Usando el Modelo</h1></header>
+            
+            
+            <section><h2>Creando un modelo</h2>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="kd">var</span> <span class="nx">platica</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Platica</span><span class="p">({</span>
+<span class="lineno">2</span>     <span class="nx">nombre</span>  <span class="o">:</span> <span class="s1">&#39;Taller de backbone&#39;</span><span class="p">,</span>
+<span class="lineno">3</span>     <span class="nx">ponente</span> <span class="o">:</span> <span class="s1">&#39;Fitorec&#39;</span>
+<span class="lineno">4</span> <span class="p">});</span>
+<span class="lineno">5</span> 
+<span class="lineno">6</span> <span class="nx">platica</span><span class="p">.</span><span class="nx">toJSON</span><span class="p">();</span>
+</pre></div>
+
+<h2>Leyendo datos</h2>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="kd">var</span> <span class="nx">platica1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Platica</span><span class="p">({</span>
+<span class="lineno">2</span>     <span class="nx">id</span>  <span class="o">:</span> <span class="mi">1</span>
+<span class="lineno">3</span> <span class="p">});</span>
+<span class="lineno">4</span> 
+<span class="lineno">5</span> <span class="c1">// GET: /platicas/1</span>
+<span class="lineno">6</span> <span class="nx">platica1</span><span class="p">.</span><span class="nx">fetch</span><span class="p">();</span>
+<span class="lineno">7</span> <span class="nx">platica1</span><span class="p">.</span><span class="nx">toJSON</span><span class="p">();</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\01-modelos.md">.\01-modelos.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\01-modelos.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>1.2 Persistencia de datos</h1></header>
+            
+            
+            <section><h2>Agregando &amp; actualizando datos</h2>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="kd">var</span> <span class="nx">nuevaPlatica</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Platica</span><span class="p">({</span>
+<span class="lineno"> 2</span>     <span class="nx">nombre</span>  <span class="o">:</span> <span class="s1">&#39;Platica sobre nodejs&#39;</span><span class="p">,</span>
+<span class="lineno"> 3</span>     <span class="nx">ponente</span> <span class="o">:</span> <span class="s1">&#39;Alguien&#39;</span>
+<span class="lineno"> 4</span> <span class="p">});</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="c1">// POST: /platicas/</span>
+<span class="lineno"> 7</span> <span class="c1">//Si tuviera definido el &#39;id&#39;</span>
+<span class="lineno"> 8</span> <span class="c1">// PUT: /platicas/id</span>
+<span class="lineno"> 9</span> <span class="nx">nuevaPlatica</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+<span class="lineno">10</span> <span class="nx">nuevaPlatica</span><span class="p">.</span><span class="nx">toJSON</span><span class="p">();</span>
+</pre></div>
+
+<h2>Borrando un registro.</h2>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="c1">// DELETE: /platicas/1</span>
+<span class="lineno">2</span> <span class="nx">platica1</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\01-modelos.md">.\01-modelos.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\01-modelos.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>1.3 Validación y otros tips:</h1></header>
+            
+            
+            <section><h2>Agregando validación</h2>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="kd">var</span> <span class="nx">Platica</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<span class="lineno"> 2</span>     <span class="nx">validate</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">atributos</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 3</span>         <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">atributos</span><span class="p">.</span><span class="nx">nombre</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 4</span>             <span class="k">return</span> <span class="s2">&quot;el campo nombre es obligatorio&quot;</span><span class="p">;</span>
+<span class="lineno"> 5</span>         <span class="p">}</span>
+<span class="lineno"> 6</span>     <span class="p">}</span>
+<span class="lineno"> 7</span> <span class="p">});</span>
+<span class="lineno"> 8</span> 
+<span class="lineno"> 9</span> <span class="kd">var</span> <span class="nx">platica</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Platica</span><span class="p">();</span>
+<span class="lineno">10</span> <span class="nx">platica</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\01-modelos.md">.\01-modelos.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\02-vistas.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>2 Vistas</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\02-vistas.md">.\02-vistas.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              8/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\02-vistas.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>2.0 Vistas de Backbone.js</h1></header>
+            
+            
+            <section><p>Una vista es la parte que contiene la lógica del renderizado, apoyándose de los <strong><code>templates</code></strong> para mostrar el contenido <strong>html</strong> en la aplicación.</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="kd">var</span> <span class="nx">Platica1Vista</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">();</span>
+</pre></div>
+
+<h2>El elemento <code>this.el</code></h2>
+<p>En <strong>Backbone</strong>  toda vista contiene el atributo <code>el</code>, el cual es una instancia en el DOM.</p>
+<h2>Veamos esto:</h2>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="kd">var</span> <span class="nx">platica1V</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Platica1Vista</span><span class="p">();</span>
+<span class="lineno">2</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">platica1V</span><span class="p">.</span><span class="nx">el</span> <span class="p">);</span>
+<span class="lineno">3</span> <span class="cm">/* Resultado</span>
+<span class="lineno">4</span> <span class="cm"> *   &lt;div&gt;&lt;/div&gt;</span>
+<span class="lineno">5</span> <span class="cm"> */</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\02-vistas.md">.\02-vistas.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\02-vistas.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>2.1 - Más sobre <code>el</code></h1></header>
+            
+            
+            <section><h2>Personalizando <code>this.el</code></h2>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="kd">var</span> <span class="nx">Platica1Vista</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<span class="lineno">2</span>     <span class="nx">tagName</span>   <span class="o">:</span> <span class="s1">&#39;section&#39;</span><span class="p">,</span>
+<span class="lineno">3</span>     <span class="nx">className</span> <span class="o">:</span> <span class="s1">&#39;platica&#39;</span><span class="p">,</span>
+<span class="lineno">4</span>     <span class="nx">id</span>        <span class="o">:</span> <span class="s1">&#39;platica-1&#39;</span> 
+<span class="lineno">5</span> <span class="p">});</span>
+<span class="lineno">6</span> 
+<span class="lineno">7</span> <span class="c1">// Valor el por defecto de Platica1Vista: </span>
+<span class="lineno">8</span> <span class="c1">// &lt;section class=&#39;platica&#39; id=&#39;platica1&#39;&gt;</span>
+<span class="lineno">9</span> <span class="c1">// &lt;/section&gt;</span>
+</pre></div>
+
+<p><code>this.el</code> puede definirse como un selector que apunte a un elemento o conjunto de elementos existentes en el <strong>DOM</strong>, por ejemplo:</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="kd">var</span> <span class="nx">Platica1Vista</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<span class="lineno">2</span>     <span class="nx">el</span>   <span class="o">:</span> <span class="s1">&#39;#platica-1&#39;</span> 
+<span class="lineno">3</span> <span class="p">});</span>
+</pre></div>
+
+<h2><code>this.el</code> y jQuery</h2>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="nx">Se</span> <span class="nx">cumple</span> <span class="nx">que</span><span class="o">:</span>
+<span class="lineno">2</span> <span class="k">this</span><span class="p">.</span><span class="nx">$el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">);</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\02-vistas.md">.\02-vistas.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              10/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\02-vistas.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>2.2 Render y plantillas</h1></header>
+            
+            
+            <section><h2>Método Render:</h2>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="kd">var</span> <span class="nx">Platica1Vista</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<span class="lineno">2</span>     <span class="nx">initialize</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno">3</span>         <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<span class="lineno">4</span>     <span class="p">},</span>
+<span class="lineno">5</span>     <span class="nx">render</span>   <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno">6</span>         <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;metodo render&#39;</span><span class="p">);</span>
+<span class="lineno">7</span>     <span class="p">}</span> 
+<span class="lineno">8</span> <span class="p">});</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\02-vistas.md">.\02-vistas.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\02-vistas.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>2.3 Vistas &amp; eventos</h1></header>
+            
+            
+            <section><h2>Manejo de eventos</h2>
+<p>Los eventos son definidos en el objeto <code>events</code>, la sintaxis es la siguiente:</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="nx">events</span> <span class="o">:</span> <span class="p">{</span> 
+<span class="lineno">2</span>     <span class="s1">&#39;&lt;evento1&gt; &lt;selector1&gt;&#39;</span> <span class="o">:</span> <span class="s1">&#39;&lt;callback1&gt;&#39;</span><span class="p">,</span>
+<span class="lineno">3</span>     <span class="s1">&#39;&lt;evento2&gt; &lt;selector2&gt;&#39;</span> <span class="o">:</span> <span class="s1">&#39;&lt;callback2&gt;&#39;</span><span class="p">,</span>
+<span class="lineno">4</span>     <span class="p">...</span>
+<span class="lineno">5</span>     <span class="s1">&#39;&lt;eventon&gt; &lt;selectorn&gt;&#39;</span> <span class="o">:</span> <span class="s1">&#39;&lt;callbackn&gt;&#39;</span><span class="p">,</span>
+<span class="lineno">6</span> <span class="p">}</span>
+</pre></div>
+
+<p>Veamos un ejemplo:</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="kd">var</span> <span class="nx">Platica1Vista</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<span class="lineno">2</span>     <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+<span class="lineno">3</span>         <span class="s1">&#39;click .efecto&#39;</span> <span class="o">:</span> <span class="s1">&#39;efectoCallBack&#39;</span>
+<span class="lineno">4</span>     <span class="p">},</span>
+<span class="lineno">5</span>     <span class="nx">efectoCallBack</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno">6</span>         <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">fadeOut</span><span class="p">().</span><span class="nx">fadeIn</span><span class="p">();</span>
+<span class="lineno">7</span>     <span class="p">}</span>
+<span class="lineno">8</span> <span class="p">});</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\02-vistas.md">.\02-vistas.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\03-colecciones.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>3 Colecciones</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\03-colecciones.md">.\03-colecciones.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\03-colecciones.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>3.0 Colecciones de Backbone</h1></header>
+            
+            
+            <section><p>Las colecciones son un conjunto ordenado de modelos.</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="kd">var</span> <span class="nx">PlaticasCollection</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Collection</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<span class="lineno">2</span>     <span class="nx">model</span> <span class="o">:</span> <span class="nx">Libro</span>
+<span class="lineno">3</span> <span class="p">});</span>
+<span class="lineno">4</span> 
+<span class="lineno">5</span> <span class="kd">var</span> <span class="nx">platicas</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PlaticasCollection</span><span class="p">();</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\03-colecciones.md">.\03-colecciones.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\03-colecciones.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>3.1 Agregando &amp; Quitando Modelos</h1></header>
+            
+            
+            <section><h2>Agregando Modelos a la colección</h2>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Platica</span><span class="p">({</span><span class="nx">nombre</span><span class="o">:</span> <span class="s1">&#39;taller de Backbone&#39;</span><span class="p">}),</span>
+<span class="lineno"> 2</span>     <span class="nx">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Platica</span><span class="p">({</span><span class="nx">nombre</span><span class="o">:</span> <span class="s1">&#39;otro taller&#39;</span><span class="p">}),</span>
+<span class="lineno"> 3</span>     <span class="nx">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Platica</span><span class="p">({</span><span class="nx">nombre</span><span class="o">:</span> <span class="s1">&#39;alguna otra platica&#39;</span><span class="p">});</span>
+<span class="lineno"> 4</span> 
+<span class="lineno"> 5</span> <span class="c1">// Creamos la colección enviandole</span>
+<span class="lineno"> 6</span> <span class="c1">// un conjunto de modelos(2)</span>
+<span class="lineno"> 7</span> <span class="kd">var</span> <span class="nx">platicas</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PlaticasCollection</span><span class="p">([</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">]);</span>
+<span class="lineno"> 8</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">platicas</span><span class="p">.</span><span class="nx">toJSON</span><span class="p">());</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span> <span class="c1">//Agregando la platica c</span>
+<span class="lineno">11</span> <span class="nx">platicas</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">c</span><span class="p">);</span>
+<span class="lineno">12</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">platicas</span><span class="p">.</span><span class="nx">toJSON</span><span class="p">());</span>
+</pre></div>
+
+<h2>Quitando Modelos a la colección</h2>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="c1">//Borrando la platica a</span>
+<span class="lineno">2</span> <span class="nx">platicas</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="lineno">3</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">platicas</span><span class="p">.</span><span class="nx">toJSON</span><span class="p">());</span>
+<span class="lineno">4</span> 
+<span class="lineno">5</span> <span class="c1">//Borrando un conjunto de objetos</span>
+<span class="lineno">6</span> <span class="nx">platicas</span><span class="p">.</span><span class="nx">remove</span><span class="p">([</span><span class="nx">b</span><span class="p">,</span><span class="nx">c</span><span class="p">]);</span>
+<span class="lineno">7</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">platicas</span><span class="p">.</span><span class="nx">toJSON</span><span class="p">());</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\03-colecciones.md">.\03-colecciones.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\03-colecciones.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>3.2 Vaciando la colección</h1></header>
+            
+            
+            <section><h3>Reseteando colección</h3>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="c1">//Cambiando el contenido de la coleccion</span>
+<span class="lineno">2</span> <span class="nx">platicas</span><span class="p">.</span><span class="nx">reset</span><span class="p">([</span>
+<span class="lineno">3</span>     <span class="p">{</span><span class="nx">nombre</span><span class="o">:</span> <span class="s1">&#39;taller backbone&#39;</span><span class="p">}</span>
+<span class="lineno">4</span> <span class="p">]);</span>
+<span class="lineno">5</span> 
+<span class="lineno">6</span> <span class="c1">//si no le pasamos nada, es una forma de vaciar</span>
+<span class="lineno">7</span> <span class="c1">// una coleccion</span>
+<span class="lineno">8</span> <span class="nx">platicas</span><span class="p">.</span><span class="nx">reset</span><span class="p">();</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\03-colecciones.md">.\03-colecciones.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              16/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\03-colecciones.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>3.3 Persistencia de datos del la colección</h1></header>
+            
+            
+            <section><h2>Obteniendo objetos de la colección</h2>
+<p>Esto se realiza mediante la función <code>get</code> de la colección, esta funcion puede recibir cualquiera de estos valores:</p>
+<ul>
+<li>id : Identificador del Modelo (idAtribute)</li>
+<li>id atribute: este por defecto es id</li>
+<li>
+<p>cid : identificador interno en Backbone.</p>
+<p>!javascript
+var Platica1 = platicas.get(1);</p>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\03-colecciones.md">.\03-colecciones.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              17/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\03-colecciones.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>3.4 Eventos &amp; Colecciones</h1></header>
+            
+            
+            <section><p>Como las colecciones representan conjuntos de objetos podemos escuchar los eventos de agregar,quitar o al modificar modelos en dicho conjunto.</p>
+<h2>on add</h2>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="kd">var</span> <span class="nx">platicas</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PlaticasCollection</span><span class="p">();</span>
+<span class="lineno"> 2</span> <span class="c1">// Le agregamos el evento al modificar</span>
+<span class="lineno"> 3</span> <span class="nx">platicas</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno"> 4</span>     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Se agrego una nueva platica&#39;</span><span class="p">);</span>
+<span class="lineno"> 5</span> <span class="p">});</span>
+<span class="lineno"> 6</span> 
+<span class="lineno"> 7</span> <span class="c1">//agregamos platicas a la colección(disparando el evento)</span>
+<span class="lineno"> 8</span> <span class="nx">platicas</span><span class="p">.</span><span class="nx">add</span><span class="p">([</span>
+<span class="lineno"> 9</span>     <span class="p">{</span><span class="nx">nombre</span><span class="o">:</span> <span class="s1">&#39;platica 1&#39;</span><span class="p">},</span>
+<span class="lineno">10</span>     <span class="p">{</span><span class="nx">nombre</span><span class="o">:</span> <span class="s1">&#39;platica 2&#39;</span><span class="p">}</span>
+<span class="lineno">11</span> <span class="p">]);</span>
+</pre></div>
+
+<h2>onChange</h2>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="c1">// Le agregamos el evento al modificar</span>
+<span class="lineno">2</span> <span class="nx">platicas</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno">3</span>     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Se agrego una nueva platica&#39;</span><span class="p">);</span>
+<span class="lineno">4</span> <span class="p">});</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\03-colecciones.md">.\03-colecciones.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              18/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\04-plantillas.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>4 Plantillas</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\04-plantillas.md">.\04-plantillas.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              19/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\04-plantillas.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>4.0 Plantillas y Backbone</h1></header>
+            
+            
+            <section><p>Nos ayudan a definir código <strong>genérico</strong> HTML, que serán renderizado con el contenido de nuestros modelos.</p>
+<h2>Utilizando las plantillas de underscore</h2>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="kd">var</span> <span class="nx">planticaPlantilla</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span><span class="s1">&#39;#platicaTemplate&#39;</span><span class="p">);</span>
+<span class="lineno">2</span> <span class="c1">//</span>
+<span class="lineno">3</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;boddy&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">planticaPlantilla</span><span class="p">);</span>
+</pre></div>
+
+<h2>template en el html</h2>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&#39;text/template&#39;</span> <span class="na">id=</span><span class="s">&#39;platicaTemplate&#39;</span><span class="nt">&gt;</span>
+<span class="lineno">2</span>     <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;&lt;%=</span> <span class="nx">nombre</span> <span class="o">%&gt;&lt;</span><span class="err">/h2&gt;</span>
+<span class="lineno">3</span>     <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;&lt;%=</span> <span class="nx">ponente</span> <span class="o">%&gt;&lt;</span><span class="err">/p&gt;</span>
+<span class="lineno">4</span>     <span class="o">&lt;</span><span class="nx">small</span><span class="o">&gt;&lt;%=</span> <span class="nx">hora</span> <span class="o">%&gt;&lt;</span><span class="err">/small&gt;</span>
+<span class="lineno">5</span> <span class="nt">&lt;/script&gt;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\04-plantillas.md">.\04-plantillas.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              20/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\04-plantillas.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>4.1 - templates y vistas</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="lineno"> 1</span> <span class="kd">var</span> <span class="nx">Platica1Vista</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<span class="lineno"> 2</span>     <span class="nx">el</span>        <span class="o">:</span> <span class="s1">&#39;#platicas&#39;</span>
+<span class="lineno"> 3</span>     <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<span class="lineno"> 4</span>         <span class="nx">app</span><span class="p">.</span><span class="nx">platicas</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;add&#39;</span><span class="p">,</span>
+<span class="lineno"> 5</span>             <span class="k">this</span><span class="p">.</span><span class="nx">mostrarPlatica</span>
+<span class="lineno"> 6</span>         <span class="p">);</span>
+<span class="lineno"> 7</span>         <span class="nx">app</span><span class="p">.</span><span class="nx">platicas</span><span class="p">.</span><span class="nx">fetch</span><span class="p">();</span>
+<span class="lineno"> 8</span>     <span class="p">},</span>
+<span class="lineno"> 9</span>     <span class="nx">mostrarPlatica</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">platicaModel</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">10</span>         <span class="kd">var</span> <span class="nx">vista</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mostrarPlaticaView</span><span class="p">({</span><span class="nx">model</span><span class="o">:</span><span class="nx">platicaModel</span><span class="p">});</span>
+<span class="lineno">11</span>         <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.platicas&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">vista</span><span class="p">.</span><span class="nx">render</span><span class="p">().</span><span class="nx">$el</span><span class="p">);</span>
+<span class="lineno">12</span>     <span class="p">}</span>
+<span class="lineno">13</span> <span class="p">});</span>
+<span class="lineno">14</span> <span class="c1">//Definiendo mostrarPlaticaView</span>
+<span class="lineno">15</span> <span class="kd">var</span> <span class="nx">mostrarPlaticaView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<span class="lineno">16</span>     <span class="nx">template</span> <span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#platicas&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">()),</span>
+<span class="lineno">17</span>     <span class="nx">render</span> <span class="o">:</span> <span class="kd">function</span> <span class="p">(){</span>
+<span class="lineno">18</span>         <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">html</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">toJSON</span><span class="p">()));</span>
+<span class="lineno">19</span>         <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="lineno">20</span>     <span class="p">}</span>
+<span class="lineno">21</span> <span class="p">});</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\04-plantillas.md">.\04-plantillas.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              21/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\04-plantillas.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>4.2 Otros sistemas de plantillas</h1></header>
+            
+            
+            <section><ul>
+<li>Mustache</li>
+<li>Handlebars</li>
+<li>jQuery templates</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\04-plantillas.md">.\04-plantillas.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              22/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: .\05-rutas.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>5 Rutas</h1></header>
+            
+            
+            <section><h2>5.0 - Rutas ejemplo completo 1</h2>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="kd">var</span> <span class="nx">myRouter</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<span class="lineno"> 2</span>     <span class="nx">routes</span> <span class="o">:</span> <span class="p">{</span>
+<span class="lineno"> 3</span>         <span class="s1">&#39;&#39;</span>      <span class="o">:</span> <span class="s1">&#39;mostrarEnlace1&#39;</span><span class="p">,</span>
+<span class="lineno"> 4</span>         <span class="nx">enlace1</span> <span class="o">:</span> <span class="s1">&#39;mostrarEnlace1&#39;</span><span class="p">,</span>
+<span class="lineno"> 5</span>         <span class="nx">ancle2</span>  <span class="o">:</span> <span class="s1">&#39;mostrarEnlace2&#39;</span><span class="p">,</span>
+<span class="lineno"> 6</span>     <span class="p">},</span>
+<span class="lineno"> 7</span>     <span class="nx">mostrarEnlace1</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<span class="lineno"> 8</span>         <span class="k">new</span> <span class="nx">VistaDisparada1</span><span class="p">();</span>
+<span class="lineno"> 9</span>     <span class="p">},</span>
+<span class="lineno">10</span>     <span class="nx">mostrarEnlace2</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<span class="lineno">11</span>         <span class="k">new</span> <span class="nx">VistaDisparada2</span><span class="p">();</span>
+<span class="lineno">12</span>     <span class="p">}</span>
+<span class="lineno">13</span> <span class="p">});</span>
+<span class="lineno">14</span> 
+<span class="lineno">15</span> <span class="kd">var</span> <span class="nx">myrouter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">myRouter</span><span class="p">();</span>
+<span class="lineno">16</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href=".\05-rutas.md">.\05-rutas.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              23/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+      
+      <tr id="toc-row-1">
+        <th><a href="#slide1">Curso Backbone.js</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-2">
+        <th><a href="#slide2">¿Como funciona Backbone.js?</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-3">
+        <th><a href="#slide3">1 Modelos</a></th>
+        <td><a href="#slide3">3</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-4">
+        <th><a href="#slide4">1.0 - Modelos de Backbone</a></th>
+        <td><a href="#slide4">4</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-5">
+        <th><a href="#slide5">1.1 Usando el Modelo</a></th>
+        <td><a href="#slide5">5</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-6">
+        <th><a href="#slide6">1.2 Persistencia de datos</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-7">
+        <th><a href="#slide7">1.3 Validación y otros tips:</a></th>
+        <td><a href="#slide7">7</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-8">
+        <th><a href="#slide8">2 Vistas</a></th>
+        <td><a href="#slide8">8</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-9">
+        <th><a href="#slide9">2.0 Vistas de Backbone.js</a></th>
+        <td><a href="#slide9">9</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-10">
+        <th><a href="#slide10">2.1 - Más sobre <code>el</code></a></th>
+        <td><a href="#slide10">10</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-11">
+        <th><a href="#slide11">2.2 Render y plantillas</a></th>
+        <td><a href="#slide11">11</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-12">
+        <th><a href="#slide12">2.3 Vistas &amp; eventos</a></th>
+        <td><a href="#slide12">12</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-13">
+        <th><a href="#slide13">3 Colecciones</a></th>
+        <td><a href="#slide13">13</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-14">
+        <th><a href="#slide14">3.0 Colecciones de Backbone</a></th>
+        <td><a href="#slide14">14</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-15">
+        <th><a href="#slide15">3.1 Agregando &amp; Quitando Modelos</a></th>
+        <td><a href="#slide15">15</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-16">
+        <th><a href="#slide16">3.2 Vaciando la colección</a></th>
+        <td><a href="#slide16">16</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-17">
+        <th><a href="#slide17">3.3 Persistencia de datos del la colección</a></th>
+        <td><a href="#slide17">17</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-18">
+        <th><a href="#slide18">3.4 Eventos &amp; Colecciones</a></th>
+        <td><a href="#slide18">18</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-19">
+        <th><a href="#slide19">4 Plantillas</a></th>
+        <td><a href="#slide19">19</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-20">
+        <th><a href="#slide20">4.0 Plantillas y Backbone</a></th>
+        <td><a href="#slide20">20</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-21">
+        <th><a href="#slide21">4.1 - templates y vistas</a></th>
+        <td><a href="#slide21">21</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-22">
+        <th><a href="#slide22">4.2 Otros sistemas de plantillas</a></th>
+        <td><a href="#slide22">22</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-23">
+        <th><a href="#slide23">5 Rutas</a></th>
+        <td><a href="#slide23">23</a></td>
+      </tr>
+      
+      
+    </table>
+  </div>
+  
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>
