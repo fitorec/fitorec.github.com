@@ -1,3 +1,9 @@
+# Temas parcial 1
+
+ - [dia_02_transacciones_y_operaciones_atomicas](./dia_02_transacciones_y_operaciones_atomicas.html)
+ - [sesion_03-introduccion-a-mysql](./sesion_03-introduccion-a-mysql.html)
+ - [sesion_04-configuacion-de-dia-sql](./sesion_04-configuacion-de-dia-sql.html)
+
 Transacciones (motor de la base de datos)
 ========================================================================
 
