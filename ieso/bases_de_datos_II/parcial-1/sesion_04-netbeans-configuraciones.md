@@ -114,10 +114,16 @@ Nos ayuda a establecer parametros de configuracion
 
 ### Funcion query
 
-	public ResultSet query(String strQuery) {
-        if(Conexion.conexion == null) {
-            Conexion.establecerConexion();
+	public static ResultSet query(String strQuery) {
+        Connection c = BD.conexion();
+        ResultSet result = null;
+        if(c != null) {
+            try {
+                Statement stmt = c.createStatement();
+                result = stmt.executeQuery( strQuery );
+            } catch (SQLException e ) {
+                System.out.println("Error en procesar la consulta "+ strQuery);
+            }
         }
-        Statement stmt = Conexion.conexion.createStatement();
-        return stmt.executeQuery( strQuery );
+        return result;
     }
