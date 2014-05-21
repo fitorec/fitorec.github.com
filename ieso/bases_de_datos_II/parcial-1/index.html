@@ -305,9 +305,9 @@ img {
 <blockquote>
 <p><a href="http://netbeansthemes.com/">http://netbeansthemes.com/</a></p>
 </blockquote>
-<h3>Funcion config</h3>
+<h3>Funcion config - modo Get</h3>
 <p>Nos ayuda a establecer parametros de configuracion</p>
-<pre><code>public static String config(String campo) {
+<pre><code>    public static String config(String campo) {
     if (campo.equalsIgnoreCase(&quot;login&quot;)) {
         if(BD.login == null) {
             return BD.loginDefault;
@@ -342,21 +342,51 @@ img {
 BD.config(&quot;host&quot;);
 </code></pre>
 
-<h3>Estableciendo conexión</h3>
-<pre><code>public void establecerConexion() {
-    if(Conexion.conexion != null) {
+<h3>Funcion config - modo Set</h3>
+<pre><code>public static String config(String field, String valor) {
+    if (field.equals(&quot;login&quot;) &amp;&amp; BD.login == null) {
+        BD.login = valor;
+        return valor;
+    }
+    if (field.equals(&quot;password&quot;) &amp;&amp; BD.password == null) {
+        BD.password = valor;
+        return BD.password;
+    }
+    if (field.equalsIgnoreCase(&quot;baseBD&quot;) &amp;&amp; BD.baseBD == null) {
+        BD.baseBD = valor;
+        return BD.baseBD;
+    }
+    if (field.equalsIgnoreCase(&quot;host&quot;) &amp;&amp; BD.host == null) {
+        BD.host = valor;
+        return BD.host;
+    }
+    System.out.println(&quot;Campo incorrecto de configuración : &quot; + field);
+    return field;
+}
+</code></pre>
+
+<h3>Funcion conexión</h3>
+<pre><code>public static Connection conexion() {
+    if(BD.conexion != null) {
        try {
-        String url = &quot;jdbc:mysql://localhost/carniceria&quot;;
+        String url = &quot;jdbc:mysql://&quot; +
+            BD.config(&quot;host&quot;) +
+            &quot;/&quot; + BD.config(&quot;baseBD&quot;);
         Class.forName(&quot;org.gjt.mm.mysql.Driver&quot;);
-        Conexion.conexion = DriverManager.getConnection(url, &quot;password&quot;, &quot;contraseña&quot;);
+        BD.conexion = DriverManager.getConnection(
+            url,
+            BD.config(&quot;password&quot;),
+            BD.config(&quot;contraseña&quot;)
+       );
         } catch(SQLException ex) {
             ex.getStackTrace();
-            //System.out.println(&quot;Hubo un problema al intentar conectarse con la base de datos &quot;+url);
         }
         catch(ClassNotFoundException ex) {
             System.out.println(ex);
         }
     }
+    return BD.conexion;
+}
 </code></pre>
 
 <blockquote>

@@ -21,10 +21,11 @@ Maybe you will be prompted to restart Netbeans.
 
 > <http://netbeansthemes.com/>
 
-### Funcion config
+### Funcion config - modo Get
+
 Nos ayuda a establecer parametros de configuracion
 
-    public static String config(String campo) {
+        public static String config(String campo) {
         if (campo.equalsIgnoreCase("login")) {
             if(BD.login == null) {
                 return BD.loginDefault;
@@ -59,22 +60,54 @@ Nos ayuda a establecer parametros de configuracion
      ...
     BD.config("host");
 
-### Estableciendo conexión
+### Funcion config - modo Set
 
-	public void establecerConexion() {
-        if(Conexion.conexion != null) {
+
+    public static String config(String field, String valor) {
+        if (field.equals("login") && BD.login == null) {
+            BD.login = valor;
+            return valor;
+        }
+        if (field.equals("password") && BD.password == null) {
+            BD.password = valor;
+            return BD.password;
+        }
+        if (field.equalsIgnoreCase("baseBD") && BD.baseBD == null) {
+            BD.baseBD = valor;
+            return BD.baseBD;
+        }
+        if (field.equalsIgnoreCase("host") && BD.host == null) {
+            BD.host = valor;
+            return BD.host;
+        }
+        System.out.println("Campo incorrecto de configuración : " + field);
+        return field;
+    }
+
+### Funcion conexión
+
+
+    public static Connection conexion() {
+        if(BD.conexion != null) {
            try {
-            String url = "jdbc:mysql://localhost/carniceria";
+            String url = "jdbc:mysql://" +
+                BD.config("host") +
+                "/" + BD.config("baseBD");
             Class.forName("org.gjt.mm.mysql.Driver");
-            Conexion.conexion = DriverManager.getConnection(url, "password", "contraseña");
+            BD.conexion = DriverManager.getConnection(
+                url,
+                BD.config("password"),
+                BD.config("contraseña")
+           );
             } catch(SQLException ex) {
                 ex.getStackTrace();
-                //System.out.println("Hubo un problema al intentar conectarse con la base de datos "+url);
             }
             catch(ClassNotFoundException ex) {
                 System.out.println(ex);
             }
         }
+        return BD.conexion;
+    }
     
 
 > <https://netbeans.org/kb/docs/ide/mysql.html>
