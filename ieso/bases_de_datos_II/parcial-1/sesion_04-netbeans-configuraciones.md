@@ -21,20 +21,15 @@ Maybe you will be prompted to restart Netbeans.
 > <http://netbeansthemes.com/>
 
 
-## Netbeans y MySQL
+### Estableciendo conexión
 
-	public Conexion() {
+	public void establecerConexion() {
         if(Conexion.conexion != null) {
            try {
             String url = "jdbc:mysql://localhost/carniceria";
             Class.forName("org.gjt.mm.mysql.Driver");
             Conexion.conexion = DriverManager.getConnection(url, "password", "contraseña");
-            if (Conexion.conexion != null)
-            {
-            System.out.println("Conexión a base de datos "+url+" ... Ok");
-            }
-            }
-            catch(SQLException ex) {
+            } catch(SQLException ex) {
                 ex.getStackTrace();
                 //System.out.println("Hubo un problema al intentar conectarse con la base de datos "+url);
             }
@@ -42,12 +37,16 @@ Maybe you will be prompted to restart Netbeans.
                 System.out.println(ex);
             }
         }
-    }
+    
+
 > <https://netbeans.org/kb/docs/ide/mysql.html>
 
-### Clases necesarias:
+### Funcion query
 
-
- - <http://fragowb.wordpress.com/2008/05/01/conectar-java-con-mysql-en-netbeans/>
-
-## Silk4J
+	public ResultSet query(String strQuery) {
+        if(Conexion.conexion == null) {
+            Conexion.establecerConexion();
+        }
+        Statement stmt = Conexion.conexion.createStatement();
+        return stmt.executeQuery( strQuery );
+    }
