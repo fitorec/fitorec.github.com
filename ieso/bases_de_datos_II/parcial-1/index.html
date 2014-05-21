@@ -305,6 +305,43 @@ img {
 <blockquote>
 <p><a href="http://netbeansthemes.com/">http://netbeansthemes.com/</a></p>
 </blockquote>
+<h3>Funcion config</h3>
+<p>Nos ayuda a establecer parametros de configuracion</p>
+<pre><code>public static String config(String campo) {
+    if (campo.equalsIgnoreCase(&quot;login&quot;)) {
+        if(BD.login == null) {
+            return BD.loginDefault;
+        }
+        return BD.login;
+    }
+    if (campo.equalsIgnoreCase(&quot;password&quot;)) {
+        if(BD.password == null) {
+            return BD.passwordDefault;
+        }
+        return BD.password;
+    }
+    if (campo.equalsIgnoreCase(&quot;baseBD&quot;)) {
+        if(BD.baseBD == null) {
+            return BD.baseBDDefault;
+        }
+        return BD.baseBD;
+    }
+    if (campo.equalsIgnoreCase(&quot;host&quot;)) {
+        if(BD.host == null) {
+            return BD.hostDefault;
+        }
+        return BD.host;
+    }
+    return campo;
+}
+</code></pre>
+
+<h3>Formas de usarse</h3>
+<pre><code>BD.config(&quot;login&quot;);
+ ...
+BD.config(&quot;host&quot;);
+</code></pre>
+
 <h3>Estableciendo conexión</h3>
 <pre><code>public void establecerConexion() {
     if(Conexion.conexion != null) {

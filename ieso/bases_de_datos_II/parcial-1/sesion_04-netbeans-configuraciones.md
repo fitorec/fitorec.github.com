@@ -1,3 +1,4 @@
+
 # Instalación y configuración de Netbeans 8.x
 
 ### Descargando Netbeans
@@ -20,6 +21,43 @@ Maybe you will be prompted to restart Netbeans.
 
 > <http://netbeansthemes.com/>
 
+### Funcion config
+Nos ayuda a establecer parametros de configuracion
+
+    public static String config(String campo) {
+        if (campo.equalsIgnoreCase("login")) {
+            if(BD.login == null) {
+                return BD.loginDefault;
+            }
+            return BD.login;
+        }
+        if (campo.equalsIgnoreCase("password")) {
+            if(BD.password == null) {
+                return BD.passwordDefault;
+            }
+            return BD.password;
+        }
+        if (campo.equalsIgnoreCase("baseBD")) {
+            if(BD.baseBD == null) {
+                return BD.baseBDDefault;
+            }
+            return BD.baseBD;
+        }
+        if (campo.equalsIgnoreCase("host")) {
+            if(BD.host == null) {
+                return BD.hostDefault;
+            }
+            return BD.host;
+        }
+        return campo;
+    }
+
+### Formas de usarse
+
+
+    BD.config("login");
+     ...
+    BD.config("host");
 
 ### Estableciendo conexión
 
