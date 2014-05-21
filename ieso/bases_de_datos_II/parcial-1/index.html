@@ -393,12 +393,18 @@ BD.config(&quot;host&quot;);
 <p><a href="https://netbeans.org/kb/docs/ide/mysql.html">https://netbeans.org/kb/docs/ide/mysql.html</a></p>
 </blockquote>
 <h3>Funcion query</h3>
-<pre><code>public ResultSet query(String strQuery) {
-    if(Conexion.conexion == null) {
-        Conexion.establecerConexion();
+<pre><code>public static ResultSet query(String strQuery) {
+    Connection c = BD.conexion();
+    ResultSet result = null;
+    if(c != null) {
+        try {
+            Statement stmt = c.createStatement();
+            result = stmt.executeQuery( strQuery );
+        } catch (SQLException e ) {
+            System.out.println(&quot;Error en procesar la consulta &quot;+ strQuery);
+        }
     }
-    Statement stmt = Conexion.conexion.createStatement();
-    return stmt.executeQuery( strQuery );
+    return result;
 }
 </code></pre>
 
