@@ -1,3 +1,6 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
 ### 1.- ¿Cual etiqueta utilizamos para definir el cuerpo del documento? :
 
  - A `<background>`
@@ -43,3 +46,12 @@ Marque los selectores validos:
 
 
 ### 10. Escriba un documento HTML básico.
+
+## Skill
+
+> Utilizando jQuery muestre en la consola de Javscript todas, las preguntas de este examen:
+
+> Tips: todas las preguntas en el examen estan bajo titulo nivel 3, usted puede ucupar la función [`$each`](http://api.jquery.com/jquery.each/) de jquery:
+
+
+![skill_examen.png](skill_examen.png);
