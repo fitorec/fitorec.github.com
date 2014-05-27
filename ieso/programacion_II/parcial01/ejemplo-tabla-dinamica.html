@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang='es'>
+	<head>
+		<title>Ejemplo tabla dinamica</title>
+		<meta charset="utf-8">
+		<!-- agregando jquery -->
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<!-- agregando twitter bootstrap -->
+		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<!-- agregando iconografia awesome -->
+		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	</head>
+<body>
+<table class='table' id='tablaAlumnos'>
+	<thead>
+	<tr>
+		<th>Alumnos</th>
+		<th>Email</th>
+		<th>Acciones</th>
+	</tr>
+	</thead>
+	<tbody>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td>
+				<input id='alumnoNombre' placeholder='p.e. Juan'>
+			</td>
+			<td>
+				<input id='alumnoEmail' placeholder='p.e. email@example.com'>
+			</td>
+			<td>
+				<a href='#' id='addAlumno' class='btn btn-primary btn-lg' data-toggle="tooltip" title='Agregar nuevo alumno'> Agregqar
+				</a>
+			</td>
+		</tr>
+	</tfoot>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="verAlumnoVentana" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+<script language='javascript'>
+(function($){
+	$('#addAlumno').click(function() {
+		var alumnoNombre = $('#alumnoNombre').val();
+		var alumnoEmail = $('#alumnoEmail').val();
+		var codeTR = crearFila(alumnoNombre, alumnoEmail);
+		$(codeTR).appendTo('#tablaAlumnos tbody');
+	})
+	.tooltip();
+	
+	$('#tablaAlumnos tbody')
+	.on('hover', '.btn', function(){
+		//Aqui this es igual al elemento que dispara la acción
+		var msg = 'Ver registro';
+		if($(this).hasClass('btn-danger')) {
+			msg = 'Borrar Alumno';
+		}
+		if($(this).hasClass('btn-warning')){
+			msg = 'Editar Alumno';
+		}
+		$(this).tooltip({
+			html: true,
+			placement: 'left',
+			title: 'Acción <strong style="color:#B5CB00">'+msg+'</strong>'
+		});
+	}).on('click', '.btn-danger', function(){
+		var $tr = $(this).closest('tr');
+		$tr.fadeOut('slow').remove();
+	}).on('click', '.btn-success', function(){
+		$('#verAlumnoVentana').modal();
+	});
+	//$( document ).on( events, selector, data, handler );        // jQuery 1.7+
+})(jQuery);
+
+function crearFila(alumnoNombre, alumnoEmail) {
+	return '<tr>' +
+				'<td>'+alumnoNombre+'</td>' +
+				'<td>'+alumnoEmail+'</td>' +
+				'<td>'+
+					'<button class="btn btn-danger"><i class="fa fa-trash-o"></i></button>'+
+					'<button class="btn btn-success"><i class="fa fa-eye"></i></button>'+
+					'<button class="btn btn-warning"><i class="fa fa-pencil"></i></button>'+
+				'</td>' +
+			'</tr>';
+}
+</script>
+</html>
