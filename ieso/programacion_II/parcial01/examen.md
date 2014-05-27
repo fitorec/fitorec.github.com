@@ -55,3 +55,11 @@ Marque los selectores validos:
 > Nota esto es individual y deben enviarme el código necesario para realizar esta acción.
 
 ![skill_examen.png](skill_examen.png);
+
+### Trabajo en equipo.
+
+Se requiere de equipos de tres personas, para agregarle las siguientes funcionalidades:
+
+ - A: Agregar funcionalidad al boton de editar.
+ - B: Mostrar la información de los registros en el botón de ver.
+
