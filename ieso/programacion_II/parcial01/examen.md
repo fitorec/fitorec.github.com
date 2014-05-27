@@ -52,6 +52,6 @@ Marque los selectores validos:
 > Utilizando jQuery muestre en la consola de Javscript todas, las preguntas de este examen:
 
 > Tips: todas las preguntas en el examen estan bajo titulo nivel 3, usted puede ucupar la función [`$each`](http://api.jquery.com/jquery.each/) de jquery:
-
+> Nota esto es individual y deben enviarme el código necesario para realizar esta acción.
 
 ![skill_examen.png](skill_examen.png);
