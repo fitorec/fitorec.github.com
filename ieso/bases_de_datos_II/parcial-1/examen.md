@@ -1,9 +1,9 @@
 ## Base de datos II, parcial I, MySQL.
 
-#### Nombre Completo: _______________________________________________
+**Nombre Completo:** _______________________________________________
 
 
-### 1. En MySQL, si necesitamos utilizar claves ajenas y transacciones, debemos utilizar el motor:
+**1. En MySQL, si necesitamos utilizar claves ajenas y transacciones, debemos utilizar el motor**:
 
 - **a)** Blackhole
 - **b)** InnoDB
@@ -14,14 +14,14 @@
 
 > ![libros-bd.png](libros-bd.png)
 
-### 2. Si el usuario es `user_x` y la contraseña es `user_pass`, subraye las formas correctas de ejecutar el cliente `mysql` para conectarse con el servidor MySQL.
+**2. Si el usuario es `user_x` y la contraseña es `user_pass`, subraye las formas correctas de ejecutar el cliente `mysql` para conectarse con el servidor MySQL.**
 
 - **a)** `mysql -u user_x -p user_pass`
 - **b)** `mysql --login=user_x  --password=user_pass`
 - **c)** `mysql --user=user_x --password=user_pass`
 - **d)** Ninguna de las anteriores es correcta.
 
-### 3. Una vez conectados si deseamos ver las bases de datos existentes en el servidor MySQL, entonces podemos ejecutar la instrucción:
+**3. Una vez conectados si deseamos ver las bases de datos existentes en el servidor MySQL, entonces podemos ejecutar la instrucción:**
 
 - **a)** `VIEW DATABASES`
 - **b)** `SELECT name FROM DATABASES`
@@ -29,28 +29,31 @@
 - **d)** `DESCRIBE DATABASES`
 
 
-### 4. Para seleccionar la base de datos `bibloteca` que es con la que queremos trabajar entonces podemos ejecutar la instrucción:
+**4. Para seleccionar la base de datos `bibloteca` que es con la que queremos trabajar entonces podemos ejecutar la instrucción:**
+
 - **a)** `WORK WITH biblioteca`
 - **b)** `USE bibloteca`
 - **c)** `SET WORKSPACE biblioteca`
 - **d)** Todas las anteriores son correctas.
 
-### 5. Para mostrar la estructura de una tabla `libros` se emplea el comando:
+**5. Para mostrar la estructura de una tabla `libros` se emplea el comando:**
+
 - **a)** `SHOW libros`
 - **b)** `DESCRIBE libros`
 - **c)** `VIEW libros`
 - **d)** Ninguna de las anteriores.
 
-### 6. En MySQL, para seleccionar las filas de la 6 a la 15 en una tabla, se emplea la cláusula:
+**6. En MySQL, para seleccionar las filas de la 6 a la 15 en una tabla, se emplea la cláusula:**
+
 - **a)** SELECT * FROM libros LIMIT 6,15;
 - **b)** SELECT * FROM libros LIMIT 6,10;
 - **c)** SELECT * FROM libros LIMIT 5,10;
 - **d)** Las anteriores respuestas no son correctas.
 
-### 7. Use la instrucción `CREATE TABLE IF NOT EXISTS` para definir la tabla `libros`:
+**7. Use la instrucción `CREATE TABLE IF NOT EXISTS` para definir la tabla `libros`:**
 
 
-### 8. Inserte los siguientes datos:
+**8. Inserte los siguientes datos:**
 
 
 <table>
@@ -78,7 +81,7 @@
 	</tbody>
 </table>
 
-### 9. Escriba una consulta SQL, que cambie(actualice, update) el escritor del libro "la biblia" para que el nuevo valor en el escritor sea "varios".
+**9. Escriba una consulta SQL, que cambie(actualice, update) el escritor del libro "la biblia" para que el nuevo valor en el escritor sea "varios".**
 
 
-### 10. Finalmente escriba una consulta SQL que borre todos los registros existentes en la tabla `libros`.
+**10. Finalmente escriba una consulta SQL que borre todos los registros existentes en la tabla `libros`.**

@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
 <title>examen</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -122,11 +122,11 @@ ul, ol {
   padding-left: 30px;
 }
 
-ul li > :first-child, 
-ol li > :first-child, 
-ul li ul:first-of-type, 
-ol li ol:first-of-type, 
-ul li ol:first-of-type, 
+ul li > :first-child,
+ol li > :first-child,
+ul li ul:first-of-type,
+ol li ol:first-of-type,
+ul li ol:first-of-type,
 ol li ul:first-of-type {
   margin-top: 0px;
 }
@@ -292,8 +292,8 @@ img {
 </head>
 <body>
 <h2>Base de datos II, parcial I, MySQL.</h2>
-<h4>Nombre Completo: _______________________________________________</h4>
-<h3>1. En MySQL, si necesitamos utilizar claves ajenas y transacciones, debemos utilizar el motor:</h3>
+<p><strong>Nombre Completo:</strong> _______________________________________________</p>
+<p><strong>1. En MySQL, si necesitamos utilizar claves ajenas y transacciones, debemos utilizar el motor</strong>:</p>
 <ul>
 <li><strong>a)</strong> Blackhole</li>
 <li><strong>b)</strong> InnoDB</li>
@@ -304,43 +304,43 @@ img {
 <p><strong>Instrucciones:</strong> A continuación se muestra la base de datos <strong>biblioteca</strong> en la que se puede observar la tabla <strong>libros</strong>. Dada esta información y basándose en el diagrama responda las siguientes preguntas:</p>
 <p><img src="libros-bd.png" alt="libros-bd.png" /></p>
 </blockquote>
-<h3>2. Si el usuario es <code>user_x</code> y la contraseña es <code>user_pass</code>, subraye las formas correctas de ejecutar el cliente <code>mysql</code> para conectarse con el servidor MySQL.</h3>
+<p><strong>2. Si el usuario es <code>user_x</code> y la contraseña es <code>user_pass</code>, subraye las formas correctas de ejecutar el cliente <code>mysql</code> para conectarse con el servidor MySQL.</strong></p>
 <ul>
 <li><strong>a)</strong> <code>mysql -u user_x -p user_pass</code></li>
 <li><strong>b)</strong> <code>mysql --login=user_x  --password=user_pass</code></li>
 <li><strong>c)</strong> <code>mysql --user=user_x --password=user_pass</code></li>
 <li><strong>d)</strong> Ninguna de las anteriores es correcta.</li>
 </ul>
-<h3>3. Una vez conectados si deseamos ver las bases de datos existentes en el servidor MySQL, entonces podemos ejecutar la instrucción:</h3>
+<p><strong>3. Una vez conectados si deseamos ver las bases de datos existentes en el servidor MySQL, entonces podemos ejecutar la instrucción:</strong></p>
 <ul>
 <li><strong>a)</strong> <code>VIEW DATABASES</code></li>
 <li><strong>b)</strong> <code>SELECT name FROM DATABASES</code></li>
 <li><strong>c)</strong> <code>SHOW DATABASES</code></li>
 <li><strong>d)</strong> <code>DESCRIBE DATABASES</code></li>
 </ul>
-<h3>4. Para seleccionar la base de datos <code>bibloteca</code> que es con la que queremos trabajar entonces podemos ejecutar la instrucción:</h3>
+<p><strong>4. Para seleccionar la base de datos <code>bibloteca</code> que es con la que queremos trabajar entonces podemos ejecutar la instrucción:</strong></p>
 <ul>
 <li><strong>a)</strong> <code>WORK WITH biblioteca</code></li>
 <li><strong>b)</strong> <code>USE bibloteca</code></li>
 <li><strong>c)</strong> <code>SET WORKSPACE biblioteca</code></li>
 <li><strong>d)</strong> Todas las anteriores son correctas.</li>
 </ul>
-<h3>5. Para mostrar la estructura de una tabla <code>libros</code> se emplea el comando:</h3>
+<p><strong>5. Para mostrar la estructura de una tabla <code>libros</code> se emplea el comando:</strong></p>
 <ul>
 <li><strong>a)</strong> <code>SHOW libros</code></li>
 <li><strong>b)</strong> <code>DESCRIBE libros</code></li>
 <li><strong>c)</strong> <code>VIEW libros</code></li>
 <li><strong>d)</strong> Ninguna de las anteriores.</li>
 </ul>
-<h3>6. En MySQL, para seleccionar las filas de la 6 a la 15 en una tabla, se emplea la cláusula:</h3>
+<p><strong>6. En MySQL, para seleccionar las filas de la 6 a la 15 en una tabla, se emplea la cláusula:</strong></p>
 <ul>
 <li><strong>a)</strong> SELECT * FROM libros LIMIT 6,15;</li>
 <li><strong>b)</strong> SELECT * FROM libros LIMIT 6,10;</li>
 <li><strong>c)</strong> SELECT * FROM libros LIMIT 5,10;</li>
 <li><strong>d)</strong> Las anteriores respuestas no son correctas.</li>
 </ul>
-<h3>7. Use la instrucción <code>CREATE TABLE IF NOT EXISTS</code> para definir la tabla <code>libros</code>:</h3>
-<h3>8. Inserte los siguientes datos:</h3>
+<p><strong>7. Use la instrucción <code>CREATE TABLE IF NOT EXISTS</code> para definir la tabla <code>libros</code>:</strong></p>
+<p><strong>8. Inserte los siguientes datos:</strong></p>
 <table>
 	<thead>
 		<tr>
@@ -365,9 +365,8 @@ img {
 		</tr>
 	</tbody>
 </table>
-<h3>9. Escriba una consulta SQL, que cambie(actualice, update) el escritor del libro &quot;la biblia&quot; para que el nuevo valor en el escritor sea &quot;varios&quot;.</h3>
-<h3>10. Finalmente escriba una consulta SQL que borre todos los registros existentes en la tabla <code>libros</code>.</h3>
+<p><strong>9. Escriba una consulta SQL, que cambie(actualice, update) el escritor del libro &quot;la biblia&quot; para que el nuevo valor en el escritor sea &quot;varios&quot;.</strong></p>
+<p><strong>10. Finalmente escriba una consulta SQL que borre todos los registros existentes en la tabla <code>libros</code>.</strong></p>
 
 </body>
 </html>
-<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
