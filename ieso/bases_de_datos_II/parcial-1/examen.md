@@ -1,5 +1,8 @@
 ## Base de datos II, parcial I, MySQL.
 
+#### Nombre Completo: _______________________________________________
+
+
 ### 1. En MySQL, si necesitamos utilizar claves ajenas y transacciones, debemos utilizar el motor:
 
 - **a)** Blackhole
