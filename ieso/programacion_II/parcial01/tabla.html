@@ -104,6 +104,14 @@
 		console.log($venAlumno.find('.modal-body').text());
 		// abrimos la ventana modal
 		$venAlumno.modal();
+	}).on('click', '.btn-warning', function() {
+		//Funcionalidad editar hacer algo
+		console.log('Click sobre el boton editar:');
+		$tr = $(this).closest('tr');
+		nombre = $tr.find('td.nombre').text();
+		email = $tr.find('td.email').text();
+		console.log('El nombre es' + nombre);
+		console.log('El email es' + email);
 	});
 	//$( document ).on( events, selector, data, handler );        // jQuery 1.7+
 })(jQuery);
