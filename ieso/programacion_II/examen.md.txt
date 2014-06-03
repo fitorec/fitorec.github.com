@@ -1,0 +1,43 @@
+¿Cual etiqueta utilizamos para definir el cuerpo del documento? :
+   <background>
+   <body>
+   <b>
+Qué etiquetas pueden figurar en la sección <head>? 
+
+ <style>, <meta>, <table>
+ <link>, <title>, <hr>
+<script><link><meta><title><style>
+ <link>, <meta>, <p>
+
+¿Cual etiqueta nos sirve para definir una lista ordenada? 
+
+ <ol>
+ <ul>
+ <li>
+
+¿Cuál es la forma correcta de insertar un vínculo? 
+
+ <a target="http://www.unsitio.com">...</a>
+ <a href="http://www.unsitio.com">...</a>
+ <a url="http://www.unsitio.com">...</a>
+
+Para el siguiente codigo HTML:
+<P class="parrafo" >... 
+</p>
+Marque los selectores validos:
+#parrafo
+.parrafo
+p
+
+Escriba un titulo nivel 1, con el contenido "titulo pagina"
+
+Qué etiqueta define un salto de línea?
+ br
+ break
+ linebreak
+ row
+Tr
+
+Inserte un comentario HTML valido:
+
+Escriba el cuerpo basico de un documento HTML.

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>sesion_04-netbeans-configuraciones</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* This file is deliberately empty */
+</style>
+</head>
+<body>
+<h1>Instalación y configuración de Netbeans 8.x</h1>
+<h3>Descargando Netbeans</h3>
+<h2>Estandarización de nuestro código:</h2>
+<h3>Instalación:</h3>
+<p>Open Netbeans and go to Tools &gt; Plugins. Once in the plugins dialog click the tab Downloaded and click on Add Plugins...</p>
+<p>Browse your filesystem and find the .nbm file. Once it is displayed in the list make sure it's checked. Then click Install button.</p>
+<p>Maybe you will be prompted to restart Netbeans. </p>
+<blockquote>
+<p><a href="https://code.google.com/p/nb-coding-standard-validator/downloads/detail?name=org-superruzafa-codingstandardvalidator-0.2.nbm&amp;can=2&amp;q=">https://code.google.com/p/nb-coding-standard-validator/downloads/detail?name=org-superruzafa-codingstandardvalidator-0.2.nbm&amp;can=2&amp;q=</a></p>
+</blockquote>
+<h2>Agregando Estilo a nuestro Netbeans:</h2>
+<blockquote>
+<p><a href="http://netbeansthemes.com/">http://netbeansthemes.com/</a></p>
+</blockquote>
+<h2>Netbeans y MySQL</h2>
+<pre><code>public Conexion() {
+    if(Conexion.conexion != null) {
+       try {
+        String url = &quot;jdbc:mysql://localhost/carniceria&quot;;
+        Class.forName(&quot;org.gjt.mm.mysql.Driver&quot;);
+        Conexion.conexion = DriverManager.getConnection(url, &quot;password&quot;, &quot;contraseña&quot;);
+        if (Conexion.conexion != null)
+        {
+        System.out.println(&quot;Conexión a base de datos &quot;+url+&quot; ... Ok&quot;);
+        }
+        }
+        catch(SQLException ex) {
+            ex.getStackTrace();
+            //System.out.println(&quot;Hubo un problema al intentar conectarse con la base de datos &quot;+url);
+        }
+        catch(ClassNotFoundException ex) {
+            System.out.println(ex);
+        }
+    }
+}
+</code></pre>
+
+<blockquote>
+<p><a href="https://netbeans.org/kb/docs/ide/mysql.html">https://netbeans.org/kb/docs/ide/mysql.html</a></p>
+</blockquote>
+<h3>Clases necesarias:</h3>
+<ul>
+<li><a href="http://fragowb.wordpress.com/2008/05/01/conectar-java-con-mysql-en-netbeans/">http://fragowb.wordpress.com/2008/05/01/conectar-java-con-mysql-en-netbeans/</a></li>
+</ul>
+<h2>Silk4J</h2>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
