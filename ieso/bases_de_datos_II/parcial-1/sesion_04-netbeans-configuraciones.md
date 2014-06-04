@@ -21,25 +21,25 @@ Maybe you will be prompted to restart Netbeans.
 
 > <http://netbeansthemes.com/>
 
-### Funcion config - modo Get
+### Función config - modo Get
 
-Nos ayuda a establecer parametros de configuracion
+Nos ayuda a establecer parámetros de configuración
 
         public static String config(String campo) {
         if (campo.equalsIgnoreCase("login")) {
-            if(BD.login == null) {
+            if (BD.login == null) {
                 return BD.loginDefault;
             }
             return BD.login;
         }
         if (campo.equalsIgnoreCase("password")) {
-            if(BD.password == null) {
+            if (BD.password == null) {
                 return BD.passwordDefault;
             }
             return BD.password;
         }
         if (campo.equalsIgnoreCase("baseBD")) {
-            if(BD.baseBD == null) {
+            if (BD.baseBD == null) {
                 return BD.baseBDDefault;
             }
             return BD.baseBD;
@@ -60,8 +60,7 @@ Nos ayuda a establecer parametros de configuracion
      ...
     BD.config("host");
 
-### Funcion config - modo Set
-
+### Función config - modo Set
 
     public static String config(String field, String valor) {
         if (field.equals("login") && BD.login == null) {
@@ -84,8 +83,7 @@ Nos ayuda a establecer parametros de configuracion
         return field;
     }
 
-### Funcion conexión
-
+### Función conexión
 
     public static Connection conexion() {
         if(BD.conexion != null) {
@@ -112,7 +110,7 @@ Nos ayuda a establecer parametros de configuracion
 
 > <https://netbeans.org/kb/docs/ide/mysql.html>
 
-### Funcion query
+### Función query
 
 	public static ResultSet query(String strQuery) {
         Connection c = BD.conexion();
