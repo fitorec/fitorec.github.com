@@ -20,6 +20,27 @@
 
  - Si se proporciona un `CONSTRAINT símbolo`, éste debe ser único en la base de datos. Si no se suministra, **InnoDB** crea el nombre automáticamente.
 
+## Sintaxis basica:
+
+	FOREIGN KEY (campo_ref)
+		REFERENCES nombre_tabla(nombre_campo)
+
+## Ejemplo:
+
+	CREATE TABLE alumnos(
+		id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+		nombre VARCHAR (100)
+	) ENGINE=INNODB;
+
+	CREATE TABLE calificaciones(
+		id INT,
+		alumno_id INT,
+		INDEX alum_ind (alumno_id),
+		FOREIGN KEY (alumno_id)
+			REFERENCES alumnos(id)
+			ON DELETE CASCADE
+	) ENGINE=INNODB;
+
 ## Documentación:
  - [simular claves foraneas myIsam](http://dev.mysql.com/doc/refman/5.0/es/example-foreign-keys.html) 
 - [Claves foraneas con innoDB](http://dev.mysql.com/doc/refman/5.0/es/innodb-foreign-key-constraints.html)

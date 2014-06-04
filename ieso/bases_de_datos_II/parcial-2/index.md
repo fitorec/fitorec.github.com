@@ -1,6 +1,6 @@
 ## Temario:
  - Relaciones y conjunto de relaciones
-  - Claves foraneas.
+  - [Claves foraneas](claves-foreaneas.html).
   - Reglas de integridad de relación.
 
 ## Java
