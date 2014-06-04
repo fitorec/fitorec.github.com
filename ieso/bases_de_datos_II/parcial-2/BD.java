@@ -21,7 +21,7 @@ public class BD {
     private static final String baseBDDefault = "clase_bd_2";
     private static String host     = null;
     private static final String hostDefault = "localhost";
-    private static Connection conexion;
+    private static Connection conexion = null;
 
     public static String config(String campo) {
         if (campo.equalsIgnoreCase("login")) {
@@ -77,16 +77,19 @@ public class BD {
      * @return BD.conexion;
      */
     public static Connection conexion() {
-        if(BD.conexion != null) {
-           try {
+        if(BD.conexion == null) {
             String url = "jdbc:mysql://" +
                 BD.config("host") +
                 "/" + BD.config("baseBD");
+            System.out.println("Conexiion" + url);
+            System.out.println("Login : " + BD.config("login"));
+            System.out.println("Password : " + BD.config("password"));
+           try {
             Class.forName("org.gjt.mm.mysql.Driver");
             BD.conexion = DriverManager.getConnection(
                 url,
-                BD.config("password"),
-                BD.config("contraseña")
+                BD.config("login"),
+                BD.config("password")
            );
             } catch(SQLException ex) {
                 ex.getStackTrace();
