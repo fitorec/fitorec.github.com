@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Pruebas Unitarias</title>
+    <!-- Styles -->
+
+    <link rel="stylesheet" media="print" href="./css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="./css/screen.css">
+
+
+    <!-- /Styles -->
+    <!-- Javascripts -->
+
+    <script type="text/javascript" src="./js/slides.js"></script>
+
+
+
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+
+      <!-- slide source: pruebas-junit.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+
+            <header><h1>Pruebas Unitarias</h1></header>
+
+
+            <section><p>Los <strong>tests unitarios</strong> son una forma de probar el correcto
+funcionamiento de un módulo o una parte del sistema.</p>
+<p>Con el fin de asegurar el correcto funcionamiento de todos
+los módulos por separado y evitar así errores futuros en el
+momento de la integración de todas sus partes.</p>
+<p>La idea es escribir casos de prueba para cada función no
+trivial o método en el módulo, de forma que cada caso sea
+independiente del resto.</p></section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="pruebas-junit.md">pruebas-junit.md</a>
+            </aside>
+
+            <aside class="page_number">
+              1/5
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: pruebas-junit.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+
+            <header><h1>Pruebas Unitarias en Java con  JUnit</h1></header>
+
+
+            <section><p><strong>JUnit</strong> es ya de por sí un <em>framework</em> que facilita en demasía el desarrollo de prueba unitarias, pero ahora la versión 4 simplifica más el desarrollo de éstas por medio de la explotación de las anotaciones otorgadas por Java 5, eliminando el desarrollo de pruebas basado en <em>subclassing</em>, <em>reflection</em> y convenciones de nombrado.</p>
+<p>La intención de <a href="http://en.wikipedia.org/wiki/Kent_Beck"><strong>Kent Beck</strong></a> (creador de <strong>JUnit</strong> junto con <strong>Erich Gamma</strong>) con esta nueva versión, es animar a más desarrolladores a escribir más pruebas unitarias por medio de la simplificación de <strong>JUnit</strong>.</p>
+<h2>Métodos de prueba</h2>
+<p>Con JUnit 4 para señalar un método de prueba lo anotaremos con <strong><code>@Test</code></strong>. <strong>No será necesario heredar de la clase TestCase para hacer uso de los métodos assertXXX()</strong> y podremos hacer uso de ellos mediante la utilización de importaciones estáticas, característica proporcionada por Java 5.</p></section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="pruebas-junit.md">pruebas-junit.md</a>
+            </aside>
+
+            <aside class="page_number">
+              2/5
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: pruebas-junit.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+
+            <header><h2>Ejemplo1</h2></header>
+
+
+            <section><div class="highlight"><pre><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kd">class</span> <span class="nc">AssertTests</span> <span class="o">{</span>
+<span class="lineno"> 2</span>   <span class="nd">@Test</span>
+<span class="lineno"> 3</span>   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">pruebaFuncionX</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno"> 4</span>     <span class="n">assertEquals</span><span class="o">(</span>
+<span class="lineno"> 5</span>         <span class="s">&quot;Error no corresponde al valor esperado&quot;</span><span class="o">,</span>
+<span class="lineno"> 6</span>         <span class="s">&quot;valor Esperado&quot;</span><span class="o">,</span>
+<span class="lineno"> 7</span>         <span class="n">AlgunaClase</span><span class="o">.</span><span class="na">funcionX</span><span class="o">()</span>
+<span class="lineno"> 8</span>     <span class="o">);</span>
+<span class="lineno"> 9</span>   <span class="o">}</span>
+<span class="lineno">10</span> <span class="o">}</span>
+</pre></div>
+</section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="pruebas-junit.md">pruebas-junit.md</a>
+            </aside>
+
+            <aside class="page_number">
+              3/5
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: pruebas-junit.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+
+            <header><h1>Creando JUnit desde netbeans</h1></header>
+
+
+            <section><h2>Creamos el proyecto Suma</h2>
+<p><img alt="creando_proyecto_suma" src="file://c:\Users\fitorec\codes\fitorec.github.com\ieso\programacion_II\parcial-2\creando_proyecto_suma.png" /></p></section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="pruebas-junit.md">pruebas-junit.md</a>
+            </aside>
+
+            <aside class="page_number">
+              4/5
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: pruebas-junit.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+
+            <header><h1>Creamos un caso de prueba para alguna clase</h1></header>
+
+
+            <section><p><img alt="creando_creando_junit_test" src="file://c:\Users\fitorec\codes\fitorec.github.com\ieso\programacion_II\parcial-2\creando_creando_junit_test.png" /></p></section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="pruebas-junit.md">pruebas-junit.md</a>
+            </aside>
+
+            <aside class="page_number">
+              5/5
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+
+      <tr id="toc-row-1">
+        <th><a href="#slide1">Pruebas Unitarias</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+
+
+      <tr id="toc-row-2">
+        <th><a href="#slide2">Pruebas Unitarias en Java con  JUnit</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+
+
+        <tr id="toc-row-3" class="sub">
+          <th><a href="#slide3">Ejemplo1</a></th>
+          <td><a href="#slide3">3</a></td>
+        </tr>
+
+
+
+      <tr id="toc-row-4">
+        <th><a href="#slide4">Creando JUnit desde netbeans</a></th>
+        <td><a href="#slide4">4</a></td>
+      </tr>
+
+
+      <tr id="toc-row-5">
+        <th><a href="#slide5">Creamos un caso de prueba para alguna clase</a></th>
+        <td><a href="#slide5">5</a></td>
+      </tr>
+
+
+    </table>
+  </div>
+
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>

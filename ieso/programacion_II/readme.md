@@ -3,15 +3,9 @@ Programación II
 
 ## Tercer Cuatrimestre Ingeniería en Sistemas.
 
-### Acuerdos de convivencia y trabajo:
-
-#### Evaluación:
- - Skill           **10%**
- - Participación    **20%**
- - Tareas           **30%**
- - Examen           **40%**
-
-
+## Parciales:
+ - [parcial 1](./parcial01/)
+ - [parcial 2](./parcial-2/)
 
 ### Software necesario:
  - Netbeans como IDE

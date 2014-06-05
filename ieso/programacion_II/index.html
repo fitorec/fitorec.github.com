@@ -1,131 +1,320 @@
 <!DOCTYPE html>
-<html lang='es'>
-	<head>
-		<title>Ejemplo tabla dinamica</title>
-		<meta charset="utf-8">
-		<!-- agregando jquery -->
-		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-		<!-- agregando twitter bootstrap -->
-		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-		<!-- agregando iconografia awesome -->
-		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-	</head>
-<body>
-<table class='table' id='tablaAlumnos'>
-	<thead>
-	<tr>
-		<th>Alumnos</th>
-		<th>Email</th>
-		<th>Acciones</th>
-	</tr>
-	</thead>
-	<tbody>
-	</tbody>
-	<tfoot>
-		<tr>
-			<td>
-				<input id='alumnoNombre' placeholder='p.e. Juan'>
-			</td>
-			<td>
-				<input id='alumnoEmail' placeholder='p.e. email@example.com'>
-			</td>
-			<td>
-				<a href='#' id='addAlumno' class='btn btn-primary btn-lg' data-toggle="tooltip" title='Agregar nuevo alumno'> Agregqar
-				</a>
-			</td>
-		</tr>
-	</tfoot>
-</table>
+<html>
+<head>
+<title>readme</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
 
-<!-- Modal -->
-<div class="modal fade" id="verAlumnoVentana" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Titulo por defecto ventana Modal</h4>
-      </div>
-      <div class="modal-body">
-				Contenido por defecto ventana modal
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Programación II</h1>
+<h2>Tercer Cuatrimestre Ingeniería en Sistemas.</h2>
+<h2>Parciales:</h2>
+<ul>
+<li><a href="./parcial01/">parcial 1</a></li>
+<li><a href="./parcial-2/">parcial 2</a></li>
+</ul>
+<h3>Software necesario:</h3>
+<ul>
+<li>Netbeans como IDE</li>
+<li>SDK de Java.</li>
+</ul>
+<h3>Contacto:</h3>
+<ul>
+<li><a href="&#109;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#99;&#104;&#97;&#110;&#x65;&#x72;e&#99;&#x40;&#x67;&#109;&#97;&#105;&#x6c;.&#x63;&#x6f;&#x6d;">&#x65;&#x6d;&#x61;&#x69;l&#32;&#32;&#x3a;&#32;&#x63;&#104;&#97;&#x6e;&#x65;&#x72;&#x65;&#x63;&#64;&#x67;&#x6d;&#97;&#105;l&#x2e;&#x63;&#111;&#109;</a></li>
+<li><a href="https://github.com/fitorec">gitHub : @fitorec</a></li>
+<li><a href="https://twitter.com/fitorec">Twitter: @fitorec</a></li>
+</ul>
+<h2>Tabla de contenidos</h2>
+<h2><a href="./#!/parcial01">Parcial 1</a></h2>
+<ul>
+<li><a href="./parcial01/sesion01/index.html">Sesión 1 - Entornos de programación para Java</a></li>
+</ul>
 
 </body>
-<script language='javascript'>
-(function($){
-	$('#addAlumno').click(function() {
-		var alumnoNombre = $('#alumnoNombre').val();
-		var alumnoEmail = $('#alumnoEmail').val();
-		var codeTR = crearFila(alumnoNombre, alumnoEmail);
-		$(codeTR).appendTo('#tablaAlumnos tbody');
-	})
-	.tooltip();
-
-	$('#tablaAlumnos tbody')
-	.on('hover', '.btn', function(){
-		//Aqui this es igual al elemento que dispara la acción
-		var msg = 'Ver registro';
-		if($(this).hasClass('btn-danger')) {
-			msg = 'Borrar Alumno';
-		}
-		if($(this).hasClass('btn-warning')){
-			msg = 'Editar Alumno';
-		}
-		$(this).tooltip({
-			html: true,
-			placement: 'left',
-			title: 'Acción <strong style="color:#B5CB00">'+msg+'</strong>'
-		});
-	}).on('click', '.btn-danger', function(){
-		var $tr = $(this).closest('tr');
-		$tr.fadeOut('slow').remove();
-	}).on('click', '.btn-success', function() { //Aquí le tenemos que agregar funcionalidad a la ventana Modal.
-
-		//$(this) hace referencia al elemento sobre el que hicieron click.
-		// entonces $(this) es el botón btn-success
-		// Con closest subimos al primer ansestro con etiqueta tr (fila en la tabla)
-		$tr = $(this).closest('tr');
-		// $tr ahora contiene la fila, ahora vamos acceder a los campos nombre,email
-		nombre = $tr.find('td.nombre').text();
-		email = $tr.find('td.email').text();
-		console.log('El nombre es' + nombre);
-		console.log('El email es' + email);
-		// en $venAlumno ponemos el resultado de la consulta $('#verAlumnoVentana')
-		$venAlumno = $('#verAlumnoVentana');
-		//Mostramos el titulo y el cuerpo de la ventana modal en la consola
-		console.log($venAlumno.find('.modal-title').text());
-		console.log($venAlumno.find('.modal-body').text());
-		// abrimos la ventana modal
-		$venAlumno.modal();
-	}).on('click', '.btn-warning', function() {
-		//Funcionalidad editar hacer algo
-		console.log('Click sobre el boton editar:');
-		$tr = $(this).closest('tr');
-		nombre = $tr.find('td.nombre').text();
-		email = $tr.find('td.email').text();
-		console.log('El nombre es' + nombre);
-		console.log('El email es' + email);
-	});
-	//$( document ).on( events, selector, data, handler );        // jQuery 1.7+
-})(jQuery);
-
-function crearFila(alumnoNombre, alumnoEmail) {
-	return '<tr>' +
-				'<td class="nombre">'+alumnoNombre+'</td>' + //Le agregamos clase al
-				'<td class="email">'+alumnoEmail+'</td>' +  // nombre y al email
-				'<td>'+
-					'<button class="btn btn-danger"><i class="fa fa-trash-o"></i></button>'+
-					'<button class="btn btn-success"><i class="fa fa-eye"></i></button>'+
-					'<button class="btn btn-warning"><i class="fa fa-pencil"></i></button>'+
-				'</td>' +
-			'</tr>';
-}
-</script>
 </html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
