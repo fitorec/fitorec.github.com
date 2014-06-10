@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>JAVA BÁSICO</title>
+    <!-- Styles -->
+
+    <link rel="stylesheet" media="print" href="css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="css/screen.css">
+
+
+    <!-- /Styles -->
+    <!-- Javascripts -->
+
+    <script type="text/javascript" src="js/slides.js"></script>
+
+
+
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+
+      <!-- slide source: java-basico.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+
+            <header><h1>JAVA BÁSICO</h1></header>
+
+
+            <section><p>3.1 Instrucciones de programa
+3.2 Variables, literales y tipos de datos
+3.3 Expresiones y operadores
+3.4 Arreglos y cadenas
+3.5 Ciclos y condiciones</p></section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="java-basico.md">java-basico.md</a>
+            </aside>
+
+            <aside class="page_number">
+              1/10
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: java-basico.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+
+            <header><h1>Programación orientada a objetos.</h1></header>
+
+
+            <section><p>La programación orientada a objetos se basa en la programación
+de clases, siguiendo las siguientes reglas:</p>
+<ul>
+<li>
+<p>Un programa se construye a partir de un conjunto de clases.</p>
+</li>
+<li>
+<p><strong>Clase</strong>: una agrupación de <strong>atributos</strong> (variables) y de
+métodos(funciones), que operan sobre los datos.</p>
+</li>
+<li>
+<p>A estos datos y funciones pertenecientes a una clase se les
+denomina <strong>atributos</strong> y <strong>métodos</strong>.</p>
+</li>
+<li>
+<p>Todos los métodos y atributos se definen dentro del bloque de la
+clase.</p>
+</li>
+</ul></section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="java-basico.md">java-basico.md</a>
+            </aside>
+
+            <aside class="page_number">
+              2/10
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: java-basico.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+
+            <header><h1>Conceptos importantes de la POO:</h1></header>
+
+
+            <section><h2>Encapsulación:</h2>
+<p>Las estructuras de datos y los detalles de la
+implementación de una clase se hallan <strong>ocultos</strong> de
+otras clases del sistema.</p>
+<p>Control de acceso a variables y métodos, accesso:</p>
+<ul>
+<li>
+<p><strong>private:</strong> sólo pueden ser accedidos desde dentro de la clase (no desde las subclases).</p>
+</li>
+<li>
+<p><strong>protected:</strong> sólo pueden ser accedidos dentro de la clase, las subclases de la clase y las clases del paquete.</p>
+</li>
+<li>
+<p><strong>public:</strong> cualquier clase desde cualquier lugar puede acceder a
+las variables y métodos</p>
+</li>
+<li>
+<p><strong>friendly o package:</strong> (opción por defecto si no se indica nada):
+son accesibles por todas las clases dentro del mismo paquete,
+pero no por los externos al paquete (es como si fuese public,
+pero sólo dentro del package)</p>
+</li>
+</ul></section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="java-basico.md">java-basico.md</a>
+            </aside>
+
+            <aside class="page_number">
+              3/10
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: java-basico.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+
+            <header><h1>Conceptos importantes de la POO:</h1></header>
+
+
+            <section><h2>Herencia:</h2>
+<ul>
+<li>Una clase (subclase) puede derivar de otra(superclase).</li>
+<li>La subclase hereda todas los atributos y métodos de la superclase.</li>
+<li>Las subclase puede redefinir y/o añadir atributos y métodos.</li>
+<li>Fomenta la reutilización de código.</li>
+</ul>
+<h2>Polimorfismo:</h2>
+<p>Es la capacidad de tener métodos con el mismo nombre (y argumentos) y diferente implementación.</p>
+<p>Una operación puede tener más de un método que la implementa.</p></section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="java-basico.md">java-basico.md</a>
+            </aside>
+
+            <aside class="page_number">
+              4/10
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: java-basico.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+
+            <header><h1>Tipos primitivos</h1></header>
+
+
+            <section><p>El tamaño de los tipos no varía entre sistemas operativos:</p>
+<p><img alt="tabla_tipos_datos_primitivos.png" src="tabla_tipos_datos_primitivos.png" /></p></section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="java-basico.md">java-basico.md</a>
+            </aside>
+
+            <aside class="page_number">
+              5/10
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: java-basico.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+
+            <header><h1>Primitivos y Clases envoltura:</h1></header>
+
+
+            <section><p>Clases envoltura de los tipos primitivos:</p>
+<p>Se puede declarar un tipo primitivo como no
+primitivo (manejo como objeto). Ejemplo:</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">&#39;x&#39;</span><span class="o">;</span>
+<span class="lineno">2</span> <span class="n">Character</span> <span class="n">C</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Character</span><span class="o">(</span><span class="sc">&#39;x&#39;</span><span class="o">);</span>
+<span class="lineno">3</span> <span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="na">charValue</span><span class="o">();</span>
+</pre></div>
+</section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="java-basico.md">java-basico.md</a>
+            </aside>
+
+            <aside class="page_number">
+              6/10
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: java-basico.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+
+            <header><h1>Operadores</h1></header>
+
+
+            <section><ul>
+<li><strong>Aritméticos:</strong> <code>+, -, *, /, %</code></li>
+<li><strong>Asignación:</strong> <code>=, +=, -=, *=, /=, %=</code></li>
+<li><strong>Autoincrementales:</strong> <code>++, --</code></li>
+<li><strong>Relacionales:</strong> <code>&gt;, &gt;=, &lt;, &lt;=, ==, !=</code></li>
+<li><strong>Lógicos:</strong> <code>&amp;&amp;, ||, !, &amp;, |</code></li>
+<li><strong>Concatenación de cadenas:</strong> <code>+</code></li>
+</ul>
+<h2>Ejemplo numericos:</h2>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="n">d</span> <span class="o">=</span> <span class="n">e</span><span class="o">++;</span> <span class="c1">// Se asigna e a d y luego se incrementa e</span>
+<span class="lineno">2</span> <span class="n">d</span> <span class="o">=</span> <span class="o">++</span><span class="n">e</span><span class="o">;</span> <span class="c1">// Se incrementa e y luego se asigna e a d</span>
+<span class="lineno">3</span>
+<span class="lineno">4</span> <span class="n">a</span> <span class="o">+=</span> <span class="n">b</span><span class="o">;</span> <span class="c1">// equivale a x = x + y;</span>
+<span class="lineno">5</span> <span class="n">a</span> <span class="o">*=</span> <span class="n">b</span><span class="o">;</span> <span class="c1">// equivale a x = x * y;</span>
+<span class="lineno">6</span>
+<span class="lineno">7</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+<span class="lineno">8</span> <span class="n">a</span> <span class="o">=</span> <span class="n">c</span><span class="o">++;</span> <span class="c1">// Resultado: a = 3 y c = 4</span>
+<span class="lineno">9</span> <span class="n">a</span> <span class="o">=</span> <span class="o">++</span><span class="n">c</span><span class="o">;</span> <span class="c1">// Resultado: a = 4 y c = 4</span>
+</pre></div>
+</section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="java-basico.md">java-basico.md</a>
+            </aside>
+
+            <aside class="page_number">
+              7/10
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: java-basico.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+
+            <header><h1>Operadores</h1></header>
+
+
+            <section><h2>Ejemplo cadenas:</h2>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="n">String</span> <span class="n">concatenado</span>  <span class="o">=</span> <span class="err">“</span><span class="n">perro</span><span class="err">”</span> <span class="o">+</span> <span class="err">“</span><span class="n">gato</span><span class="err">”</span>
+<span class="lineno">2</span> <span class="c1">// Resultado perrogato</span>
+</pre></div>
+
+<h1>Comentarios</h1>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="c1">// comentarios para una sola línea</span>
+<span class="lineno">2</span>
+<span class="lineno">3</span> <span class="cm">/* comentarios de una</span>
+<span class="lineno">4</span> <span class="cm"> * o más líneas </span>
+<span class="lineno">5</span> <span class="cm"> **/</span>
+</pre></div>
+</section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="java-basico.md">java-basico.md</a>
+            </aside>
+
+            <aside class="page_number">
+              8/10
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: java-basico.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+
+            <header><h1>Metodos:</h1></header>
+
+
+            <section><ul>
+<li>Para devolver valores: <strong>return</strong>.</li>
+<li>El método termina:</li>
+<li>Al llegar a la llave de cierre ó</li>
+<li>Al ejecutar el return</li>
+<li>Si el método no es de tipo void debe terminar siempre con un return</li>
+<li>Si el método es de tipo void se puede forzar el fin con la instrucción: <code>return;</code>.</li>
+</ul></section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="java-basico.md">java-basico.md</a>
+            </aside>
+
+            <aside class="page_number">
+              9/10
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: java-basico.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+
+            <header><h1>Ejemplo metodo:</h1></header>
+
+
+            <section><p><img alt="ejemplo_metodo" src="ejemplo_metodo.png" /></p></section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="java-basico.md">java-basico.md</a>
+            </aside>
+
+            <aside class="page_number">
+              10/10
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+
+      <tr id="toc-row-1">
+        <th><a href="#slide1">JAVA BÁSICO</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+
+
+      <tr id="toc-row-2">
+        <th><a href="#slide2">Programación orientada a objetos.</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+
+
+      <tr id="toc-row-3">
+        <th><a href="#slide3">Conceptos importantes de la POO:</a></th>
+        <td><a href="#slide3">3</a></td>
+      </tr>
+
+
+      <tr id="toc-row-4">
+        <th><a href="#slide4">Conceptos importantes de la POO:</a></th>
+        <td><a href="#slide4">4</a></td>
+      </tr>
+
+
+      <tr id="toc-row-5">
+        <th><a href="#slide5">Tipos primitivos</a></th>
+        <td><a href="#slide5">5</a></td>
+      </tr>
+
+
+      <tr id="toc-row-6">
+        <th><a href="#slide6">Primitivos y Clases envoltura:</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+
+
+      <tr id="toc-row-7">
+        <th><a href="#slide7">Operadores</a></th>
+        <td><a href="#slide7">7</a></td>
+      </tr>
+
+
+      <tr id="toc-row-8">
+        <th><a href="#slide8">Operadores</a></th>
+        <td><a href="#slide8">8</a></td>
+      </tr>
+
+
+      <tr id="toc-row-9">
+        <th><a href="#slide9">Metodos:</a></th>
+        <td><a href="#slide9">9</a></td>
+      </tr>
+
+
+      <tr id="toc-row-10">
+        <th><a href="#slide10">Ejemplo metodo:</a></th>
+        <td><a href="#slide10">10</a></td>
+      </tr>
+
+
+    </table>
+  </div>
+
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>

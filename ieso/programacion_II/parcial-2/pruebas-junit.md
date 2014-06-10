@@ -49,54 +49,81 @@ Con JUnit 4 para señalar un método de prueba lo anotaremos con **`@Test`**. **
 	 * Template de un TestCase común para JUnit
 	 * @author iuga
 	 */
-	public class User_Pj_MapperTest {
+	public class miPruebaJnit {
 	 
-	    private User_Pj pj;
+	    private AgunObjeto ob;
 	 
-	    public User_Pj_MapperTest() {
+	    public miPruebaJnit() {
 	    }
-	 
-	    @BeforeClass
-	    public static void setUpClass() throws Exception {
-	    // Primer Método a Ejecutar cuando se
-	    // lancen los Test
-	    }
-	 
-	    @AfterClass
-	    public static void tearDownClass() throws Exception {
-	    // Método que se ejecuta cuando se terminan los test
-	    // Es útil para cerrar bases de datos, archivos,
-	    // Exploradores, Streams, etc.
-	    }
-	 
-	    @Before
-	    public void setUp(){
-	    // Clase q se va a utilizar para setear los datos a
-	    // todos los objetos que necesitemos, es el inicializador
-	    // Tal cual el initComponents del NetBeans
-	    }
-	 
-	    @After
-	    public void tearDown() {
-	    // Último método que se ejecuta cuando se terminan los test
-	    // Es útil para cerrar bases de datos, archivos,
-	    // Exploradores, Streams, etc.
-	    }
-	 
-	    /**
-	     * Test of guardar method, of class User_Pj_Mapper.
-	     * Todos los que tengan la anotacion @Test son los test
-	     * que correrá JUnit no importa si no se llaman.
-	     */
-	    @Test
-	    public void testGuardar()
-	    {
-	        int id = 0;
-	 
+	}
+
+----------------------------------------------------------
+
+# Metodos basicos
+
+## Metodos previos a la ejecución:
+
+
+	!java
+	public class miPruebaJnit {
+		@BeforeClass
+		public static void setUpClass() throws Exception {
+			// Primer Método a Ejecutar cuando se
+			// lancen los Test
+		}
+	
+		@Before
+		public void setUp() {
+		    // Clase q se va a utilizar para setear los datos a
+		    // todos los objetos que necesitemos, es el inicializador
+		    // Tal cual el initComponents del NetBeans
+		}
+	}
+
+----------------------------------------------------------
+
+# Metodos basicos
+
+## Metodos posterior a la ejecución:
+
+	!java
+	public class miPruebaJnit {
+		@AfterClass
+		public static void tearDownClass() throws Exception {
+		    // Método que se ejecuta cuando se terminan los test
+		    // Es útil para cerrar bases de datos, archivos,
+		    // Exploradores, Streams, etc.
+		}
+	
+		@After
+		public void tearDown() {
+		    // Último método que se ejecuta cuando se terminan los test
+		    // Es útil para cerrar bases de datos, archivos,
+		    // Exploradores, Streams, etc.
+		 }
+	}
+
+
+----------------------------------------------------------
+
+# Metodos basicos
+
+## Metodos Test:
+
+	!java
+	public class miPruebaJnit {
+		/**
+		* Prueba sobre el metodo guardar, de la clase miPruebaJnit.
+		* Todos los metodos que tengan la anotacion @Test seran
+		* ejecutados por JUnit no importa si no se llaman.
+		*/
+		@Test
+		public void testGuardar() {
+			int id = 0;
+
 	        // Pruebo los métodos que necesito
-	 
-	        if(result==0)
-	        {
+ 
+	        if(result==0) {
 	            // Lanzo fail() cuando el Test falló a lo que yo
 	            // esperaba, por ejemplo el dato de un algoritmo
 	            // que es un resultado erroneo
@@ -104,6 +131,8 @@ Con JUnit 4 para señalar un método de prueba lo anotaremos con **`@Test`**. **
 	        }
 	    }
 	}
+
+-----------------------------------------------------------
 
 # Creando JUnit desde netbeans
 
