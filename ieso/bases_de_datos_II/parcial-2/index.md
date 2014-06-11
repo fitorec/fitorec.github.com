@@ -5,8 +5,7 @@
 
 ## Java
 
-- [core/BD.java](./BD.java)
-- [core/Model.java](./Model.java)
+- <https://github.com/fitorec/conexion-mysql-persitencia-java>
 
 ## Recursos:
 
