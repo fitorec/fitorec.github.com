@@ -5,7 +5,8 @@
 
 ## Java
 
-- [BD.java](./BD.java)
+- [core/BD.java](./BD.java)
+- [core/Model.java](./Model.java)
 
 ## Recursos:
 
