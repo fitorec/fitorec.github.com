@@ -1,15 +1,9 @@
 JAVA BÁSICO
 =============================================================================
 
-3.1 Instrucciones de programa
-3.2 Variables, literales y tipos de datos
-3.3 Expresiones y operadores
-3.4 Arreglos y cadenas
-3.5 Ciclos y condiciones
-
 -----------
 
-# Programación orientada a objetos. 
+# Programación orientada a objetos.
 
 La programación orientada a objetos se basa en la programación
 de clases, siguiendo las siguientes reglas:
@@ -61,7 +55,7 @@ pero sólo dentro del package)
  - La subclase hereda todas los atributos y métodos de la superclase.
  - Las subclase puede redefinir y/o añadir atributos y métodos.
  - Fomenta la reutilización de código.
- 
+
 
 ## Polimorfismo:
 
@@ -134,7 +128,7 @@ primitivo (manejo como objeto). Ejemplo:
 	// comentarios para una sola línea
 
 	/* comentarios de una
-	 * o más líneas 
+	 * o más líneas
 	 **/
 
 
