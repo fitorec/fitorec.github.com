@@ -22,6 +22,6 @@
 
 ### Documentación y manuales en linea:
 
- - [Java guia para principiantes - Oracle](http://www.oracle.com/events/global/en/java-outreach/resources/java-a-beginners-guide-1720064.pdf)
- - [Introducción al lenguaje de programación Java - _Una guía básica_](http://www3.uji.es/~belfern/pdidoc/IX26/Documentos/introJava.pdf)
- - [Lecciones básicas de java](http://java.sun.com/docs/books/tutorial/java/nutsandbolts/index.html)
+ - [Java guia para principiantes - Oracle **PDF**](http://www.oracle.com/events/global/en/java-outreach/resources/java-a-beginners-guide-1720064.pdf)
+ - [Introducción al lenguaje de programación Java - _Una guía básica_ **PDF**](http://www3.uji.es/~belfern/pdidoc/IX26/Documentos/introJava.pdf)
+ - [Lecciones básicas de java **WEB**](http://java.sun.com/docs/books/tutorial/java/nutsandbolts/index.html)
