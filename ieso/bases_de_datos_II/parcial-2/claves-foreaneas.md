@@ -104,6 +104,11 @@ Quizás queda mas claro con un ejemplo mas sencillo.
 
 Al intentar agregar calificaciones a un alumno inexistente nos genera el error **1452** el cual genera un `SQLSTATE: 23000` como podemos ver en la [referencia de errores de mysql](http://dev.mysql.com/doc/refman/5.0/es/error-handling.html).
 
+## Tarea:
+
+![tarea_claves_foraneas](tarea_claves_foraneas.png)
+
+
 ------------------------------------------------------------- 
 ## Documentación:
 
