@@ -65,7 +65,7 @@ A continuación se muestra como definir las dos tablas de ejemplo con una clave 
 	    FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)
 	) ENGINE = INNODB;
 
-## Ejemplo 2. agregando clave forenea a tablas existentes:
+<h2 id='agregando-clave-a-tablas-existentes'>Ejemplo 2. agregando clave forenea a tablas existentes:</h2>
 
 	-- Base de datos: `padres_hijos`
 	--

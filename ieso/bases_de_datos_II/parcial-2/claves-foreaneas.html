@@ -388,8 +388,13 @@ a foreign key constraint fails (
 </code></pre>
 
 <p>Al intentar agregar calificaciones a un alumno inexistente nos genera el error <strong>1452</strong> el cual genera un <code>SQLSTATE: 23000</code> como podemos ver en la <a href="http://dev.mysql.com/doc/refman/5.0/es/error-handling.html">referencia de errores de mysql</a>.</p>
-<h2>Tarea:</h2>
+<h2 id='tarea-relaciones'>Tarea:</h2>
+<p>Realizar el siguiente esquema de bases de datos generando el código SQL necesario y trascribirlo en sus apuntes: </p>
 <p><img src="tarea_claves_foraneas.png" alt="tarea_claves_foraneas" /></p>
+<blockquote>
+<p>Nota las relaciones deberán de tener las restricciones(<code>CONSTRAINTs</code>) como se muestran en el digrama, esto p.e. la restricción(<code>CONSTRAINT</code>) de la relacion <em>alumno pertenece a un pais</em> se llamara <code>pais jugadores</code> como se indico en clase y como viene <a href="./integridad.html#agregando-clave-a-tablas-existentes">en esta documentación</a>:  
+</p>
+</blockquote>
 <hr />
 <h2>Documentación:</h2>
 <ul>
