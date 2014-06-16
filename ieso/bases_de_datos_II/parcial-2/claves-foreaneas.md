@@ -104,8 +104,9 @@ Quizás queda mas claro con un ejemplo mas sencillo.
 
 Al intentar agregar calificaciones a un alumno inexistente nos genera el error **1452** el cual genera un `SQLSTATE: 23000` como podemos ver en la [referencia de errores de mysql](http://dev.mysql.com/doc/refman/5.0/es/error-handling.html).
 
-
 ------------------------------------------------------------- 
 ## Documentación:
- - [simular claves foraneas myIsam](http://dev.mysql.com/doc/refman/5.0/es/example-foreign-keys.html) 
+
+ - [simular claves foraneas myIsam](http://dev.mysql.com/doc/refman/5.0/es/example-foreign-keys.html)
 - [Claves foraneas con innoDB](http://dev.mysql.com/doc/refman/5.0/es/innodb-foreign-key-constraints.html)
+- [Restricciones (constraints) FOREIGN KEY, 15.6.4. Doc Mysql](http://dev.mysql.com/doc/refman/5.0/es/innodb-foreign-key-constraints.html)

@@ -291,13 +291,17 @@ img {
 </style>
 </head>
 <body>
+<h1>Claves foreaneas:</h1>
+<p>En el contexto de bases de datos relacionales, una clave foránea o clave ajena (o <code>Foreign Key FK</code>) es una limitación <em>referencial</em> entre dos tablas.</p>
+<p>La clave foránea identifica una columna o grupo de columnas en una tabla <strong>referendo</strong> (<em>hija</em>) que se refiere a una columna o grupo de columnas en otra tabla <strong>referenciada</strong>(<em>maestra ó padre</em>). Las columnas en la tabla referendo deben ser la clave primaria u otra clave candidata en la tabla referenciada.</p>
+<blockquote>
+<p><center>
+	<img src="diagrama-ejemplo-clave-foreanea.png" alt="diagrama-ejemplo-clave-foreanea" />
+</center></p>
+<p><small>En el ejemplo podemos apreciar la tabla referendo/reverenciada</small></p>
+</blockquote>
+<hr />
 <h1>Claves foreaneas con innoDB</h1>
-<h2>Sintaxis</h2>
-<pre><code>REFERENCES nombre_de_tabla (nombre_índice, ...)
-    [ON DELETE {RESTRICT | CASCADE | SET NULL | NO ACTION}]
-    [ON UPDATE {RESTRICT | CASCADE | SET NULL | NO ACTION}]
-</code></pre>
-
 <h2>Condiciones:</h2>
 <ul>
 <li>
@@ -309,6 +313,10 @@ img {
 <li>
 <p>En la tabla referenciada, debe haber un índice donde las columnas referenciadas se listen en primer lugar, en el mismo orden. En <em>MySQL/InnoDB 5.0</em>, tal índice se creará automáticamente en la tabla referenciada si no existe aún.</p>
 </li>
+</ul>
+<hr />
+<h1>Condiciones:</h1>
+<ul>
 <li>
 <p>No están soportados los índices prefijados en columnas de claves foráneas. Una consecuencia de esto es que las columnas <code>BLOB</code> y <code>TEXT</code> no pueden incluirse en una clave foránea, porque los índices sobre dichas columnas siempre deben incluir una longitud prefijada.</p>
 </li>
@@ -316,31 +324,76 @@ img {
 <p>Si se proporciona un <code>CONSTRAINT símbolo</code>, éste debe ser único en la base de datos. Si no se suministra, <strong>InnoDB</strong> crea el nombre automáticamente.</p>
 </li>
 </ul>
-<h2>Sintaxis basica:</h2>
-<pre><code>FOREIGN KEY (campo_ref)
+<hr />
+<h2>Sintaxis extendida:</h2>
+<pre><code>!mysql
+REFERENCES nombre_de_tabla (nombre_indice, ...)
+    [ON DELETE {RESTRICT | CASCADE | SET NULL | NO ACTION}]
+    [ON UPDATE {RESTRICT | CASCADE | SET NULL | NO ACTION}]
+</code></pre>
+
+<p>Quizás queda mas claro con un ejemplo mas sencillo.</p>
+<h2>Sintaxis básica:</h2>
+<pre><code>!mysql
+FOREIGN KEY (campo_ref)
     REFERENCES nombre_tabla(nombre_campo)
 </code></pre>
 
-<h2>Ejemplo:</h2>
-<pre><code>CREATE TABLE alumnos(
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR (100)
-) ENGINE=INNODB;
+<hr />
+<h1>Ejemplo:</h1>
+<h2>Creando tabla Alumnos</h2>
+<pre><code>!mysql
+CREATE TABLE IF NOT EXISTS `alumnos` (
+     `id` INT( 5 ) NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR( 100 ) DEFAULT NULL,
+     PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+</code></pre>
 
-CREATE TABLE calificaciones(
-    id INT,
-    alumno_id INT,
-    INDEX alum_ind (alumno_id),
-    FOREIGN KEY (alumno_id)
-        REFERENCES alumnos(id)
+<h2>Creando tabla Calificaciones:</h2>
+<pre><code>!mysql
+CREATE TABLE IF NOT EXISTS `calificaciones`(
+    `id` int( 7 ) PRIMARY KEY AUTO_INCREMENT,
+    `alumno_id` INT( 5 ),
+    `calificacion` FLOAT,
+    INDEX `alumno_calificaciones` (`alumno_id`),
+    FOREIGN KEY (`alumno_id`)
+        REFERENCES alumnos(`id`)
         ON DELETE CASCADE
 ) ENGINE=INNODB;
 </code></pre>
 
+<hr />
+<h1>Insertando datos en alumnos no existentes:</h1>
+<pre><code>!mysql
+INSERT INTO `calificaciones` (`id`, `alumno_id`, `calificacion`)
+    VALUES (NULL, '2', '5.5');
+</code></pre>
+
+<h2>¿que crees que pase?</h2>
+<ul>
+<li>Inserta los datos, pero con una advertencia</li>
+<li>No inserta los datos.</li>
+<li>Inserta los datos de forma exitosa, ya que la referencia es cuando se eliminen los datos en cascada.</li>
+</ul>
+<hr />
+<h1>Error inconsistencia de datos</h1>
+<pre><code>#1452 - Cannot add or update a child row:
+a foreign key constraint fails (
+    `clase_bd_2`.`calificaciones`,
+    CONSTRAINT `calificaciones_ibfk_1`
+    FOREIGN KEY (`alumno_id`)
+    REFERENCES `alumnos` (`id`) ON DELETE CASCADE
+)
+</code></pre>
+
+<p>Al intentar agregar calificaciones a un alumno inexistente nos genera el error <strong>1452</strong> el cual genera un <code>SQLSTATE: 23000</code> como podemos ver en la <a href="http://dev.mysql.com/doc/refman/5.0/es/error-handling.html">referencia de errores de mysql</a>.</p>
+<hr />
 <h2>Documentación:</h2>
 <ul>
-<li><a href="http://dev.mysql.com/doc/refman/5.0/es/example-foreign-keys.html">simular claves foraneas myIsam</a> </li>
+<li><a href="http://dev.mysql.com/doc/refman/5.0/es/example-foreign-keys.html">simular claves foraneas myIsam</a></li>
 <li><a href="http://dev.mysql.com/doc/refman/5.0/es/innodb-foreign-key-constraints.html">Claves foraneas con innoDB</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/5.0/es/innodb-foreign-key-constraints.html">Restricciones (constraints) FOREIGN KEY, 15.6.4. Doc Mysql</a></li>
 </ul>
 
 </body>
