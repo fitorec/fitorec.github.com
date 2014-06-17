@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>index</title>
+<title>tarea_problemas_java</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
@@ -291,36 +291,41 @@ img {
 </style>
 </head>
 <body>
-<h1><a href="../index.html">Programación II</a></h1>
-<h2>Parcial 2.</h2>
-<h3>Temario.</h3>
+<h1>Lista de problemas.</h1>
+<h2>Uso de javadoc</h2>
+<p>Usando la sintaxis de <code>javadoc</code> para defininir metodos:</p>
+<pre><code> /**
+  * Descripcion del metodo
+  *
+  * @param &lt;nombre_argumento&gt;  descripcion del parametro
+  * @throws nomreException descripcion de los casos de excepcion.
+  * @return 
+  */
+</code></pre>
+
+<h2>conversión fecha a entero.</h2>
+<p>Realice un programa que lea del teclado una fecha en formato <code>YYYY-MM-DD HH:mm:ss</code> y devuelva el valor en segundos representado.</p>
+<blockquote>
+<p>Nota: para esto realice la función <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html#split(java.lang.String)"><code>split</code></a> del objeto String.</p>
+<p>Nota2: Utilice el metodo main para recibir los argumentos. </p>
+</blockquote>
+<h2>Jugador</h2>
+<p>Se Realice una clase con el nombre <code>Jugador</code>, que tenga los atributos.</p>
 <ul>
-<li><a href="./tipos_de_datos.html">tipos de datos</a></li>
-<li><a href="./metodo_main.html">El metodo main</a></li>
-<li><a href="./convenciones_codificacion.html">Convenciones de códificación</a></li>
-<li><a href="pruebas-junit.html">Pruebas Unitarias con JUnit</a></li>
-<li><a href="java-basico.html">Java Basico</a></li>
-<li><a href="java-basico.2.html">Java Basico II</a></li>
-<li><a href="java-basico.3.html">Java Basico III</a></li>
+<li><code>String</code> pais;</li>
+<li><code>Integer</code> numero_camiseta;</li>
+<li><code>String</code> posicion;</li>
+<li><code>float</code> velocidad; // en kilometros por hora.</li>
 </ul>
-<h2>Tareas:</h2>
-<ul>
-<li><a href="tarea_problemas_java.html">Listado de ejercicios</a></li>
-</ul>
-<h2>Programas:</h2>
-<ul>
-<li><a href="PruebaInc.java">Prueba Incremento</a></li>
-</ul>
-<h2>Fuentes:</h2>
-<ul>
-<li>Java: The Fundamentals of Objects and Classes - <em>An Introduction to Java Programming</em> , David Etheridge</li>
-</ul>
-<h3>Documentación y manuales en linea:</h3>
-<ul>
-<li><a href="http://www.oracle.com/events/global/en/java-outreach/resources/java-a-beginners-guide-1720064.pdf">Java guia para principiantes - Oracle <strong>PDF</strong></a></li>
-<li><a href="http://www3.uji.es/~belfern/pdidoc/IX26/Documentos/introJava.pdf">Introducción al lenguaje de programación Java - <em>Una guía básica</em> <strong>PDF</strong></a></li>
-<li><a href="http://java.sun.com/docs/books/tutorial/java/nutsandbolts/index.html">Lecciones básicas de java <strong>WEB</strong></a></li>
-</ul>
+<h2>Constructores.</h2>
+<p>Agregue un constructor vacio y constructor que reciba los valores de los atributos que tendra dicho objeto.</p>
+<h2>esMasRapido</h2>
+<p>Agregue un metodo con el nombre esMasRapido que reciba como argumento otro Objeto del tipo <code>Jugador</code>  y devuelva un <code>boolean</code> <code>true</code> si la velocidad del Jugador que es enviado como argumento es mayor que la actual <code>false</code> caso contrario, como se muestra en el prototipo actual.</p>
+<pre><code>public boolean esMasRapido(Jugador otroJuador){
+    //...
+}
+</code></pre>
+
 
 </body>
 </html>

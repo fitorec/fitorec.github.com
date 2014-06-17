@@ -13,6 +13,10 @@
 - [Java Basico III](java-basico.3.html)
 
 
+## Tareas:
+ - [Listado de ejercicios](tarea_problemas_java.html)
+
+
 ## Programas:
 - [Prueba Incremento](PruebaInc.java)
 
