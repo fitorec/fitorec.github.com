@@ -304,10 +304,10 @@ img {
 </code></pre>
 
 <h2>conversión fecha a entero.</h2>
-<p>Realice un programa que lea del teclado una fecha en formato <code>YYYY-MM-DD HH:mm:ss</code> y devuelva el valor en segundos representado.</p>
+<p>Realice un programa que lea del teclado una fecha en formato <code>YYYY-MM-DD</code> y devuelva el valor en segundos representado.</p>
 <blockquote>
 <p>Nota: para esto realice la función <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html#split(java.lang.String)"><code>split</code></a> del objeto String.</p>
-<p>Nota2: Utilice el metodo main para recibir los argumentos. </p>
+<p>Nota2: Utilice el método main para recibir los argumentos. </p>
 </blockquote>
 <h2>Jugador</h2>
 <p>Se Realice una clase con el nombre <code>Jugador</code>, que tenga los atributos.</p>
@@ -317,15 +317,32 @@ img {
 <li><code>String</code> posicion;</li>
 <li><code>float</code> velocidad; // en kilometros por hora.</li>
 </ul>
-<h2>Constructores.</h2>
+<h2>Constructores:</h2>
 <p>Agregue un constructor vacio y constructor que reciba los valores de los atributos que tendra dicho objeto.</p>
 <h2>esMasRapido</h2>
-<p>Agregue un metodo con el nombre esMasRapido que reciba como argumento otro Objeto del tipo <code>Jugador</code>  y devuelva un <code>boolean</code> <code>true</code> si la velocidad del Jugador que es enviado como argumento es mayor que la actual <code>false</code> caso contrario, como se muestra en el prototipo actual.</p>
+<p>Agregue un método con el nombre esMasRapido que reciba como argumento otro Objeto del tipo <code>Jugador</code>  y devuelva un <code>boolean</code> <code>true</code> si la velocidad del Jugador que es enviado como argumento es mayor que la actual <code>false</code> caso contrario, como se muestra en el prototipo actual.</p>
 <pre><code>public boolean esMasRapido(Jugador otroJuador){
     //...
 }
 </code></pre>
 
+<h2>esDeMiEquipo</h2>
+<p>Agregue un método con el nombre esDeMiEquipo que reciba como argumento otro Objeto del tipo <code>Jugador</code>  y devuelva un <code>boolean</code> <code>true</code> si coinciden en el pais y <code>false</code> en el caso contrario.</p>
+<pre><code>public boolean esDeMiEquipo(Jugador otroJuador){
+    //...
+}
+</code></pre>
+
+<h2>esRival</h2>
+<p>Agregue un método con el nombre esRival que reciba como argumento otro Objeto del tipo <code>Jugador</code>  y devuelva un <code>boolean</code> <code>true</code> si <strong>NO</strong> coinciden en el pais y <code>false</code> en el caso contrario.</p>
+<pre><code>public boolean esRival(Jugador otroJuador){
+    //...
+}
+</code></pre>
+
+<blockquote>
+<p><strong>Nota:</strong> Observe que esRival es la función inversa de esDeMiEquipo.</p>
+</blockquote>
 
 </body>
 </html>
