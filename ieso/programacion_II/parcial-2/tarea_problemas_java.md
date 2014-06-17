@@ -49,7 +49,8 @@ Agregue un método con el nombre esMasRapido que reciba como argumento otro Obje
 
 Agregue un método con el nombre esDeMiEquipo que reciba como argumento otro Objeto del tipo `Jugador`  y devuelva un `boolean` `true` si coinciden en el pais y `false` en el caso contrario.
 
-	public boolean esDeMiEquipo(Jugador otroJuador){
+
+	public boolean esDeMiEquipo(Jugador otroJuador) {
 		//...
 	}
 
@@ -59,7 +60,8 @@ Agregue un método con el nombre esDeMiEquipo que reciba como argumento otro Obj
 
 Agregue un método con el nombre esRival que reciba como argumento otro Objeto del tipo `Jugador`  y devuelva un `boolean` `true` si **NO** coinciden en el pais y `false` en el caso contrario.
 
-	public boolean esRival(Jugador otroJuador){
+
+	public boolean esRival(Jugador otroJuador) {
 		//...
 	}
 
