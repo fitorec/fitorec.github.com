@@ -16,10 +16,16 @@ En la actualidad es fácil obtener información de los hechos que acontecen el m
 > **fuente:** <http://es.wikipedia.org/wiki/Miner%C3%ADa_de_datos>
 
 ### Insertando Goles
-Los goles normalmente son registrados en el momento que ocurre la acción.
 
+Los goles normalmente son registrados en el momento que ocurre la acción, en **mysql** para realizar esta tarea podemos ocupar las funciones de [fecha y hora actual](http://dev.mysql.com/doc/refman/5.0/es/date-and-time-functions.html), ocupando específicamente la función Ahora(`NOW()`).
+  
+por ejemplo, observe la siguiente sentencia **SQL** y el resultado obtenido:
 
+	mysql> SELECT NOW();
+	        -> '2014-06-18 9:10:26'
 
+> Pruebe usted mismo.
+> 
 ## Subconsultas.
 
 MySQL 5.0 soporta todas las formas de subconsultas y operaciones que requiere el estándar SQL, así como algunas características específicas de MySQL.

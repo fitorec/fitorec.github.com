@@ -5,7 +5,8 @@
  - [Claves foraneas](claves-foreaneas.html).
 
 ## Trabajos
- - [Ejercicio completo](ejercicio-competo.html)
+
+ - [Ejercicio completo(mundial)](ejercicio-completo.html)
 
 ## Java
 
