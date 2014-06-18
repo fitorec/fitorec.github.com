@@ -15,6 +15,10 @@ En la actualidad es fácil obtener información de los hechos que acontecen el m
 >
 > **fuente:** <http://es.wikipedia.org/wiki/Miner%C3%ADa_de_datos>
 
+### Insertando Goles
+Los goles normalmente son registrados en el momento que ocurre la acción.
+
+
 
 ## Subconsultas.
 
