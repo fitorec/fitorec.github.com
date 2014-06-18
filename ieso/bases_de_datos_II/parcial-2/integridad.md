@@ -92,6 +92,7 @@ A continuación se muestra como definir las dos tablas de ejemplo con una clave 
 		REFERENCES `padres` (`padre_ID`)
 		ON DELETE CASCADE ON UPDATE CASCADE;
 
+> Descargar archivo: [`bd_padres_hijos.sql`](bd_padres_hijos.sql);
 
 Como se puede ver, la tabla hijos a cambiado su estructura, ahora, además de la llave primaria (`PRIMARY KEY`) **hijo_ID**, tenemos una llave externa o foránea (`KEY`) `hijoPadre_ID`.
 
