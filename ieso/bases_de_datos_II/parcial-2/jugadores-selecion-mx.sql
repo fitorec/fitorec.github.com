@@ -1,0 +1,26 @@
+-- Lista de jugadores de la seleccion mexicana
+-- Información obtenida de: http://televisadeportes.esmas.com/futbol/seleccionmexico/
+
+('1', 'Jesús Corona', 'Portero'),
+('12', 'Alfredo Talavera', 'Portero'),
+('13', 'Guillermo Ochoa', 'Portero'),
+('2', 'Francisco Javier Rodríguez', 'Defensa'),
+('3', 'Carlos Salcido', 'Defensa'),
+('4', 'Rafael Márquez', 'Defensa'),
+('5', 'Diego Reyes', 'Defensa'),
+('6', 'Héctor Herrera', 'Mediocampista'),
+('7', 'Miguel Layún', 'Mediocampista'),
+('8', 'Marco Fabián', 'Mediocampista'),
+('9', 'Raúl Alonso Jiménez', 'Delantero'),
+('10', 'Giovani dos Santos', 'Mediocampista'),
+('11', 'Alan Pulido', 'Delantero'),
+('14', 'Javier Hernández', 'Delantero'),
+('15', 'Héctor Moreno', 'Defensa'),
+('16', 'Miguel Ángel Ponce', 'Defensa'),
+('17', 'Isaac Brizuela', 'Mediocampista'),
+('18', 'Andrés Guardado', 'Mediocampista'),
+('19', 'Oribe Peralta', 'Delantero'),
+('20', 'Javier Aquino', 'Mediocampista'),
+('21', 'Carlos Alberto Peña', 'Mediocampista'),
+('22', 'Paul Aguilar', 'Defensa'),
+('23', 'José Juan Vázquez', 'Mediocampista');

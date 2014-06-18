@@ -4,6 +4,9 @@
  - [Integridad en BD](integridad.html).
  - [Claves foraneas](claves-foreaneas.html).
 
+## Trabajos
+ - [Ejercicio completo](ejercicio-competo.html)
+
 ## Java
 
 - <https://github.com/fitorec/conexion-mysql-persitencia-java>
