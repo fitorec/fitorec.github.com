@@ -294,14 +294,14 @@ img {
 <h1>Examen de programación II, <a href="index.html">2do Parcial</a></h1>
 <blockquote>
 <p>Lea detenidamente y responda lo que se te indica:</p>
-<p><a href="https://gist.github.com/fitorec/e9d1b096569bc8f1a74f"><strong>ExamenSoluciones.java</strong></a></p>
+<p><a href="https://gist.github.com/fitorec/e9d1b096569bc8f1a74f"><strong>ExamenSoluciones.java (problemas 5, 6, 7 y 8)</strong></a></p>
 </blockquote>
 <p><strong>1.</strong> ¿Qué método hay que invocar para ejecutar un programa en Java?:</p>
 <ul>
 <li>do</li>
 <li>exec</li>
-<li>dispatcher	</li>
-<li><span style='color:red;'>main<span></li>
+<li>dispatcher</li>
+<li><strong style='color:red;'>main</strong></li>
 <li>callable</li>
 <li>start</li>
 <li>run</li>
@@ -313,18 +313,18 @@ img {
 <li>bool,</li>
 <li>character</li>
 <li>bit</li>
-<li><span style='color:red;'>long</span></li>
+<li><strong style='color:red;'>long</strong></li>
 <li>Float</li>
-<li><span style='color:red;'>double</span></li>
+<li><strong style='color:red;'>double</strong></li>
 </ul>
 <p><strong>3.-</strong> <a href="file:///C:/Users/fitorec/codes/fitorec.github.com/ieso/programacion_II/parcial-2/java-basico.html#slide5">Del entorno de programas en java</a>, <strong>indique el nombre de el programa que nos ayuda a generar documentación</strong> de nuestro código a partir de nuestros comentarios:</p>
 <ul>
 <li>java</li>
 <li>java-doc-gen</li>
 <li>java-dump-doc</li>
-<li><span style='color:red;'>java-doc</span></li>
+<li>java-doc</strong></li>
 <li>java-gen-doc</li>
-<li>javadoc</li>
+<li><strong style='color:red;'>javadoc</strong></li>
 <li>javaLibDoc</li>
 <li>jdoc</li>
 </ul>
@@ -332,7 +332,7 @@ img {
 <ul>
 <li>java</li>
 <li>java-compiler</li>
-<li><span style='color:red;'>javac</span></li>
+<li><strong style='color:red;'>javac</strong></li>
 <li>jar</li>
 <li>java-class-gen</li>
 <li>javadoc</li>
@@ -364,7 +364,7 @@ int result = f++ + ++b - 4;
 <pre><code>public class Principal {
  public void main() {
      System.out.println(&quot;ejecutando el metodo main&quot;);
- }   
+ }
 }
 </code></pre>
 
@@ -372,9 +372,13 @@ int result = f++ + ++b - 4;
 <li>El código no se ejecuta ya que no existe constructor para la clase Principal.</li>
 <li>El código genera error ya que la función main debe recibir un arreglo de Strings.</li>
 <li>El código se ejecuta correctamente e imprime <code>&quot;ejecutando el metodo main&quot;</code></li>
-<li><span style='color:red;'>El código se ejecuta correctamente, pero no imprime nada.</span></li>
+<li><strong style='color:red;'>El código se ejecuta correctamente, pero no imprime nada.</strong></li>
 <li>El código genera un error ya que la función main debe devolver el <strong>errnor</strong> como en c.</li>
 </ul>
+<blockquote>
+<p>En otras palabras el código es correcto pero la clase no puede ser llamada desde el exterior ya que no tiene el método <strong>main</strong> con el prototipo  adecuado. Esto es que sea estático no devuelve nada(void) y recibe como argumentos un arreglo de <strong>strings</strong>:</p>
+<p><code>public static void main(String args[]){...}</code> </p>
+</blockquote>
 <p><strong>10.-</strong> Observe el siguiente código y escriba el resultado, de su ejecución:</p>
 <pre><code>public class ObjetoK {
     public ObjetoK() {
