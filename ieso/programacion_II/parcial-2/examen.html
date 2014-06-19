@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>index</title>
+<title>examen</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
@@ -291,42 +291,101 @@ img {
 </style>
 </head>
 <body>
-<h1><a href="../index.html">Programación II</a></h1>
-<h2>Parcial 2.</h2>
-<h3>Temario:</h3>
+<h1>Examen de programación</h1>
+<blockquote>
+<p>Lea detenidamente y responda lo que se te indica:</p>
+</blockquote>
+<p><strong>1.</strong> ¿Qué método hay que invocar para ejecutar un programa en Java?:</p>
 <ul>
-<li><a href="./tipos_de_datos.html">tipos de datos</a></li>
-<li><a href="./metodo_main.html">El metodo main</a></li>
-<li><a href="./convenciones_codificacion.html">Convenciones de códificación</a></li>
-<li><a href="pruebas-junit.html">Pruebas Unitarias con JUnit</a></li>
-<li><a href="java-basico.html">Java Basico</a></li>
-<li><a href="java-basico.2.html">Java Basico II</a></li>
-<li><a href="java-basico.3.html">Java Basico III</a></li>
+<li>do</li>
+<li>exec</li>
+<li>dispatcher	</li>
+<li>main	</li>
+<li>callable</li>
+<li>start</li>
+<li>run</li>
 </ul>
-<h2>Tareas:</h2>
+<p><strong>2.</strong> Subraye los <strong>tipos de datos primitivos</strong> en Java en la lista que se muestra a continuación:</p>
 <ul>
-<li><a href="tarea_problemas_java.html">Listado de ejercicios</a></li>
+<li>small</li>
+<li>Integer</li>
+<li>bool,</li>
+<li>character</li>
+<li>bit</li>
+<li>long</li>
+<li>Float</li>
+<li>double</li>
 </ul>
-<h2>Programas:</h2>
+<p><strong>3.-</strong> Del entorno de programas en java, <strong>indique el nombre de el programa que nos ayuda a generar documentación</strong> de nuestro código a partir de nuestros comentarios:</p>
 <ul>
-<li><a href="PruebaInc.java">Prueba Incremento</a></li>
+<li>java</li>
+<li>java-doc-gen</li>
+<li>java-dump-doc</li>
+<li>java-doc</li>
+<li>java-gen-doc</li>
+<li>javadoc</li>
+<li>javaLibDoc</li>
+<li>jdoc</li>
 </ul>
-<h2>Examen:</h2>
+<p><strong>4.-</strong> Del entorno de programas en java, <strong>indique el nombre de el programa que nos ayuda a compilar</strong> nuestro código generando archivos con extensión <code>.class</code>:</p>
 <ul>
-<li><a href="examen.html">escrito</a></li>
-<li><a href="examen_practico.html">practico</a></li>
+<li>java</li>
+<li>java-compiler</li>
+<li>javac</li>
+<li>jar</li>
+<li>java-class-gen</li>
+<li>javadoc</li>
+<li>javah</li>
+<li>javap</li>
 </ul>
-<h2>Fuentes:</h2>
+<p><strong>5.-</strong> <strong>¿cual es sucesión generada?</strong> por el siguiente código en java:</p>
+<pre><code>for (int k = -5; k &lt; 0;) {
+    System.out.print(&quot;,&quot; + k++);
+}
+</code></pre>
+
+<p><strong>6.-</strong> <strong>¿cual es sucesión generada?</strong> por el siguiente código en java:</p>
+<pre><code>for (int h = 5; h &gt; 0;) {
+    System.out.print(--h + &quot;,&quot;);
+}
+</code></pre>
+
+<p><strong>7.-</strong> Observe detenidamente el siguiente código y escriba <strong>el valor de result</strong>:</p>
+<pre><code>int f = 9, b = 3;
+int result = f++ + ++b - 4;
+</code></pre>
+
+<p><strong>8.-</strong> <strong>escriba el valor de <code>result</code></strong> al final de la ejecución del código que se te presenta:</p>
+<pre><code>Boolean result = ((1 &gt; 1) == false);
+</code></pre>
+
+<p><strong>9.-</strong> Siguiendo el código que se te muestra <strong>subraye la respuesta correcta</strong>:</p>
+<pre><code>public class Principal {
+ public void main() {
+     System.out.println(&quot;ejecutando el metodo main&quot;);
+ }   
+}
+</code></pre>
+
 <ul>
-<li>Java: The Fundamentals of Objects and Classes.</li>
-<li><em>An Introduction to Java Programming</em>, David Etheridge.</li>
+<li>El código no se ejecuta ya que no existe constructor para la clase Principal.</li>
+<li>El código genera error ya que la función main debe recibir un arreglo de Strings.</li>
+<li>El codigo se ejecuta correctamente e imprime <code>&quot;ejecutando el metodo main&quot;</code></li>
+<li>El código se ejecuta correctamente, pero no imprime nada.</li>
+<li>El código genera un error ya que la función main debe devolver el <strong>errnor</strong> como en c.</li>
 </ul>
-<h3>Documentación y manuales en linea:</h3>
-<ul>
-<li><a href="http://www.oracle.com/events/global/en/java-outreach/resources/java-a-beginners-guide-1720064.pdf">Java guia para principiantes - Oracle <strong>PDF</strong></a>.</li>
-<li><a href="http://www3.uji.es/~belfern/pdidoc/IX26/Documentos/introJava.pdf">Introducción al lenguaje de programación Java - <em>Una guía básica</em> <strong>PDF</strong></a>.</li>
-<li><a href="http://java.sun.com/docs/books/tutorial/java/nutsandbolts/index.html">Lecciones básicas de java <strong>WEB</strong></a>.</li>
-</ul>
+<p><strong>10.-</strong> Observe el siguiente código y escriba el resultado, de su ejecución:</p>
+<pre><code>public class ObjetoK {
+    public ObjetoK() {
+        System.out.println(&quot;OK&quot;);
+    }
+    public static void main(String s[]) {
+        ObjetoK ok = new ObjetoK();
+        System.out.print(&quot;Hola mundo&quot;);
+    }
+}
+</code></pre>
+
 
 </body>
 </html>

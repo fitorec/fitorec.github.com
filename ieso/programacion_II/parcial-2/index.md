@@ -3,7 +3,8 @@
 
 ## Parcial 2.
 
-### Temario.
+### Temario:
+
 - [tipos de datos](./tipos_de_datos.html)
 - [El metodo main](./metodo_main.html)
 - [Convenciones de códificación](./convenciones_codificacion.html)
@@ -24,6 +25,7 @@
 
  - [escrito](examen.html)
  - [practico](examen_practico.html)
+
 ## Fuentes:
 
  - Java: The Fundamentals of Objects and Classes.
