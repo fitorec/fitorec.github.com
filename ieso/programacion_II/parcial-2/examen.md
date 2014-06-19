@@ -1,6 +1,8 @@
 # Examen de programación
 
 > Lea detenidamente y responda lo que se te indica:
+> 
+> [**ExamenSoluciones.java**](https://gist.github.com/fitorec/e9d1b096569bc8f1a74f)
 
 **1.** ¿Qué método hay que invocar para ejecutar un programa en Java?:
 
