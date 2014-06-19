@@ -20,7 +20,10 @@
 ## Programas:
 - [Prueba Incremento](PruebaInc.java)
 
+## Examen:
 
+ - [escrito](examen.html)
+ - [practico](examen_practico.html)
 ## Fuentes:
 
  - Java: The Fundamentals of Objects and Classes.
