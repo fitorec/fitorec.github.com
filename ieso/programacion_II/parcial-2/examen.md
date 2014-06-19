@@ -1,4 +1,4 @@
-# Examen de programación
+# Examen de programación II, [2do Parcial](index.html)
 
 > Lea detenidamente y responda lo que se te indica:
 > 
@@ -9,38 +9,38 @@
   - do
   - exec
   - dispatcher	
-  - main	
+  - <span style='color:red;'>main<span>
   - callable
   - start
   - run
 
-**2.** Subraye los **tipos de datos primitivos** en Java en la lista que se muestra a continuación:
+**2.** Subraye los [**tipos de datos primitivos**](file:///C:/Users/fitorec/codes/fitorec.github.com/ieso/programacion_II/parcial-2/java-basico.html#slide5) en Java en la lista que se muestra a continuación:
 
   - small
   - Integer
   - bool,
   - character
   - bit
-  - long
+  - <span style='color:red;'>long</span>
   - Float
-  - double
+  - <span style='color:red;'>double</span>
 
-**3.-** Del entorno de programas en java, **indique el nombre de el programa que nos ayuda a generar documentación** de nuestro código a partir de nuestros comentarios:
+**3.-** [Del entorno de programas en java](file:///C:/Users/fitorec/codes/fitorec.github.com/ieso/programacion_II/parcial-2/java-basico.html#slide5), **indique el nombre de el programa que nos ayuda a generar documentación** de nuestro código a partir de nuestros comentarios:
 
  - java
  - java-doc-gen
  - java-dump-doc
- - java-doc
+ - <span style='color:red;'>java-doc</span>
  - java-gen-doc
  - javadoc
  - javaLibDoc
  - jdoc
 
-**4.-** Del entorno de programas en java, **indique el nombre de el programa que nos ayuda a compilar** nuestro código generando archivos con extensión `.class`:
+**4.-** [Del entorno de programas en java](file:///C:/Users/fitorec/codes/fitorec.github.com/ieso/programacion_II/parcial-2/java-basico.html#slide5), **indique el nombre de el programa que nos ayuda a compilar** nuestro código generando archivos con extensión `.class`:
 
  - java
  - java-compiler
- - javac
+ - <span style='color:red;'>javac</span>
  - jar
  - java-class-gen
  - javadoc
@@ -80,8 +80,8 @@
 
   - El código no se ejecuta ya que no existe constructor para la clase Principal.
   - El código genera error ya que la función main debe recibir un arreglo de Strings.
-  - El codigo se ejecuta correctamente e imprime `"ejecutando el metodo main"`
-  - El código se ejecuta correctamente, pero no imprime nada.
+  - El código se ejecuta correctamente e imprime `"ejecutando el metodo main"`
+  - <span style='color:red;'>El código se ejecuta correctamente, pero no imprime nada.</span>
   - El código genera un error ya que la función main debe devolver el **errnor** como en c.
  
 
