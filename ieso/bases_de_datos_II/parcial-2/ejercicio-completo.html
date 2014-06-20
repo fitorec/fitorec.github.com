@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ejercicio-competo</title>
+<title>ejercicio-completo</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
@@ -302,6 +302,28 @@ img {
 <p>La minería de datos o exploración de datos (es la etapa de análisis de &quot;<em>Knowledge Discovery in Databases</em>&quot; o <strong>KDD</strong>) es <strong>un campo de las ciencias de la computación referido al proceso que intenta descubrir patrones en grandes volúmenes de conjuntos de datos</strong>.1 Utiliza los métodos de la inteligencia artificial, aprendizaje automático, estadística y sistemas de bases de datos.</p>
 <p><strong>fuente:</strong> <a href="http://es.wikipedia.org/wiki/Miner%C3%ADa_de_datos">http://es.wikipedia.org/wiki/Miner%C3%ADa<em>de</em>datos</a></p>
 </blockquote>
+<h3>Obteniendo información de los países:</h3>
+<blockquote>
+<p>https://gist.github.com/fitorec/27e7b8e8d3434af3bf05</p>
+</blockquote>
+<p><script src="https://gist.github.com/fitorec/27e7b8e8d3434af3bf05.js"></script></p>
+<h3>Relacionando partidos:</h3>
+<p>Observe y ejecute la siguiente consulta <strong>SQL</strong>:</p>
+<pre><code>SELECT
+        `id` AS `pais_id1`,
+        (SELECT `id` FROM  `paises` WHERE  `acronimo` =  'cro') AS `pais_id2`,
+        '1' AS `goles_pais_id1`,
+        '3' AS `goles_pais_id2`,
+        '2014-06-12 22:00:00' AS `fecha_hora`,
+        'Arena de Sao Paulo' AS `estadio`
+        FROM  `paises`
+        WHERE  `acronimo` =  'bra';
+</code></pre>
+
+<p>Ahora siguiendo la siguiente página <a href="http://as.com/especiales/futbol/mundial/2014/calendario.html">http://as.com/especiales/futbol/mundial/2014/calendario.html</a> y algo de minería podemos obtener todos los partidos del mundial:</p>
+<blockquote>
+<p><a href="https://gist.github.com/fitorec/9c85e452a78342d0bdd2">https://gist.github.com/fitorec/9c85e452a78342d0bdd2</a></p>
+</blockquote>
 <h3>Insertando Goles</h3>
 <p>Los goles normalmente son registrados en el momento que ocurre la acción, en <strong>mysql</strong> para realizar esta tarea podemos ocupar las funciones de <a href="http://dev.mysql.com/doc/refman/5.0/es/date-and-time-functions.html">fecha y hora actual</a>, ocupando específicamente la función Ahora(<code>NOW()</code>).</p>
 <p>por ejemplo, observe la siguiente sentencia <strong>SQL</strong> y el resultado obtenido:</p>
@@ -330,12 +352,12 @@ WHERE
 </code></pre>
 
 <p>En este caso estamos seleccionando todos los jugadores del <code>equipo 1</code> de algún determinado partido que se jugo a las <code>'2014-06-17 14:00:00'</code>.</p>
-<h2>http://dev.mysql.com/doc/refman/5.0/en/subqueries.html</h2>
 <h2>Documentación:</h2>
 <ul>
 <li><a href="http://dev.mysql.com/doc/refman/5.0/es/example-foreign-keys.html">simular claves foraneas myIsam</a></li>
 <li><a href="http://dev.mysql.com/doc/refman/5.0/es/innodb-foreign-key-constraints.html">Claves foraneas con innoDB</a></li>
 <li><a href="http://dev.mysql.com/doc/refman/5.0/es/innodb-foreign-key-constraints.html">Restricciones (constraints) FOREIGN KEY, 15.6.4. Doc Mysql</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/5.0/en/subqueries.html">Sub consultas SQL</a></li>
 </ul>
 
 </body>
