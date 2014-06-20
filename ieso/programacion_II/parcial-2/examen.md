@@ -55,20 +55,32 @@
         System.out.print("," + k++);
     }
 
+<pre style='color:red'>
+,-5,-4,-3,-2,-1
+</pre>
 **6.-** **¿cual es sucesión generada?** por el siguiente código en java:
 
 	for (int h = 5; h > 0;) {
 		System.out.print(--h + ",");
 	}
+<pre style='color:red'>
+4,3,2,1,0,
+</pre>
 
 **7.-** Observe detenidamente el siguiente código y escriba **el valor de result**:
 
 	int f = 9, b = 3;
 	int result = f++ + ++b - 4;
+<pre style='color:red'>
+result = 9
+</pre>
 
 **8.-** **escriba el valor de `result`** al final de la ejecución del código que se te presenta:
 
 	Boolean result = ((1 > 1) == false);
+<pre style='color:red'>
+result = true;
+</pre>
 
 **9.-** Siguiendo el código que se te muestra **subraye la respuesta correcta**:
 
