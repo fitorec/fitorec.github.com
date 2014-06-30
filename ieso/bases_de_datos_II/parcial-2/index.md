@@ -12,6 +12,9 @@
 
 - <https://github.com/fitorec/conexion-mysql-persitencia-java>
 
+## Examen
+ - [Examen escrito](examen.html)
+
 ## Recursos:
 
  - [Driver mysql 5.0.8](../recursos/mysql-connector-java-5.0.8-bin.jar)
