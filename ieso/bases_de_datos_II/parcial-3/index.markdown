@@ -1,4 +1,7 @@
-UPS, este contenido todavía no ha sido publicado!
-====================================================
+Base de datos parcial III
+=========================================
 
-![homer_error_404][./../../homer_error_404.jpg)
+![tarea_claves_foraneas](../parcial-2/tarea_claves_foraneas.png)
+
+ > **Archivo base:** [mundial_esquema.sql](mundial_esquema.sql)
+
