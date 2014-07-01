@@ -6,6 +6,7 @@ Programación II
 ## Parciales:
  - [parcial 1](./parcial01/)
  - [parcial 2](./parcial-2/)
+ - [parcial 3](./parcial-3/)
 
 ### Software necesario:
  - Netbeans como IDE
