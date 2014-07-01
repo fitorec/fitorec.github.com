@@ -20,6 +20,10 @@
 	}
 
 <H3 id='trabajo-1'>Trabajo 1.- Objeto calificación</H3>
+
+> **Ver: [Calificacion.java](Calificacion.java)**
+
+
 Construya un objeto con el nombre **Calificacion**, que tenga como atributos(privados):
 
 - examen_puntos_obtenidos
