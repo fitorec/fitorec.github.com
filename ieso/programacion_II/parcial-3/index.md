@@ -4,7 +4,7 @@ Parcial 3
 ## Java Intermedio:
 
  - 1 [Implementación de bases en Java](bases-java.html).
- - 2 Instanciar e inicializar objetos.
+ - 2 [Instanciar e inicializar objetos](bases-java.html#instanciar-inicializar).
  - 3 Extensión de clases e implementación de clases.
  - 4 Clases finales y abstractas.
 
@@ -15,3 +15,9 @@ Parcial 3
  - 3 Definición.
  - 4 Uso.
 
+## Recursos:
+
+ - [**Tutorial Java IBM**](http://www.ibm.com/developerworks/ssa/java/tutorials/j-introtojava1/)
+ - [**Hilos en Java IBM dev**](http://www.ibm.com/developerworks/java/tutorials/j-threads/j-threads.html)
+ - [**Java Hilos Oracle**](http://docs.oracle.com/javase/tutorial/essential/concurrency/index.html)
+ - 
