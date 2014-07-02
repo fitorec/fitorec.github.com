@@ -21,3 +21,14 @@ Trabajamos con ella por ejemplo modificamos el archivo README.md, y luego lo agr
 Realizamos nuestra confirmación:
 
 	git commit -m 'Editando archivo README'
+
+## Agregando ramas remotas en los otros hosts
+
+ git branch -r
+ git branch pruebas origin/pruebas
+
+
+
+## Fuentes:
+
+http://stackoverflow.com/questions/11266478/git-add-remote-branch
