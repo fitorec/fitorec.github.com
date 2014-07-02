@@ -21,17 +21,17 @@
 
 <H3 id='trabajo-1'>Trabajo 1.- Objeto calificación</H3>
 
-> **Ver: [Calificacion.java](Calificacion.java)**
+
+Construya un objeto con el nombre **Calificación**, que tenga como atributos(privados):
+
+- `examen_puntos_obtenidos`
+- `examen_reactivos`
+
+Agregue los métodos de acceso(`get`, `set`) para estos atributos.
+> **Ver:  [`Calificacion.java`](Calificacion.java)**
 
 
-Construya un objeto con el nombre **Calificacion**, que tenga como atributos(privados):
-
-- examen_puntos_obtenidos
-- examen_reactivos
-
-Agregue los métodos de acceso(get,set) para estos atributos.
-
-Agregue el metodo publico **calificacionExamen**, que devuelva la calificacion del examen la cual esta dada por la siguiente formula:
+Agregue el método publico **calificacionExamen**, que devuelva la calificación del examen la cual esta dada por la siguiente formula:
 
  	calificacion_examen = (examen_puntos_obtenidos / examen_reactivos) * 100;  
 

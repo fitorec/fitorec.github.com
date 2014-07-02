@@ -8,6 +8,11 @@ Parcial 3
  - 3 Extensión de clases e implementación de clases.
  - 4 Clases finales y abstractas.
 
+### Lista de trabajos
+
+ - **1.** [Instanciar e inicializar objetos](bases-java.html#trabajo-1)
+
+
 ## Programación de Hilos:
 
  - 1 Que son los hilos de ejecución.

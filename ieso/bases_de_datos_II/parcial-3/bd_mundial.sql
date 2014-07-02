@@ -39,34 +39,4 @@ CREATE TABLE partidos(
     PRIMARY KEY (id)
 ) ENGINE = INNODB;
 
-
-
-ALTER TABLE `partidos`
-    ADD CONSTRAINT `partido_pais1`
-			FOREIGN KEY (`pais_id1`)
-			REFERENCES `paises` (`id`)
-    ADD CONSTRAINT `partido_pais2`
-			FOREIGN KEY (`pais_id2`)
-			REFERENCES `paises` (`id`)
-			ON DELETE CASCADE ON UPDATE CASCADE;
-
-ALTER TABLE `jugadores`
-    ADD CONSTRAINT `pais_jugadores`
-    FOREIGN KEY (`pais_id`)
-    REFERENCES `paises` (`id`)
-    ON DELETE CASCADE ON UPDATE CASCADE;
-
-
-ALTER TABLE `goles`
-	ADD CONSTRAINT `jugador_goles`
-		 FOREIGN KEY (`jugador_id`)
-		 REFERENCES `jugadores` (`id`),
-	ADD CONSTRAINT `pais_goles`
-			FOREIGN KEY (`pais_id`)
-			REFERENCES `paises` (`id`),
-	ADD CONSTRAINT `partido_goles`
-		 FOREIGN KEY (`partido_id`)
-			REFERENCES `partidos` (`id`)
-			ON DELETE CASCADE ON UPDATE CASCADE;
-
 SET FOREIGN_KEY_CHECKS=1;
