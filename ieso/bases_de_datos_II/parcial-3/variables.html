@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Variables en mysql</title>
+    <!-- Styles -->
+
+    <link rel="stylesheet" media="print" href="../../presentacion/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="../../presentacion/css/screen.css">
+
+
+    <!-- /Styles -->
+    <!-- Javascripts -->
+
+    <script type="text/javascript" src="../../presentacion/js/slides.js"></script>
+
+
+
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+
+      <!-- slide source: variables.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+
+            <header><h1>Variables en mysql</h1></header>
+
+
+            <section><blockquote>
+<p>Fuente: <a href="http://dev.mysql.com/doc/refman/5.0/es/variables.html">http://dev.mysql.com/doc/refman/5.0/es/variables.html</a></p>
+</blockquote></section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="variables.md">variables.md</a>
+            </aside>
+
+            <aside class="page_number">
+              1/5
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: variables.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+
+            <header><h1>Variables en mysql</h1></header>
+
+
+            <section><p>MySQL 5.0 soporta variables de usuario, las cuales permiten almacenar un valor y hacer referencia a él más tarde; esto posibilita pasar valores de una sentencia a otra. Las variables de usuario son específicas de la conexión. Esto significa que una variable definida por un cliente no puede ser vista o utilizada por otros clientes. Todas las variables de un cliente son automáticamente liberadas cuando ese cliente abandona la conexión.</p>
+<p>Las variables de usuario se escriben como <strong><code>@nombre_var</code></strong>, donde el nombre de variable <strong><code>nombre_var</code></strong> puede consistir de caracteres alfanuméricos tomados del conjunto de caracteres actual, <code>.</code>, <code>_</code>, y <code>$</code>. El conjunto de caracteres predeterminado es <code>ISO-8859-1</code> (<em>Latin1</em>).</p>
+<p>Esto puede cambiarse con la opción de <code>mysqld --default-character-set</code>. Consulte Sección 5.9.1, “El conjunto de caracteres utilizado para datos y ordenación”. Los nombres de variables de usuario no son sensibles a mayúsculas en MySQL 5.0.</p></section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="variables.md">variables.md</a>
+            </aside>
+
+            <aside class="page_number">
+              2/5
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: variables.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+
+
+            <section><p>Una forma de establecer una variable de usuario es empleando una sentencia SET:</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">SET</span> <span class="o">@</span><span class="n">nombre_var</span> <span class="o">=</span> <span class="n">expr</span> <span class="p">[,</span> <span class="o">@</span><span class="n">nombre_var</span> <span class="o">=</span> <span class="n">expr</span><span class="p">]</span> <span class="p">...</span>
+</pre></div>
+
+<p>Con <code>SET</code>, tanto <code>=</code> como <code>:=</code> pueden usarse como operadores de asignación.
+La <code>expr</code> asignada a cada variable puede evaluarse a un valor entero, real, cadena, o <code>NULL</code>. </p>
+<p>Una variable de usuario también puede recibir valores en otras sentencias que no sean SET. En este caso, el operador de asignación debe ser := y no = porque = se considera operador de comparación en otras sentencias que no sean SET:</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">SET</span> <span class="o">@</span><span class="n">t1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">@</span><span class="n">t2</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">@</span><span class="n">t3</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="lineno">2</span> <span class="k">SELECT</span> <span class="o">@</span><span class="n">t1</span><span class="p">:</span><span class="o">=</span><span class="p">(</span><span class="o">@</span><span class="n">t2</span><span class="p">:</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">+@</span><span class="n">t3</span><span class="p">:</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="o">@</span><span class="n">t1</span><span class="p">,</span><span class="o">@</span><span class="n">t2</span><span class="p">,</span><span class="o">@</span><span class="n">t3</span><span class="p">;</span>
+<span class="lineno">3</span> <span class="o">+</span><span class="c1">----------------------+------+------+------+</span>
+<span class="lineno">4</span> <span class="o">|</span> <span class="o">@</span><span class="n">t1</span><span class="p">:</span><span class="o">=</span><span class="p">(</span><span class="o">@</span><span class="n">t2</span><span class="p">:</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">+@</span><span class="n">t3</span><span class="p">:</span><span class="o">=</span><span class="mi">4</span> <span class="o">|</span> <span class="o">@</span><span class="n">t1</span>  <span class="o">|</span> <span class="o">@</span><span class="n">t2</span>  <span class="o">|</span> <span class="o">@</span><span class="n">t3</span>  <span class="o">|</span>
+<span class="lineno">5</span> <span class="o">+</span><span class="c1">----------------------+------+------+------+</span>
+<span class="lineno">6</span> <span class="o">|</span>                    <span class="mi">5</span> <span class="o">|</span>    <span class="mi">5</span> <span class="o">|</span>    <span class="mi">1</span> <span class="o">|</span>    <span class="mi">4</span> <span class="o">|</span>
+<span class="lineno">7</span> <span class="o">+</span><span class="c1">----------------------+------+------+------+</span>
+</pre></div>
+</section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="variables.md">variables.md</a>
+            </aside>
+
+            <aside class="page_number">
+              3/5
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: variables.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+
+
+            <section><p><strong>Nota:</strong> en una sentencia <code>SELECT</code>, cada expresión se evalúa solamente cuando se envía al cliente. Esto significa que en una cláusula <code>HAVING</code>, <code>GROUP BY</code>, u <code>ORDER BY</code>, no es posible hacer referencia a una expresión que comprenda variables que reciben su valor en la lista del <code>SELECT</code>.Por ejemplo, la siguiente sentencia no funcionará como se espera:</p>
+<pre><code>SELECT (@aa:=id) AS a, (@aa+3) AS b FROM tbl_name HAVING b=5;
+</code></pre>
+<p>La referencia a <strong>b</strong> en la cláusula <strong>HAVING</strong> hace referencia al alias de una expresión de la lista <strong>SELECT</strong> que hace uso de la variable <strong>@aa</strong>. Esto no funciona como se esperaría: <strong>@aa</strong> no contiene el valor de la fila actual, sino el valor del id de la fila anteriormente seleccionada.</p>
+<p>La regla general es que nunca se asigne un valor a una variable de usuario en una parte de una sentencia y se use la misma variable en otra parte de la misma sentencia. Se podrían obtener los resultados esperados, pero esto no está garantizado.</p></section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="variables.md">variables.md</a>
+            </aside>
+
+            <aside class="page_number">
+              4/5
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: variables.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+
+            <header><h2>Ejemplo:</h2></header>
+
+
+            <section><div class="highlight"><pre><span class="lineno"> 1</span> <span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">jugadores</span><span class="p">;</span>
+<span class="lineno"> 2</span> <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="n">jugadores</span><span class="p">(</span>
+<span class="lineno"> 3</span>         <span class="n">id</span> <span class="nb">INT</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+<span class="lineno"> 4</span>     <span class="n">pais_id</span> <span class="nb">INT</span> <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="lineno"> 5</span>     <span class="n">nombre</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">150</span><span class="p">),</span>
+<span class="lineno"> 6</span>     <span class="n">num_camiseta</span> <span class="nb">INT</span> <span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+<span class="lineno"> 7</span>     <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="lineno"> 8</span> <span class="p">)</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">INNODB</span><span class="p">;</span>
+<span class="lineno"> 9</span>
+<span class="lineno">10</span> <span class="k">SET</span> <span class="o">@</span><span class="n">pais_id</span> <span class="o">=</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">id</span> <span class="k">FROM</span> <span class="n">paises</span> <span class="k">WHERE</span> <span class="n">nombre</span> <span class="o">=</span> <span class="s1">&#39;Suiza&#39;</span><span class="p">);</span>
+<span class="lineno">11</span>
+<span class="lineno">12</span> <span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">jugadores</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">pais_id</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">nombre</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">num_camiseta</span><span class="o">`</span><span class="p">)</span> <span class="k">VALUES</span>
+<span class="lineno">13</span> <span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="o">@</span><span class="n">pais_id</span><span class="p">,</span> <span class="s1">&#39;Diego Benaglio&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+<span class="lineno">14</span> <span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="o">@</span><span class="n">pais_id</span><span class="p">,</span> <span class="s1">&#39;Stephan Lichtsteiner&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+
+<blockquote>
+<p>
+esquema mundial: <a href="bd_mundial.sql">bd_mundial</a>
+<br>
+Archivo fuente: <a href="ejemplo-insert.jugadores.sql">ejemplo-insert.jugadores</a>
+</p>
+</blockquote></section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="variables.md">variables.md</a>
+            </aside>
+
+            <aside class="page_number">
+              5/5
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+
+      <tr id="toc-row-1">
+        <th><a href="#slide1">Variables en mysql</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+
+
+      <tr id="toc-row-2">
+        <th><a href="#slide2">Variables en mysql</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+
+
+      <tr id="toc-row-3">
+        <th><a href="#slide3">-</a></th>
+        <td><a href="#slide3">3</a></td>
+      </tr>
+
+
+      <tr id="toc-row-4">
+        <th><a href="#slide4">-</a></th>
+        <td><a href="#slide4">4</a></td>
+      </tr>
+
+
+        <tr id="toc-row-5" class="sub">
+          <th><a href="#slide5">Ejemplo:</a></th>
+          <td><a href="#slide5">5</a></td>
+        </tr>
+
+
+
+    </table>
+  </div>
+
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>

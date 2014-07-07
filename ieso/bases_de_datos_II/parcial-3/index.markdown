@@ -89,7 +89,9 @@ Esta consulta utiliza la variable en la cláusula "where" para filtrar los resul
 	
 	SELECT @pais_id;
 
+
 Referencias
 
 <http://www.ehowenespanol.com/utilizar-variables-instruccion-select-mysql-como_201199/>
 
+### [variables](variables.html);
