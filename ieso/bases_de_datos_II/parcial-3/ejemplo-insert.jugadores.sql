@@ -1,3 +1,4 @@
+SET NAMES utf8;
 
 DROP TABLE IF EXISTS jugadores;
 CREATE TABLE IF NOT EXISTS jugadores(
@@ -9,7 +10,23 @@ CREATE TABLE IF NOT EXISTS jugadores(
 ) ENGINE = INNODB;
 
 SET @pais_id = (SELECT id FROM paises WHERE nombre = 'Suiza');
+-- SELECT @pais_id;
 
 INSERT INTO `jugadores`(`id`, `pais_id`, `nombre`, `num_camiseta`) VALUES
 (null, @pais_id, 'Diego Benaglio', 1),
 (null, @pais_id, 'Stephan Lichtsteiner',2);
+
+-- ------------------------------------------------------------------ --
+-- Insertando los jugadores del segundo pais.                         --
+-- ------------------------------------------------------------------ --
+
+SET @pais2_id = (
+	SELECT id
+	FROM paises
+	WHERE nombre = 'Otro pais'
+);
+-- SELECT @pais2_id;
+
+INSERT INTO `jugadores`(`id`, `pais_id`, `nombre`, `num_camiseta`) VALUES
+(null, @pais2_id, 'Diego Benaglio', 1),
+(null, @pais2_id, 'Stephan Lichtsteiner',2);

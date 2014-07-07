@@ -11,6 +11,7 @@
 -- las imagenes de las banderas estan dadas por:
 --  la más pequeña: http://img.fifa.com/images/flags/1/mex.png
 --  la más grande : http://img.fifa.com/images/flags/5/mex.png
+SET NAMES utf8;
 
 DROP TABLE IF EXISTS `paises`;
 
