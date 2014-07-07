@@ -37,9 +37,10 @@ CREATE TABLE partidos(
     id  INT (3) NOT NULL AUTO_INCREMENT,
     pais_id1 INT(2),
     pais_id2 INT (2),
-    fecha_hora DATETIME,
     goles_pais_id1 INT (2),
     goles_pais_id2 INT (2),
+    fecha_hora DATETIME,
+    estadio VARCHAR( 150 ),
     PRIMARY KEY (id)
 ) ENGINE = INNODB;
 
