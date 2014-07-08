@@ -19,7 +19,6 @@ INSERT INTO `jugadores`(`id`, `pais_id`, `nombre`, `num_camiseta`) VALUES
 -- ------------------------------------------------------------------ --
 -- Insertando los jugadores del segundo pais.                         --
 -- ------------------------------------------------------------------ --
-
 SET @pais2_id = (
 	SELECT id
 	FROM paises

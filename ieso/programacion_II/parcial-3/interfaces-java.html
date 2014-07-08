@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>index</title>
+<title>interfaces-java</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
@@ -291,33 +291,73 @@ img {
 </style>
 </head>
 <body>
-<h1>Parcial 3</h1>
-<h2>Java Intermedio:</h2>
+<h1>Interfaces en Java</h1>
+<p>Una interfaz en java es un conjunto de métodos abstractos y propiedades. En ellas se especifica qué se debe hacer pero no su implementación. Serán las clases que implementen estas interfaces las que describan la lógica del comportamiento de los métodos.</p>
+<h2>Ventajas al utilizar interfaces:</h2>
 <ul>
-<li>1 <a href="bases-java.html">Implementación de bases en Java</a>.</li>
-<li>2 <a href="bases-java.html#instanciar-inicializar">Instanciar e inicializar objetos</a>.</li>
-<li>3 Extensión de clases e implementación de clases.</li>
-<li>4 <a href="clases-abstractas.html">Clases finales y abstractas</a>.</li>
-<li>5 <a href="interfaces-java.html">Interfaces</a>;</li>
+<li>Se organiza la programación.</li>
+<li>Obligar a que ciertas clases utilicen los mismos métodos (nombres y parámetros).</li>
+<li>Establecer relaciones entre clases que no estén relacionadas.</li>
+<li>Permite que una clase implemente múltiples interfaces.</li>
 </ul>
-<h3>Lista de trabajos</h3>
-<ul>
-<li><strong>1.</strong> <a href="bases-java.html#trabajo-1">Instanciar e inicializar objetos</a></li>
-</ul>
-<h2>Programación de Hilos:</h2>
-<ul>
-<li>1 Que son los hilos de ejecución.</li>
-<li>2 Declaración de hilos.</li>
-<li>3 Definición.</li>
-<li>4 Uso.</li>
-</ul>
-<h2>Recursos:</h2>
-<ul>
-<li><a href="http://www.ibm.com/developerworks/ssa/java/tutorials/j-introtojava1/"><strong>Tutorial Java IBM</strong></a></li>
-<li><a href="http://www.ibm.com/developerworks/java/tutorials/j-threads/j-threads.html"><strong>Hilos en Java IBM dev</strong></a></li>
-<li><a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/index.html"><strong>Java Hilos Oracle</strong></a></li>
-<li></li>
-</ul>
+<h2>Cómo usarlas?</h2>
+<p>Java utiliza dos palabras reservadas para trabajar con interfaces que son <code>interface</code> e  <code>implements</code>.</p>
+<p>Para declarar una interfaz se debe seguir el siguiente orden:</p>
+<pre><code>&lt;modificador_acceso&gt; interface &lt;NombreInterfaz&gt; {
+    // código de interfaz
+}
+</code></pre>
+
+<h2>Ejemplo completo:</h2>
+<pre><code>interface ProductoInterface {
+    abstract public double stockActual();
+    abstract public String descripcion();
+}
+
+class ProductoPorKilo implements ProductoInterface {
+    private double kilogramos = 0;
+    private String nombre = &quot;&quot;;
+
+    public ProductoPorKilo (String nombre, double kg) {
+        this.kilogramos = kg;
+        this.nombre = nombre;
+    }
+
+    public double stockActual() {
+        return this.kilogramos;
+    }
+    public String descripcion() {
+        return &quot;Producto por kilos &quot;+
+                this.nombre + &quot; Stock actual&quot; +
+                this.kilogramos + &quot; Kilogramos&quot;;
+    }
+}
+class ProductoPorPieza implements ProductoInterface {
+    private double piezas = 0;
+    private String nombre = &quot;&quot;;
+
+    public ProductoPorPieza (String nombre, double pz) {
+        this.piezas = pz;
+        this.nombre = nombre;
+    }
+
+    public double stockActual() {
+        return this.piezas;
+    }
+    public String descripcion() {
+        return &quot;Producto por pieza&quot;+
+                this.nombre + &quot; Stock actual&quot; +
+                this.piezas + &quot; Piezas&quot;;
+    }
+}
+public class pruebaInterfaces {
+    public static void main(String a[]) {
+        ProductoPorKilo manzanas = new ProductoPorKilo(&quot;Manzanas&quot;, 50.0);
+        ProductoPorPieza autos = new ProductoPorPieza(&quot;Autos&quot;, 6);
+    }
+}
+</code></pre>
+
 
 </body>
 </html>
