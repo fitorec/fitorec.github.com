@@ -97,5 +97,5 @@ Referencias
 ## Recursos
  - [Presentacion variables](variables.html) 
  - [Obteniendo los partidos del mundial](https://gist.github.com/fitorec/9c85e452a78342d0bdd2);
- - [jugadores.sql][./jugadores.sql]
+ - [jugadores.sql](./jugadores.sql])
  
