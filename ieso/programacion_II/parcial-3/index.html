@@ -291,32 +291,84 @@ img {
 </style>
 </head>
 <body>
-<h1>Parcial 3</h1>
-<h2>Java Intermedio:</h2>
+<h1>Base de datos parcial III</h1>
+<p><img src="../parcial-2/tarea_claves_foraneas.png" alt="tarea_claves_foraneas" /></p>
+<blockquote>
+<p><strong>Archivo base:</strong> <a href="mundial_esquema.sql">mundial_esquema.sql</a></p>
+<p><strong>Esquema:</strong> <a href="bd_mundial.sql">bd_mundial</a></p>
+</blockquote>
+<h2>Variables en mysql</h2>
+<p>Podemos definir una variable en una declaración y luego utilizarla en otra.</p>
+<p>Para declarar variables utilizando la sintaxis</p>
+<pre><code>SET @var_name = value;
+</code></pre>
+
+<p>Al crear las variables, puedes utilizar cualquiera de los tipos de datos enteros, decimales, punto flotante, binarios, cadena o nulos.</p>
+<p>MySQL convierte otros tipos de datos, como Boolean, a los tipos permisibles. Al salir de MySQL, las variables definidas son liberadas.</p>
+<h3>Paso 1</h3>
+<p>Abre MySQL y accede a la herramienta de consulta.</p>
+<h3>Paso 2</h3>
+<p>Escribe y ejecuta las siguientes consultas:</p>
+<pre><code>SET @var1=5;
+SET @var2='Hello';
+SET @var3=True;
+SELECT @var1, @var2, @var3;
+</code></pre>
+
+<p>MySQL muestra todas las variables en su propia columna debido a los tipos de datos diferentes. Ten en cuenta que la tercera variable utiliza un valor booleano, pero MySQL la convierte en &quot;1&quot;, el equivalente entero de la &quot;true&quot; (verdadero).</p>
+<h3>Paso 3</h3>
+<p>Escribe y ejecuta las siguientes consultas:</p>
+<pre><code>SET @var1=2;
+SET @var2=3;
+SET @var3=4;
+
+SELECT @var1+@var2+@var3;
+</code></pre>
+
+<p>MySQL muestra los resultados en una sola columna y muestra &quot;9&quot;, la suma de los tres valores de la variable.</p>
+<h3>Paso 4</h3>
+<p>Escribe y ejecuta las siguientes consultas</p>
+<pre><code>SET @var1 = b'1000011';
+
+SELECT @var1;
+</code></pre>
+
+<p>Esta consulta convierte el número binario en un número decimal, luego devuelve el valor ASCII, en este caso, el carácter &quot;C&quot; en mayúscula.</p>
+<h3>Paso 5</h3>
+<p>Escribe y ejecuta las siguientes consultas:</p>
+<pre><code>SET @var1 = CAST(b'10001' AS UNSIGNED), @var2 = b'10001'+10;
+
+SELECT @var1, @var2;
+</code></pre>
+
+<p>MySQL utiliza la función de conversión para convertir el parámetro binario a un entero sin signo, que en este caso es igual a 17 y lo asigna a la primera variable. También convierte la segunda variable de binario a un entero y luego agrega 10 para el total de 27.</p>
+<h3>Paso 6</h3>
+<p>Escribe y ejecuta las siguientes consultas:</p>
+<pre><code>SET @pais_nombre='México';
+
+SELECT *
+    FROM paises AS Pais
+    WHERE Pais.nombre = @pais_nombre;
+</code></pre>
+
+<p>Esta consulta utiliza la variable en la cláusula &quot;where&quot; para filtrar los resultados de la instrucción SELECT.</p>
+<h3>Paso 7</h3>
+<pre><code>SET @pais_id = (
+    SELECT id
+    FROM paises
+    WHERE nombre = 'México'
+);
+
+SELECT @pais_id;
+</code></pre>
+
+<p>Referencias</p>
+<p><a href="http://www.ehowenespanol.com/utilizar-variables-instruccion-select-mysql-como_201199/">http://www.ehowenespanol.com/utilizar-variables-instruccion-select-mysql-como_201199/</a></p>
+<h2>Recursos</h2>
 <ul>
-<li>1 <a href="bases-java.html">Implementación de bases en Java</a>.</li>
-<li>2 <a href="bases-java.html#instanciar-inicializar">Instanciar e inicializar objetos</a>.</li>
-<li>3 Extensión de clases e implementación de clases.</li>
-<li>4 <a href="clases-abstractas.html">Clases finales y abstractas</a>.</li>
-<li>5 <a href="interfaces-java.html">Interfaces</a>;</li>
-</ul>
-<h3>Lista de trabajos</h3>
-<ul>
-<li><strong>1.</strong> <a href="bases-java.html#trabajo-1">Instanciar e inicializar objetos</a></li>
-</ul>
-<h2>Programación de Hilos:</h2>
-<ul>
-<li>1 Que son los hilos de ejecución.</li>
-<li>2 Declaración de hilos.</li>
-<li>3 Definición.</li>
-<li>4 Uso.</li>
-</ul>
-<h2>Recursos:</h2>
-<ul>
-<li><a href="http://www.ibm.com/developerworks/ssa/java/tutorials/j-introtojava1/"><strong>Tutorial Java IBM</strong></a></li>
-<li><a href="http://www.ibm.com/developerworks/java/tutorials/j-threads/j-threads.html"><strong>Hilos en Java IBM dev</strong></a></li>
-<li><a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/index.html"><strong>Java Hilos Oracle</strong></a></li>
-<li></li>
+<li><a href="variables.html">Presentacion variables</a> </li>
+<li><a href="https://gist.github.com/fitorec/9c85e452a78342d0bdd2">Obteniendo los partidos del mundial</a>;</li>
+<li>[jugadores.sql][./jugadores.sql]</li>
 </ul>
 
 </body>

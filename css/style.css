@@ -122,7 +122,7 @@ h3,h4,h5,h6{
 }
 /* #----------------- */
 del{
-	color: #BFBFBF; 
+	color: #BFBFBF;
 }
 cite{
 	color: #4D4D4D;
@@ -194,7 +194,7 @@ div#content{
 	min-width:600px;
 	max-width:99%;
 	resize: both;
-	overflow: auto; 
+	overflow: auto;
 }
 a#fitorec{
 	background:#BFBFBF URL(logo.png) no-repeat;
@@ -225,15 +225,15 @@ a#fitorec:hover{
 	font-size: 0.8em;
 }
 #head{
-	background:#333 URL(../img/join.png);
-	width:900px;
-	height:200px;
-	margin:-30px 0 0 -30px;
-	background-position:right top;
-	border-bottom:100px solid RGBA(0,201,255,0.6);
-	-webkit-box-shadow:0 1px 0 RGBA(0,65,82,0.7),0 1px 10px #00CAFF;
-	-moz-box-shadow:0 1px 0 RGBA(0,65,82,0.7),0 1px 10px #00CAFF;
-	-ms-box-shadow:0 1px 0 RGBA(0,65,82,0.7),0 1px 10px #00CAFF;
-	-o-box-shadow:0 1px 0 RGBA(0,65,82,0.7),0 1px 10px #00CAFF;
-	box-shadow:0 1px 0 RGBA(0,65,82,0.7),0 1px 10px #00CAFF;
+	background: #333 URL(../img/join.png);
+	width: 730px;
+	height: 200px;
+	margin: -30px 0 0 -30px;
+	background-position: right top;
+	border-bottom: 100px solid RGBA(0,201,255,0.6);
+	-webkit-box-shadow: 0 1px 0 RGBA(0,65,82,0.7),0 1px 10px #00CAFF;
+	   -moz-box-shadow: 0 1px 0 RGBA(0,65,82,0.7),0 1px 10px #00CAFF;
+	    -ms-box-shadow: 0 1px 0 RGBA(0,65,82,0.7),0 1px 10px #00CAFF;
+	     -o-box-shadow: 0 1px 0 RGBA(0,65,82,0.7),0 1px 10px #00CAFF;
+	        box-shadow: 0 1px 0 RGBA(0,65,82,0.7),0 1px 10px #00CAFF;
 }

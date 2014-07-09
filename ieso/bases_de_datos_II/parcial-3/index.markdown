@@ -93,7 +93,9 @@ Esta consulta utiliza la variable en la cláusula "where" para filtrar los resul
 Referencias
 
 <http://www.ehowenespanol.com/utilizar-variables-instruccion-select-mysql-como_201199/>
+
 ## Recursos
- - [Presentacion variables](variables.html)
- - 
+ - [Presentacion variables](variables.html) 
  - [Obteniendo los partidos del mundial](https://gist.github.com/fitorec/9c85e452a78342d0bdd2);
+ - [jugadores.sql][./jugadores.sql]
+ 

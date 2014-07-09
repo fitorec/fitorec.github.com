@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Jueguito Seleccionar equipo</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../css/commons.css" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jueguito-agregar-usuarios.js"></script>
+</head>
+<style type="text/css" media="all">
+#tablero {
+	width: 670px;
+	height: 505px;
+	background: #000;
+}
+#tablero .equipo {
+	float: left;
+	width: 49.5%;
+	margin: 0.2% 0.2%;
+	height: 250px;
+	text-align: center;
+	background: #BFBFBF;
+}
+
+#equipo-0.active,
+#equipo-0:hover {
+	background: #A6FF38;
+}
+
+#equipo-2.active,
+#equipo-1:hover {
+	background: #FF4600;
+}
+
+#equipo-2.active,
+#equipo-2:hover {
+	background: #2CA6FF;
+}
+#equipo-3.active,
+#equipo-3:hover {
+	background: #BD64FF;
+}
+/**
+ - equipo 1.- 15%
+ - equipo 2.- 12%
+ - equipo 3.-  8%
+ - equipo 4.-  5%
+**/
+</style>
+<body>
+<div id="content">
+	<div id="head">
+		<a href='http://fitorec.github.com' id='fitorec'></a>
+	</div>
+	<h2>Agregue su Nombre:</h2>
+	<form action="" method="post" id='agregarUsuario'>
+		<input type="text" id="nombreUsuario" placeholder="P.e. Janitzio " id="nombreUsuario" />
+		<button class='btn btn-primary'>Agregar Participante</button>
+	</form>
+<div id="tablero">
+	<div class="equipo" id="equipo-0"></div>
+	<div class="equipo" id="equipo-1"></div>
+	<div class="equipo" id="equipo-2"></div>
+	<div class="equipo" id="equipo-3"></div>
+</div>
+</div><!-- end content -->
+</body>
+</html>
