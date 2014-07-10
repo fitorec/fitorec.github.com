@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>index</title>
+<title>hilos</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
@@ -291,34 +291,82 @@ img {
 </style>
 </head>
 <body>
-<h1>Parcial 3</h1>
-<h2>Java Intermedio:</h2>
-<ul>
-<li>1 <a href="bases-java.html">Implementación de bases en Java</a>.</li>
-<li>2 <a href="bases-java.html#instanciar-inicializar">Instanciar e inicializar objetos</a>.</li>
-<li>3 Extensión de clases e implementación de clases.</li>
-<li>4 <a href="clases-abstractas.html">Clases finales y abstractas</a>.</li>
-<li>5 <a href="interfaces-java.html">Interfaces</a>;</li>
-<li>6 <a href="hilos.html">Concurrencia</a></li>
-</ul>
-<h3>Lista de trabajos</h3>
-<ul>
-<li><strong>1.</strong> <a href="bases-java.html#trabajo-1">Instanciar e inicializar objetos</a></li>
-</ul>
-<h2>Programación de Hilos:</h2>
-<ul>
-<li>1 Que son los hilos de ejecución.</li>
-<li>2 Declaración de hilos.</li>
-<li>3 Definición.</li>
-<li>4 Uso.</li>
-</ul>
-<h2>Recursos:</h2>
-<ul>
-<li><a href="http://www.ibm.com/developerworks/ssa/java/tutorials/j-introtojava1/"><strong>Tutorial Java IBM</strong></a></li>
-<li><a href="http://www.ibm.com/developerworks/java/tutorials/j-threads/j-threads.html"><strong>Hilos en Java IBM dev</strong></a></li>
-<li><a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/index.html"><strong>Java Hilos Oracle</strong></a></li>
-<li></li>
-</ul>
+<h1>Hilos en Java</h1>
+<p>A veces necesitamos que nuestro programa <strong>Java</strong> realice varias cosas simultáneamente. Otras veces tiene que realizar una tarea muy pesada, por ejemplo, consultar en la agenda telefónica de todos los nombres en minúscula que tengan la letra n, que tarda mucho y no deseamos que todo se quede parado mientras se realiza dicha tarea. Para conseguir que Java haga varias cosas a la vez o que el programa no se quede parado mientras realiza una tarea compleja, tenemos los hilos (<strong><em>Threads</em></strong>).
+Crear un Hilo</p>
+<p>Crear un hilo en java es una tarea muy sencilla. Basta <strong>heredar de la clase Thread</strong> y <strong>definir</strong> el <strong>método <code>run()</code></strong>. Luego <strong>se instancia esta clase y se llama al método <code>start()</code></strong> para que arranque el hilo. Más o menos esto</p>
+<pre><code>public MiHilo extends Thread
+{
+   public void run()
+   {
+      // Aquí el código pesado que tarda mucho
+   }
+};
+...
+MiHilo elHilo = new MiHilo();
+elHilo.start();
+System.out.println(&quot;Yo sigo a lo mio&quot;);
+</code></pre>
+
+<p>Listo. Hemos creado una clase MiHilo que hereda de Thread y con un método run(). En el método run() pondremos el código que queremos que se ejecute en un hilo separado. Luego instanciamos el hilo con un new MiHilo() y lo arrancamos con elHilo.start(). El System.out que hay detrás se ejecutará inmediatamente después del start(), haya terminado o no el código del hilo.
+Detener un hilo</p>
+<p>Suele ser una costumbre bastante habitual que dentro del método run() haya un bucle infinito, de forma que el método run() no termina nunca. Por ejemplo, supongamos un chat. Cuando estás chateando, el programa que tienes entre tus manos está haciendo dos cosas simultáneamente. Por un lado, lee el teclado para enviar al servidor del chat todo lo que tú escribas. Por otro lado, está leyendo lo que llega del servidor del chat para escribirlo en tu pantalla. Una forma de hacer esto es &quot;por turnos&quot;</p>
+<pre><code>while (true) {
+   leeTeclado();
+   enviaLoLeidoAlServidor();
+   leeDelServidor();
+   muestraEnPantallaLoLeidoDelServidor();
+}
+</code></pre>
+
+<p>Esta, desde luego, es una opción, pero sería bastante &quot;cutre&quot;, tendríamos que hablar por turnos. Yo escribo algo, se le envía al servidor, el servidor me envía algo, se pinta en pantalla y me toca a mí otra vez. Si no escribo nada, tampoco recibo nada. Quizás sea buena opción para los que no son ágiles leyendo y escribiendo, pero no creo que le guste este mecanismo a la mayoría de la gente.</p>
+<p>Lo normal es hacer dos hilos, ambos en un bucle infinito, leyendo (del teclado o del servidor) y escribiendo (al servidor o a la pantalla). Por ejemplo, el del teclado puede ser así</p>
+<pre><code>public void run() {
+   while (true) {
+      String texto = leeDelTeclado();
+      enviaAlServidor(texto);
+   }
+}
+</code></pre>
+
+<p>Esta opción es mejor, dos hilos con dos bucles infinitos, uno encargado del servidor y otro del teclado.</p>
+<p>Ahora viene la pregunta del millón. Si queremos detener este hilo, ¿qué hacemos?. Los Thread de java tienen muchos métodos para parar un hilo: detroy(), stop(), suspend() ... Pero, si nos paramos a mirar la API de Thread, nos llevaremos un chasco. Todos esos métodos son inseguros, están obsoletos, desaconsejados o las tres cosas juntas.</p>
+<p>¿Cómo paramos entonces el hilo?</p>
+<p>La mejor forma de hacerlo es implementar nosotros mismos un mecanismo de parar, que lo único que tiene que hacer es terminar el método run(), saliendo del bucle.</p>
+<p>Un posible mecanismo es el siguiente</p>
+<pre><code>public class MiHilo extends Thread {
+   // boolean que pondremos a false cuando queramos parar el hilo
+   private boolean continuar = true;
+
+   // metodo para poner el boolean a false.
+   public void detenElHilo() {
+      continuar=false;
+   }
+
+   // Metodo del hilo
+   public void run() {
+      // mientras continuar ...
+      while (continuar) {
+          String texto = leeDelTeclado();
+          enviaAlServidor(texto);
+      }
+   }
+}
+</code></pre>
+
+<p>Simplemente hemos puesto en la clase un boolean para indicar si debemos seguir o no con el bucle infinito. Por defecto a true. Luego hemos añadido un método para cambiar el valor de ese boolean a false. Finalmente hemos cambiado la condición del bucle que antes era true y ahora es continuar.</p>
+<p>Para parar este hilo, es sencillo</p>
+<pre><code>MiHilo elHilo = new MiHilo();
+elHilo.start();
+// Ya tenemos el hilo arrancado
+...
+// Ahora vamos a detenerlo
+elHilo.detenElHilo();
+</code></pre>
+
+<blockquote>
+<p>Fuente: <a href="http://www.chuidiang.com/java/hilos/hilos_java.php">http://www.chuidiang.com/java/hilos/hilos_java.php</a></p>
+</blockquote>
 
 </body>
 </html>

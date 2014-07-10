@@ -8,6 +8,7 @@ Parcial 3
  - 3 Extensión de clases e implementación de clases.
  - 4 [Clases finales y abstractas](clases-abstractas.html).
  - 5 [Interfaces](interfaces-java.html);
+ - 6 [Concurrencia](hilos.html)
 
 ### Lista de trabajos
 
