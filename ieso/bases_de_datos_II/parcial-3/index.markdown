@@ -7,7 +7,10 @@ Base de datos parcial III
  > 
  > **Esquema:** [bd_mundial](bd_mundial.sql)
 
- 
+
+### [Examen practico](examen_practico.html)
+
+
 ## Variables en mysql
 
 Podemos definir una variable en una declaración y luego utilizarla en otra.
@@ -100,5 +103,3 @@ Esta consulta utiliza la variable en la cláusula "where" para filtrar los resul
  - [jugadores.sql](./jugadores.sql])
  - [transacciones **realizado en clase**](./transacciones.sql)
  - [funciones_basicas **realizado en clase**](./funciones_basicas.sql)
-
-
