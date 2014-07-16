@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>index</title>
+<title>ejemplo-hilos-interfaces</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
@@ -291,88 +291,34 @@ img {
 </style>
 </head>
 <body>
-<h1>Base de datos parcial III</h1>
-<p><img src="../parcial-2/tarea_claves_foraneas.png" alt="tarea_claves_foraneas" /></p>
-<blockquote>
-<p><strong>Archivo base:</strong> <a href="mundial_esquema.sql">mundial_esquema.sql</a></p>
-<p><strong>Esquema:</strong> <a href="bd_mundial.sql">bd_mundial</a></p>
-</blockquote>
-<h2>Variables en mysql</h2>
-<p>Podemos definir una variable en una declaración y luego utilizarla en otra.</p>
-<p>Para declarar variables utilizando la sintaxis</p>
-<pre><code>SET @var_name = value;
+<h2>Competencia de Hilos, la carrera.</h2>
+<h2>Hilos Threads</h2>
+<h3>Método yield()</h3>
+<p>El método yield() tiene la función de hacer que un hilo que se está ejecutando de regreso al estado en “listo para ejecutar” para permitir que otros hilos de la misma prioridad puedan ejecutarse. Sin embargo, el funcionamiento de este método (al igual que de los hilos en general) no está garantizado, puede que después de que se establezca un hilo por medio del método yield() a su estado “listo para ejecutar”, éste vuelva a ser elegido para ejecutarse. El método yield() nunca causará que un hilo pase a estado de espera/bloqueado/dormido, simplemente pasa de ejecutándose(running) a  “listo para ejecutar”.</p>
+<p>Generando un número aleatorio:</p>
+<pre><code>public int randInt(int min, int max) {
+    Random rand = new Random();
+    int randomNum = rand.nextInt((max - min) + 1) + min;
+
+    return randomNum;
+}
 </code></pre>
 
-<p>Al crear las variables, puedes utilizar cualquiera de los tipos de datos enteros, decimales, punto flotante, binarios, cadena o nulos.</p>
-<p>MySQL convierte otros tipos de datos, como Boolean, a los tipos permisibles. Al salir de MySQL, las variables definidas son liberadas.</p>
-<h3>Paso 1</h3>
-<p>Abre MySQL y accede a la herramienta de consulta.</p>
-<h3>Paso 2</h3>
-<p>Escribe y ejecuta las siguientes consultas:</p>
-<pre><code>SET @var1=5;
-SET @var2='Hello';
-SET @var3=True;
-SELECT @var1, @var2, @var3;
+<h3>El método sleep()</h3>
+<p>El método <code>sleep()</code> simplemente le dice al <strong>Thread</strong> que duerma durante los <strong>milisegundos específicos</strong>. Se debería utilizar <code>sleep()</code> cuando se pretenda retrasar la ejecución del <strong>Thread</strong>, <code>sleep()</code> no consume recursos del sistema mientras el <strong>Thread</strong> duerme. De  esta forma otros <strong>Threads</strong> seguir funcionando:</p>
+<pre><code>hilo.sleep(1000) //Duerme al hilo 1 seg
 </code></pre>
 
-<p>MySQL muestra todas las variables en su propia columna debido a los tipos de datos diferentes. Ten en cuenta que la tercera variable utiliza un valor booleano, pero MySQL la convierte en &quot;1&quot;, el equivalente entero de la &quot;true&quot; (verdadero).</p>
-<h3>Paso 3</h3>
-<p>Escribe y ejecuta las siguientes consultas:</p>
-<pre><code>SET @var1=2;
-SET @var2=3;
-SET @var3=4;
-
-SELECT @var1+@var2+@var3;
-</code></pre>
-
-<p>MySQL muestra los resultados en una sola columna y muestra &quot;9&quot;, la suma de los tres valores de la variable.</p>
-<h3>Paso 4</h3>
-<p>Escribe y ejecuta las siguientes consultas</p>
-<pre><code>SET @var1 = b'1000011';
-
-SELECT @var1;
-</code></pre>
-
-<p>Esta consulta convierte el número binario en un número decimal, luego devuelve el valor ASCII, en este caso, el carácter &quot;C&quot; en mayúscula.</p>
-<h3>Paso 5</h3>
-<p>Escribe y ejecuta las siguientes consultas:</p>
-<pre><code>SET @var1 = CAST(b'10001' AS UNSIGNED), @var2 = b'10001'+10;
-
-SELECT @var1, @var2;
-</code></pre>
-
-<p>MySQL utiliza la función de conversión para convertir el parámetro binario a un entero sin signo, que en este caso es igual a 17 y lo asigna a la primera variable. También convierte la segunda variable de binario a un entero y luego agrega 10 para el total de 27.</p>
-<h3>Paso 6</h3>
-<p>Escribe y ejecuta las siguientes consultas:</p>
-<pre><code>SET @pais_nombre='México';
-
-SELECT *
-    FROM paises AS Pais
-    WHERE Pais.nombre = @pais_nombre;
-</code></pre>
-
-<p>Esta consulta utiliza la variable en la cláusula &quot;where&quot; para filtrar los resultados de la instrucción SELECT.</p>
-<h3>Paso 7</h3>
-<pre><code>SET @pais_id = (
-    SELECT id
-    FROM paises
-    WHERE nombre = 'México'
-);
-
-SELECT @pais_id;
-</code></pre>
-
-<blockquote>
-<h3>Referencias</h3>
-<p><a href="http://www.ehowenespanol.com/utilizar-variables-instruccion-select-mysql-como_201199/">http://www.ehowenespanol.com/utilizar-variables-instruccion-select-mysql-como_201199/</a></p>
-</blockquote>
-<h2 id='recursos'>Recursos</h2>
+<h3>método currentThread()</h3>
+<p>Para saber qué hilo se encuentra en ejecución en un momento determinado, existe el método estático Thread.currentThread().
+Thread.currentThread().getName() te devuelve un valor de tipo cadena con el nombre del hilo en ejecución, si no has definido un nombre con el método setName(), de igual manera el proceso lo tendrá, algo muy parecido a Thread-0, Thread-1, etc</p>
+<h2>Lista de Recursos:</h2>
 <ul>
-<li><a href="variables.html">Presentacion variables</a> </li>
-<li><a href="https://gist.github.com/fitorec/9c85e452a78342d0bdd2">Obteniendo los partidos del mundial</a>;</li>
-<li><a href="./jugadores.sql]">jugadores.sql</a></li>
-<li><a href="./transacciones.sql">transacciones <strong>realizado en clase</strong></a></li>
-<li><a href="./funciones_basicas.sql">funciones_basicas <strong>realizado en clase</strong></a></li>
+<li><a href="juego_imgs.zip">juego_imgs.zip</a></li>
+<li><a href="http://docs.oracle.com/javase/tutorial/uiswing/components/frame.html">JFrame oracle</a></li>
+<li><a href="http://www.dreamincode.net/forums/topic/206344-basic-gui-in-java-using-jframes/">JFrame tutorial</a></li>
+<li><a href="http://codejavu.blogspot.mx/2013/08/jframe-y-jdialog.html">JFrame tuturial español</a></li>
+<li><a href="http://www.geocities.com/spunk1111/transp.htm">Imgs con Asscii</a></li>
 </ul>
 
 </body>

@@ -6,9 +6,11 @@ Parcial 3
  - 1 [Implementación de bases en Java](bases-java.html).
  - 2 [Instanciar e inicializar objetos](bases-java.html#instanciar-inicializar).
  - 3 Extensión de clases e implementación de clases.
- - 4 [Clases finales y abstractas](clases-abstractas.html).
+ - 4 [Clases finales y abstractas](clases-abstractas.html)
+    - 4.1 [clases finales](error.html). 
  - 5 [Interfaces](interfaces-java.html);
  - 6 [Concurrencia](hilos.html)
+     - 6.1 [Ejemplo-hilos-interfaces.html](Ejemplo-hilos-interfaces.html)
 
 ### Lista de trabajos
 

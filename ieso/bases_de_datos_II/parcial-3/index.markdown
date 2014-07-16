@@ -90,12 +90,15 @@ Esta consulta utiliza la variable en la cláusula "where" para filtrar los resul
 	SELECT @pais_id;
 
 
-Referencias
+> ### Referencias
+> <http://www.ehowenespanol.com/utilizar-variables-instruccion-select-mysql-como_201199/>
 
-<http://www.ehowenespanol.com/utilizar-variables-instruccion-select-mysql-como_201199/>
+<h2 id='recursos'>Recursos</h2>
 
-## Recursos
  - [Presentacion variables](variables.html) 
  - [Obteniendo los partidos del mundial](https://gist.github.com/fitorec/9c85e452a78342d0bdd2);
  - [jugadores.sql](./jugadores.sql])
- 
+ - [transacciones **realizado en clase**](./transacciones.sql)
+ - [funciones_basicas **realizado en clase**](./funciones_basicas.sql)
+
+

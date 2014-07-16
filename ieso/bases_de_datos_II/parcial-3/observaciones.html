@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>index</title>
+<title>observaciones</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
@@ -291,89 +291,49 @@ img {
 </style>
 </head>
 <body>
-<h1>Base de datos parcial III</h1>
-<p><img src="../parcial-2/tarea_claves_foraneas.png" alt="tarea_claves_foraneas" /></p>
-<blockquote>
-<p><strong>Archivo base:</strong> <a href="mundial_esquema.sql">mundial_esquema.sql</a></p>
-<p><strong>Esquema:</strong> <a href="bd_mundial.sql">bd_mundial</a></p>
-</blockquote>
-<h2>Variables en mysql</h2>
-<p>Podemos definir una variable en una declaración y luego utilizarla en otra.</p>
-<p>Para declarar variables utilizando la sintaxis</p>
-<pre><code>SET @var_name = value;
+<h1>Observaciones</h1>
+<p>En la linea 149, ¿no siempre se forsa a que el resultado sea falso?</p>
+<pre><code>    gui/src/models/TipoDeClienteModel.java
 </code></pre>
 
-<p>Al crear las variables, puedes utilizar cualquiera de los tipos de datos enteros, decimales, punto flotante, binarios, cadena o nulos.</p>
-<p>MySQL convierte otros tipos de datos, como Boolean, a los tipos permisibles. Al salir de MySQL, las variables definidas son liberadas.</p>
-<h3>Paso 1</h3>
-<p>Abre MySQL y accede a la herramienta de consulta.</p>
-<h3>Paso 2</h3>
-<p>Escribe y ejecuta las siguientes consultas:</p>
-<pre><code>SET @var1=5;
-SET @var2='Hello';
-SET @var3=True;
-SELECT @var1, @var2, @var3;
-</code></pre>
-
-<p>MySQL muestra todas las variables en su propia columna debido a los tipos de datos diferentes. Ten en cuenta que la tercera variable utiliza un valor booleano, pero MySQL la convierte en &quot;1&quot;, el equivalente entero de la &quot;true&quot; (verdadero).</p>
-<h3>Paso 3</h3>
-<p>Escribe y ejecuta las siguientes consultas:</p>
-<pre><code>SET @var1=2;
-SET @var2=3;
-SET @var3=4;
-
-SELECT @var1+@var2+@var3;
-</code></pre>
-
-<p>MySQL muestra los resultados en una sola columna y muestra &quot;9&quot;, la suma de los tres valores de la variable.</p>
-<h3>Paso 4</h3>
-<p>Escribe y ejecuta las siguientes consultas</p>
-<pre><code>SET @var1 = b'1000011';
-
-SELECT @var1;
-</code></pre>
-
-<p>Esta consulta convierte el número binario en un número decimal, luego devuelve el valor ASCII, en este caso, el carácter &quot;C&quot; en mayúscula.</p>
-<h3>Paso 5</h3>
-<p>Escribe y ejecuta las siguientes consultas:</p>
-<pre><code>SET @var1 = CAST(b'10001' AS UNSIGNED), @var2 = b'10001'+10;
-
-SELECT @var1, @var2;
-</code></pre>
-
-<p>MySQL utiliza la función de conversión para convertir el parámetro binario a un entero sin signo, que en este caso es igual a 17 y lo asigna a la primera variable. También convierte la segunda variable de binario a un entero y luego agrega 10 para el total de 27.</p>
-<h3>Paso 6</h3>
-<p>Escribe y ejecuta las siguientes consultas:</p>
-<pre><code>SET @pais_nombre='México';
-
-SELECT *
-    FROM paises AS Pais
-    WHERE Pais.nombre = @pais_nombre;
-</code></pre>
-
-<p>Esta consulta utiliza la variable en la cláusula &quot;where&quot; para filtrar los resultados de la instrucción SELECT.</p>
-<h3>Paso 7</h3>
-<pre><code>SET @pais_id = (
-    SELECT id
-    FROM paises
-    WHERE nombre = 'México'
-);
-
-SELECT @pais_id;
-</code></pre>
-
-<blockquote>
-<h3>Referencias</h3>
-<p><a href="http://www.ehowenespanol.com/utilizar-variables-instruccion-select-mysql-como_201199/">http://www.ehowenespanol.com/utilizar-variables-instruccion-select-mysql-como_201199/</a></p>
-</blockquote>
-<h2 id='recursos'>Recursos</h2>
+<h2>Quitar función Main de</h2>
+<p>En algunos objetos se definió la función <strong>main</strong> con el objetivo de probar determinada funcionalidad, hoy en día en caso de existir una prueba <code>junit</code>  para estos objetos resultan necesarias estas funciones <strong>main</strong>.</p>
+<p>Crear una prueba <strong>Jnuit</strong> y pasar la logica del main en la siguiente lista de clases</p>
 <ul>
-<li><a href="variables.html">Presentacion variables</a> </li>
-<li><a href="https://gist.github.com/fitorec/9c85e452a78342d0bdd2">Obteniendo los partidos del mundial</a>;</li>
-<li><a href="./jugadores.sql]">jugadores.sql</a></li>
-<li><a href="./transacciones.sql">transacciones <strong>realizado en clase</strong></a></li>
-<li><a href="./funciones_basicas.sql">funciones_basicas <strong>realizado en clase</strong></a></li>
+<li>gui/src/matriz/VentanaClienteAbonarPedidos.java:499</li>
+<li>gui/src/matriz/VentanaClienteFacturar.java:193</li>
+<li>gui/src/matriz/VentanaClienteFormulario.java:430</li>
+<li>gui/src/matriz/VentanaClienteVer.java:780</li>
+<li>gui/src/matriz/VentanaEmpleadoAgregar.java:167</li>
+<li>gui/src/matriz/VentanaEmpleados.java:372</li>
+<li>gui/src/matriz/VentanaInformacionSistema.java:148</li>
+<li>gui/src/matriz/VentanaPedidoCancelado.java:276</li>
+<li>gui/src/matriz/VentanaPedidos.java:482</li>
+<li>gui/src/matriz/VentanaPrincipal.java:757</li>
+<li>gui/src/matriz/VentanaProductoFormulario.java:246</li>
+<li>gui/src/matriz/VentanaProductos.java:320</li>
+<li>gui/src/matriz/VentanaReporteDia.java:136</li>
+<li>gui/src/matriz/VentanaTiposDeClientes.java:404</li>
+<li>gui/src/matriz/VentanaTiposDeClientes.java:526</li>
+<li>gui/src/models/ProductoModel.java:315</li>
+<li>gui/src/reportes/RepClientesSaldo.java:233</li>
+<li>gui/src/reportes/RepCobradoresAbonos.java:294</li>
+<li>gui/src/reportes/RepFactura.java:343</li>
+<li>gui/src/reportes/RepListaClientes.java:124</li>
+<li>gui/src/reportes/RepListaPrecios.java:153</li>
+<li>gui/src/reportes/RepPedido.java:256</li>
+<li>gui/src/sucursal/VenInicioDia.java:163</li>
+<li>gui/src/sucursal/VenSucCambio.java:154</li>
+<li>gui/src/sucursal/VenSucClientes.java:287</li>
+<li>gui/src/utils/MD5CheckSumExample.java:7</li>
+<li>gui/src/views/Helper.java:336</li>
+<li>gui/src/views/VentanaError.java:110</li>
+<li>gui/src/views/VentanaLogin.java:153</li>
 </ul>
+<blockquote>
+<p><strong>Nota:</strong> El único objeto que puede contener la funcion main es el <strong><code>Run</code></strong> el cual es un disparador de la aplicación :</p>
+<p>gui/src/Run.java:36</p>
+</blockquote>
 
 </body>
 </html>
