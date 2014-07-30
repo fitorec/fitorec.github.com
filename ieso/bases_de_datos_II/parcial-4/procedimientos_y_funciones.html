@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Funciones y procedimientos en MySQL</title>
+    <!-- Styles -->
+
+    <link rel="stylesheet" media="print" href="../../presentacion/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="../../presentacion/css/screen.css">
+
+
+    <!-- /Styles -->
+    <!-- Javascripts -->
+
+    <script type="text/javascript" src="../../presentacion/js/slides.js"></script>
+
+
+
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+
+      <!-- slide source: procedimientos_y_funciones.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+
+            <header><h1>Funciones y procedimientos en MySQL</h1></header>
+
+
+            <section><div class="highlight"><pre><span class="lineno">1</span> <span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="n">sp_name</span> <span class="p">([</span><span class="k">parameter</span><span class="p">[,...]])</span>
+<span class="lineno">2</span>     <span class="p">[</span><span class="n">characteristic</span> <span class="p">...]</span> <span class="n">routine_body</span>
+<span class="lineno">3</span>
+<span class="lineno">4</span> <span class="k">CREATE</span> <span class="k">FUNCTION</span> <span class="n">sp_name</span> <span class="p">([</span><span class="k">parameter</span><span class="p">[,...]])</span>
+<span class="lineno">5</span>     <span class="k">RETURNS</span> <span class="k">type</span>
+<span class="lineno">6</span>     <span class="p">[</span><span class="n">characteristic</span> <span class="p">...]</span> <span class="n">routine_body</span>
+</pre></div>
+
+<p>Estos comandos crean una rutina almacenada. Desde MySQL 5.0.3, para crear una rutina, es necesario tener el permiso CREATE ROUTINE , y los permisos ALTER ROUTINE y EXECUTE se asignan automáticamente a su creador</p>
+<p>Por defecto, la rutina se asocia con la base de datos actual. Para asociar la rutina explícitamente con una base de datos, especifique el nombre como db_name.sp_name al crearlo. </p></section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="procedimientos_y_funciones.md">procedimientos_y_funciones.md</a>
+            </aside>
+
+            <aside class="page_number">
+              1/4
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: procedimientos_y_funciones.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+
+            <header><h1>Funciones</h1></header>
+
+
+            <section><div class="highlight"><pre><span class="lineno">1</span> <span class="k">delimiter</span> <span class="o">//</span>
+<span class="lineno">2</span> <span class="k">CREATE</span> <span class="k">FUNCTION</span> <span class="n">hola</span> <span class="p">(</span><span class="n">s</span> <span class="nb">CHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span> <span class="k">RETURNS</span> <span class="nb">CHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="lineno">3</span>     <span class="k">RETURN</span> <span class="n">CONCAT</span><span class="p">(</span><span class="s1">&#39;Hola, &#39;</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="s1">&#39;!&#39;</span><span class="p">);</span>
+<span class="lineno">4</span> <span class="k">delimiter</span> <span class="p">;</span>
+<span class="lineno">5</span>
+<span class="lineno">6</span> <span class="c1">-- Ejecutamos la función.</span>
+<span class="lineno">7</span> <span class="k">SELECT</span> <span class="n">hola</span><span class="p">(</span><span class="s1">&#39;Mundo&#39;</span><span class="p">);</span>
+</pre></div>
+
+<p>La cláusula RETURNS puede especificarse sólo con FUNCTION, donde es obligatorio. Se usa para indicar el tipo de retorno de la función, y el cuerpo de la función debe contener un comando RETURN value.</p>
+<p>La lista de parámetros entre paréntesis debe estar siempre presente. Si no hay parámetros, se debe usar una lista de parámetros vacía () . Cada parámetro es un parámetro IN por defecto. Para especificar otro tipo de parámetro, use la palabra clave OUT o INOUT antes del nombre del parámetro. Especificando IN, OUT, o INOUT sólo es valido para una PROCEDURE.</p>
+<h1>Borrando</h1>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">DROP</span> <span class="k">FUNCTION</span> <span class="n">hola</span><span class="p">;</span>
+</pre></div>
+</section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="procedimientos_y_funciones.md">procedimientos_y_funciones.md</a>
+            </aside>
+
+            <aside class="page_number">
+              2/4
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: procedimientos_y_funciones.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+
+            <header><h1>Procedimientos</h1></header>
+
+
+            <section><div class="highlight"><pre><span class="lineno">1</span> <span class="k">delimiter</span> <span class="o">//</span>
+<span class="lineno">2</span> <span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="n">simple_procedimiento</span> <span class="p">(</span><span class="n">param1</span> <span class="nb">INT</span><span class="p">)</span>
+<span class="lineno">3</span>     <span class="k">BEGIN</span>
+<span class="lineno">4</span>         <span class="k">SET</span> <span class="o">@</span><span class="n">x</span> <span class="o">=</span> <span class="n">param1</span><span class="p">;</span>
+<span class="lineno">5</span>     <span class="k">END</span>
+<span class="lineno">6</span>  <span class="o">//</span>
+<span class="lineno">7</span> <span class="k">delimiter</span> <span class="p">;</span>
+<span class="lineno">8</span> <span class="k">CALL</span> <span class="n">simple_procedimiento</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span>
+<span class="lineno">9</span> <span class="k">SELECT</span> <span class="o">@</span><span class="n">x</span><span class="p">;</span>
+</pre></div>
+</section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="procedimientos_y_funciones.md">procedimientos_y_funciones.md</a>
+            </aside>
+
+            <aside class="page_number">
+              3/4
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+      <!-- slide source: procedimientos_y_funciones.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+
+            <header><h1>Recursos:</h1></header>
+
+
+            <section><pre><code>- &lt;http://dev.mysql.com/doc/refman/5.0/es/show-create-procedure.html&gt;
+</code></pre></section>
+
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+
+            </section>
+          </div>
+          <footer>
+
+            <aside class="source">
+              Source: <a href="procedimientos_y_funciones.md">procedimientos_y_funciones.md</a>
+            </aside>
+
+            <aside class="page_number">
+              4/4
+            </aside>
+          </footer>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+
+      <tr id="toc-row-1">
+        <th><a href="#slide1">Funciones y procedimientos en MySQL</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+
+
+      <tr id="toc-row-2">
+        <th><a href="#slide2">Funciones</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+
+
+      <tr id="toc-row-3">
+        <th><a href="#slide3">Procedimientos</a></th>
+        <td><a href="#slide3">3</a></td>
+      </tr>
+
+
+      <tr id="toc-row-4">
+        <th><a href="#slide4">Recursos:</a></th>
+        <td><a href="#slide4">4</a></td>
+      </tr>
+
+
+    </table>
+  </div>
+
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>

@@ -1,7 +1,7 @@
--- CREATE DATABASE prueba_triggers;
+CREATE DATABASE prueba_triggers;
 USE prueba_triggers;
 
--- Borramos y creamos tabla alumnos
+-- Borramos(si existe) y Creamos tabla alumnos
 DROP TABLE IF EXISTS alumnos;
 CREATE TABLE alumnos(
 	id INT(3)
@@ -12,7 +12,7 @@ CREATE TABLE alumnos(
 	fecha_registro DATETIME
 );
 
--- Creando la tabla logs para guardar
+-- Borramos(si existe) y creamos la tabla logs para guardar
 -- los eventos de la tabla
 DROP TABLE IF EXISTS logs;
 CREATE TABLE logs(
@@ -27,8 +27,9 @@ CREATE TABLE logs(
 -- genere el campo
 -- fecha_registro con el valor NOW()
 DROP TRIGGER IF EXISTS auto_gen_fecha_reg;
-DROP TRIGGER IF EXISTS borrando_alumno;
 DROP TRIGGER IF EXISTS despues_de_add_user;
+DROP TRIGGER IF EXISTS borrando_alumno;
+DROP TRIGGER IF EXISTS antes_de_edit_user;
 DROP TRIGGER IF EXISTS despues_de_edit_user;
 
 delimiter //
@@ -53,6 +54,20 @@ CREATE TRIGGER despues_de_add_user
 			CONCAT('Despues de guardar alumno: ', NEW.nombre)
 		);
 	 END;//
+
+
+CREATE TRIGGER antes_de_edit_user
+	AFTER UPDATE ON alumnos
+	FOR EACH ROW
+	BEGIN
+		SET @tam_nombre = LENGTH(NEW.nombre);
+		IF @tam_nombre < 6
+		THEN
+			SIGNAL SQLSTATE '45000';
+			SET @MESSAGE_TEXT = 'El nombre del alumno no puede ser menor a 6 caracteres';
+		END IF;
+	END;//
+-- Agregar un after update.
 
 CREATE TRIGGER despues_de_edit_user
 	AFTER UPDATE ON alumnos

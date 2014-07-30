@@ -2,8 +2,10 @@
 # Base de datos II, Parcial 4.
 
 ## Temario.
- - [Disparadores](disparadores.html).
- - Manejo de señales.
- - Administración de usuarios y permisos.
- - Topicos de seguridad
+ - [Disparadores y manejo de señales](disparadores.html).
+ - [Procedimientos almacenados](procedimientos_y_funciones.html).
+ - [Administración de usuarios y permisos](privilegios_mysql.html).
+ - [Proyectos Finales](proyectos_finales.html)
+
+
 

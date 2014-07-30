@@ -1,0 +1,14 @@
+div.highlight pre {
+	background: #eee;
+	border: 1px solid #ccc;
+	padding: 0 !important;
+}
+
+div.highlight pre .lineno{
+	background: #ccc;
+	padding-left: 10px;
+	border-left: 1px solid #bbb;
+}
+pre, .gist .gist-file .gist-data{
+	padding-left: 0 !important;
+}

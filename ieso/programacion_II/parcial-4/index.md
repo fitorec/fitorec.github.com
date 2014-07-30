@@ -2,13 +2,15 @@
 
 ## Programación de dispositivo móbiles
 
+
 ### PhoneGap
 
-- Instalacion de phoneGap
-- 
+ - [PhoneGap](instalacion_phonegap.html)
+ - 
+ - 
 
 ## Android
-- [Instalacion ambiente de trabajo para android.](instalacion.html)
+ - [Instalacion ambiente de trabajo para android.](instalacion.html)
 
 
 ## Links:
