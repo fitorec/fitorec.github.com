@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<script type="text/javascript">
+var alumnos = [
+{
+nombre : 'AVENDAÑO PALACIOS CRISTIAN DE JESUS', color: 'naranja', evaluaciones : [0,0,0,0,0]
+},
+{
+nombre : 'BETANZOS LOPEZ ALEXANDER', color: 'verde', evaluaciones : [0,0,0,0,0]
+},
+{
+nombre : 'CONTRERAS LARA MANUEL DE JESUS', color: 'amarillo', evaluaciones : [0,0,0,0,0]
+},
+{
+nombre : 'GARCIA MENDEZ  PERLA SARAI', color: 'verde', evaluaciones : [0,0,0,0,0]
+},
+{
+nombre : 'HERNANDEZ ALDAS JANET ESPERANZA', color: 'naranja', evaluaciones : [0,0,0,0,0]
+},
+{
+nombre : 'MARCIAL VELASCO ALEJANDRO', color: 'amarillo', evaluaciones : [0,0,0,0,0]
+},
+{
+nombre : 'MELCHOR TOLEDO JULIETTE', color: 'naranja', evaluaciones : [0,0,0,0,0]
+},
+{
+nombre : 'REYES AGUIRRE KEVIN GERARDO', color: 'naranja', evaluaciones : [0,0,0,0,0]
+},
+{
+nombre : 'SANCHEZ MARTINEZ JOSE ANGEL', color: 'amarillo', evaluaciones : [0,0,0,0,0]
+},
+{
+nombre : 'VAZQUEZ HERNANDEZ DULCE ANDREA', color: 'amarillo', evaluaciones : [0,0,0,0,0]
+},
+{
+nombre : 'VELASQUEZ HERNANDEZ SARAHI', color: 'verde', evaluaciones : [0,0,0,0,0]
+},
+{
+nombre : 'ZARATE ESCOBAR GEMMA RUBY', color: 'verde', evaluaciones : [0,0,0,0,0]
+}
+];
+</script>
+<style type="text/css" media="all">
+tr.naranja {
+	background: #F7A749;
+}
+tr.verde {
+	background: #49F770;
+}
+tr.amarillo {
+	background: #F1F130;
+}
+</style>
+	<title>sin título</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.24" />
+</head>
+
+<body>
+
+<table id='tablaEvaluaciones'>
+	<thead>
+		<tr>
+			<th>Nombre</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+</body>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript">
+$(function() {
+	$tbody = $('#tablaEvaluaciones tbody');
+	$(alumnos).each(function() {
+		var alumno = this;
+		var tr = '<tr class="'+alumno.color+'"><td>'+alumno.nombre+'</td></tr>';
+		$tbody.append(tr);
+	});
+});
+</script>
+</html>

@@ -1,5 +1,8 @@
 # Parcial 3
 
+
+## [Java tricks](java-tricks.html)
+
 ## Programación de dispositivo móbiles
 
 
