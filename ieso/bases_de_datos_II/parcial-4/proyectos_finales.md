@@ -2,31 +2,49 @@
 
 El proyecto final se realizara por equipos, analizaran una base de datos de un sistema existente, realizaran una pequeña aplicación que se conecte a la base de datos del sistema en cuestión.
 
-La evaluación de su proyecto sera presentando su aplicación (algún jar), y hablaran acerca de la base de datos del sistema en cuestión, en donde los participantes podremos realizar distintas preguntas.
-
-## Moodle
-
-Sistema e-lerning:
-
-<http://docs.moodle.org/dev/Quiz_database_structure>
-
-## Magento
-
-Sistema e-commerce:
-
-- <http://www.magentocommerce.com/wiki/_media/doc/magento---sample_database_diagram.png?cache=cache>
-- <http://www.examulator.com/er/>
+La evaluación de su proyecto sera presentando su aplicación (algún _jar_), y hablaran acerca de la base de datos del sistema en cuestión, en donde los participantes podremos realizar distintas preguntas.
 
 
-## Wordpress
-Sistema de blog:
- - <http://codex.wordpress.org/Database_Description>
+## Moodle - Sistema e-lerning :
 
+ - Mostrar lista de usuarios.
+ - Mostrar la lista de clases de determinado grupo.
 
-## Joomla
+> Puede observar la bd en cuestión: <http://docs.moodle.org/dev/Quiz_database_structure>
+ 
+------------------------------------
 
-Sistema manejador de contenidos:
+## Magento - Sistema e-commerce :
 
- - <http://docs.joomla.org/J1.5:Database_structure>
+ - Mostrar lista de usuarios.
+ - Mostrar productos por determinada 
 
+> Puede observar la bd en cuestión: <http://www.magentocommerce.com/wiki/_media/doc/magento---sample_database_diagram.png?cache=cache>
 
+------------------------------------
+
+## Wordpress - Sistema de blog :
+
+ - Mostrar lista de usuarios.
+ - Mostrar los posts con determinada etiqueta.
+ - Mostrar los posts de determinada categoría.
+
+> Puede observar la bd en cuestión: <http://codex.wordpress.org/Database_Description>
+ 
+------------------------------------
+
+## Joomla - Sistema manejador de contenidos(CMS) :
+
+ - Mostrar lista de usuarios.
+ - Mostrar contenidos y subcategorias en determinada categoría.
+ - Mostrar contenidos por etiqueta.
+
+> Puede observar la bd en cuestión: <http://docs.joomla.org/J1.5:Database_structure>
+ 
+------------------------------------
+
+## Drupal - Sistema manejador d contenidos(CMS)
+
+ - <http://drupal.org>
+
+------------------------------------
