@@ -4,6 +4,15 @@
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/tsh16X76-SI" frameborder="0" allowfullscreen></iframe>
 
+# Aplicación de ejemplo
+
+![enlase_phonegap](enlase_phonegap.png)
+
+> en github: <https://github.com/fitorec/phonegab-tst>
+
+
+---------------------
+
 ### Instalando node.js
 
 Lo primero que tenemos que hacer para instalar **phonegap** es instalar su dependencia principal **Node.Js** la cual la podemos instalar desde la siguiente liga:
