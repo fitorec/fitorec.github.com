@@ -10,6 +10,8 @@
 
 > en github: <https://github.com/fitorec/phonegab-tst>
 
+> PhoneGap en la nube <https://build.phonegap.com/people/sign_in>
+
 
 ---------------------
 
