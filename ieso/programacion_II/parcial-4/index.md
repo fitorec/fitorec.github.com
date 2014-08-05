@@ -1,14 +1,13 @@
-# Parcial 3
+# Parcial 4
 
 
-## [Java tricks](java-tricks.html)
+### [Java tricks](java-tricks.html)
 
 ## Programación de dispositivo móbiles
 
-
 ### PhoneGap
 
- - [PhoneGap](instalacion_phonegap.html)
+ - [PhoneGap](phonegap.html)
  - 
  - 
 
