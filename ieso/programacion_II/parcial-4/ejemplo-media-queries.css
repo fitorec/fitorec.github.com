@@ -1,0 +1,18 @@
+body {
+	background: #4D4D4D;
+	text-align:center
+}
+
+h1 {
+	color: #FF5976;
+	text-shadow: 1px 1px 3px RGBA(0,0,0,0.5);
+}
+
+img {
+	border: 5px solid #00C669;
+	border-radius: 10px;
+	opacity: 0.5;
+}
+img:hover {
+	opacity: 1;
+}

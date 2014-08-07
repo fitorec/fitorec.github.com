@@ -265,7 +265,49 @@ Para aplicar una hoja de estilo solo en orientación vertical (portrait):
 
 ---------------------------------------------------
 
+# Ejemplo:
 
+Observe el siguiente documento:
+
+	!html
+	<!DOCTYPE html>
+	<html>
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <title>Ejemplo Media Queries</title>
+	    <link rel="stylesheet" href="ejemplo-media-queries.css">
+	</head>
+	<body>
+		<h1>¿Y mis $50,00?</h1>
+		<img src="http://i.ytimg.com/vi/IwwpMNqBZQY/0.jpg" alt="imagen canaca"/>
+	</body>
+	</html>
+
+Vamos ha definir el diseño de esta pagina a partir de algunos atributos que vamos a extraer de [**CSS3 please**](http://css3please.com/), como vemos a continuación.
+
+------------------------------------------------------------------
+
+## CSS Ejemplo:
+
+
+	body {
+		background: #4D4D4D;
+		text-align:center
+	}
+	
+	h1 {
+		color: #FF5976;
+		text-shadow: 1px 1px 3px RGBA(0,0,0,0.5);
+	}
+	
+	img {
+		border: 5px solid #00C669;
+		border-radius: 10px;
+		opacity: 0.5;
+	}
+	img:hover {
+		opacity: 1;
+	}
 
 
 ## Fuentes:
