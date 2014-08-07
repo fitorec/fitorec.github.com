@@ -8,8 +8,8 @@
 ### PhoneGap
 
  - [PhoneGap](phonegap.html)
- - 
- - 
+ - [CSS Media Queries](css-media-queries.html)
+
 
 ## Android
  - [Instalacion ambiente de trabajo para android.](instalacion.html)

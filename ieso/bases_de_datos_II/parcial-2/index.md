@@ -3,6 +3,7 @@
  - Relaciones y conjunto de relaciones
  - [Integridad en BD](integridad.html).
  - [Claves foraneas](claves-foreaneas.html).
+ - [Manejo de variables](variables.html).
 
 ## Trabajos
 
