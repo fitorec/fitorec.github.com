@@ -28,4 +28,8 @@ Usted puede descargar la aplicación desde con el siguiente código QR:
 > ![chart.png](chart.png)
 
 
- 
+ ------------------
+# La vida es mas que una aventura con Git
+
+![adventure-cat.jpg](adventure-cat.jpg)
+
