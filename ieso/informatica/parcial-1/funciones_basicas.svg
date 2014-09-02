@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Documento nuevo 1">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="394.3139"
+     inkscape:cy="729.43797"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g3784">
+      <rect
+         ry="32.827972"
+         y="228.0899"
+         x="215.01344"
+         height="142.83029"
+         width="302.83029"
+         id="rect2985"
+         style="fill:#ffcc00;fill-opacity:1;stroke:#806600;stroke-width:4;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3755"
+         y="313.07651"
+         x="230"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="313.07651"
+           x="230"
+           id="tspan3757"
+           sodipodi:role="line">Procesamiento</tspan></text>
+      <g
+         id="g3779">
+        <path
+           style="fill:#44aa00;fill-opacity:1;stroke:#225500;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           d="m 103.24107,236.82589 -1.03125,27.75 -87.937499,0 0,70 85.34375,0 -1.03125,27.78125 111.031249,-58.71875 -106.375,-66.8125 z"
+           id="path3759"
+           inkscape:connector-curvature="0" />
+        <text
+           xml:space="preserve"
+           style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#e5ffd5;fill-opacity:1;stroke:none;font-family:Sans"
+           x="22.142857"
+           y="313.67355"
+           id="text3764"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan3766"
+             x="22.142857"
+             y="313.67355">Entrada</tspan></text>
+      </g>
+      <g
+         transform="translate(-7.1428572,0)"
+         id="g3774">
+        <path
+           inkscape:connector-curvature="0"
+           id="path3768"
+           d="m 619.66964,237.54018 -1.03125,27.75 -87.9375,0 0,70 85.34375,0 -1.03125,27.78125 111.03125,-58.71875 -106.375,-66.8125 z"
+           style="fill:#ff2a2a;fill-opacity:1;stroke:#ff0000;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text3770"
+           y="314.38785"
+           x="557.5329"
+           style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#f9f9f9;fill-opacity:1;stroke:none;font-family:Sans"
+           xml:space="preserve"><tspan
+             y="314.38785"
+             x="557.5329"
+             id="tspan3772"
+             sodipodi:role="line">Salida</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>
