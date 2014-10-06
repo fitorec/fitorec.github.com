@@ -1,4 +1,11 @@
+
+
 # Informatica 4
+
+
+## [Ejemplo 01](./ejemplo_01/index.html)
+
+
 
 > **Instrucciones**: Lea detenidamente las instrucciones, al final exporte cada una de las imágenes que se le piden a una dimensión de 100px(aprox.) de ancho y envielas al correo <a href='mailto:chanerec@gmail.com'>chanerec@gmail.com</a>.
 
