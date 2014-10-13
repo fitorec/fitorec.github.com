@@ -1,5 +1,8 @@
 #Curso de Informática
 
+
+## [Examen segundo parcial](./parcial_2/examen.html)
+
 Que el alumno identifique las aplicaciones que tiene la Informática en el ámbito de la Administración, utilizará las aplicaciones de: **Internet**, **procesador de textos**, **hoja electrónica** y **presentaciones de multimedia**, como una herramienta de trabajo.
 
 
