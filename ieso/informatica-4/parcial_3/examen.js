@@ -1,6 +1,6 @@
 $(function() {
 	var numRandom = $.cookie("numRandom");
-	if(typeof(numRandom) != undefined) {
+	if(numRandom>0) {
 		mostrarImg(numRandom);
 	}
 	// Handler for .ready() called.
