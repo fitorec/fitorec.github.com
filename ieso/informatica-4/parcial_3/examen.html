@@ -288,19 +288,26 @@ table tr:nth-child(2n) {
 img {
   max-width: 100%
 }
+
+#examen,
+p.impar, p.par{
+	display:none;
+}
 </style>
+<link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap.min.css" />
 </head>
 <body>
-<h1>Informática 4</h1>
-<h3>- <a href="./ejemplo_01/index.html">Ejemplo 01</a></h3>
-<h3>- <a href="logotipos.pdf">Ejercicios Logotipos</a></h3>
-<h3>- <a href="http://joaclintistgud.wordpress.com/2011/04/14/inkscape-logo-a-logo-2%C2%AA-edicion/">Inkscape Curso logo a logo</a></h3>
-<h2>Examenes</h2>
-<ul class="">
-	<li><a href="./examen_parcial_1.html">Examen 1er parcial</a></li>
-	<li><a href="./parcial_2/examen.html">Examen 2do parcial</a></li>
-	<li><a href="./parcial_3/examen.html">Examen 3er parcial</a></li>
-</ul>
+<h1>Examen parcial 3</h1>
+
+<p><a href='#' id='mostrarImg' class='btn btn-primary  btn-lg'> Mostrar Examen</a></p>
+<div id='examen' style='display:none'>
+	<h2>Caricaturice la siguiente imagen:</h2>
+
+	<p class='par'><img src="./brad-pitt.jpg" alt="brad pitt" title="" /></p>
+	<p class='impar'><img src="./marilyn-monroe.jpg" alt="Marilyn Monroe" title="" /></p>
+</div>
+ <script src="../../js/jquery.js"></script>
+<script type="text/javascript" src="jquery.cookie.js"></script>
+<script type="text/javascript" src="examen.js"></script>
 </body>
 </html>
-<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
