@@ -3,7 +3,7 @@
    with background-size: cover in the SVG (<style>)
 */
 html{
-	background-color:#ad00ad;
+	background-color: #ad00ad;
 }
 @font-face {
 	font-family: MiloScript;
@@ -23,7 +23,8 @@ html{
 	position: relative;
 	/* direction: rtl; */
 	top: 100px;
-	left: 40%;
+	/* left: 50%; */
+	text-align: center;
 	color: #E5F7EC;
 	cursor: pointer;
     cursor: hand;
