@@ -55,6 +55,8 @@ Instala lo básico para Ubuntu **10.10** (`Proyecto descontinuado`).
  - **openCart plugin** - Código & manual del desarrollo de un _plugin_ de _openCart_ para redes sociales.
  - [**Inkscape dibuja Libremente**](./inkscape_dibuja_libremente/)
 
+# Bitácora de Actividad
+ - _2006-07-17_ - [Detección y corrección de error al instalar el traductor del WPS](https://github.com/wps-community/wps_i18n/issues/365).
 
 ##Blog personal:
 
