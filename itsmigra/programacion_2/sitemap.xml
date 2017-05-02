@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://fitorec.github.io/itsmigra/programacion_2/tutorial/3.2.controles_de_acceso_a_datos/</loc>
+    <lastmod>2017-05-02T04:44:13-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://fitorec.github.io/itsmigra/programacion_2/tutorial/3_unidad_acceso_a_datos/</loc>
+    <lastmod>2017-05-02T04:40:58-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://fitorec.github.io/itsmigra/programacion_2/tutorial/temario/</loc>
+    <lastmod>2017-05-02T04:24:21-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://fitorec.github.io/itsmigra/programacion_2/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://fitorec.github.io/itsmigra/programacion_2/</loc>
+    <lastmod>2017-05-02T04:44:13-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://fitorec.github.io/itsmigra/programacion_2/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://fitorec.github.io/itsmigra/programacion_2/tutorial/</loc>
+    <lastmod>2017-05-02T04:44:13-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
