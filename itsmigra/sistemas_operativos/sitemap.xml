@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://fitorec.github.io/itsmigra/sistemas_operativos/unidad_03/politica_y_filosofia/</loc>
+    <lastmod>2017-05-02T09:48:52-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://fitorec.github.io/itsmigra/sistemas_operativos/temario/</loc>
     <lastmod>2017-05-02T09:32:14-05:00</lastmod>
   </url>
@@ -13,12 +18,18 @@
   
   <url>
     <loc>http://fitorec.github.io/itsmigra/sistemas_operativos/</loc>
-    <lastmod>2017-05-02T09:32:14-05:00</lastmod>
+    <lastmod>2017-05-02T09:48:52-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://fitorec.github.io/itsmigra/sistemas_operativos/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://fitorec.github.io/itsmigra/sistemas_operativos/unidad_03/</loc>
+    <lastmod>2017-05-02T09:48:52-05:00</lastmod>
     <priority>0</priority>
   </url>
   
