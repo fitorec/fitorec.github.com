@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/temario/</loc>
+    <lastmod>2017-05-02T09:32:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/</loc>
+    <lastmod>2017-05-02T09:32:14-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
