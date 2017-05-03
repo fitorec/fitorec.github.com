@@ -13,3 +13,19 @@ table tbody tr td span.fechas {
 table tbody tr td span.fechas .final::before{
 	content: ' / '
 }
+
+th.dia_de_clase {
+	background: #2179B2;
+	color: white;
+	text-shadow: 1px 1px 1px #000;
+}
+
+table thead tr th {
+	background: #EEE;
+	border: 1px solid #CECECE;
+}
+
+body > section:nth-child(1) > div > nav > div.nav-left > a > h1 {
+	color: #E34900;
+	font-weight: bold;
+}
