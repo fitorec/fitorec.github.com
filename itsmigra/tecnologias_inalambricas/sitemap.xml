@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://fitorec.github.io/itsmigra/tecnologias_inalambricas/capitulo_03/</loc>
+    <lastmod>2017-05-04T08:26:15-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://fitorec.github.io/itsmigra/tecnologias_inalambricas/temario/</loc>
     <lastmod>2017-05-04T04:13:45-05:00</lastmod>
   </url>
@@ -18,7 +23,7 @@
   
   <url>
     <loc>http://fitorec.github.io/itsmigra/tecnologias_inalambricas/</loc>
-    <lastmod>2017-05-04T04:13:45-05:00</lastmod>
+    <lastmod>2017-05-04T08:26:15-05:00</lastmod>
     <priority>0</priority>
   </url>
   
