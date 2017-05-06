@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="es-mx">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="3.1. Definición de una Clase - Programación Orientada a Objetos" property="og:title">
+<title>3.1. Definición de una Clase | Programación Orientada a Objetos</title>
+<link rel="stylesheet" href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/css/style.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link rel="stylesheet" href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/css/highlightjs_agate.css"/>
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos"><h1 class="title is-4">Programación Orientada a Objetos</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/fitorec">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/fitorec">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://fitorec.wordpress.com">
+            <span class="icon">
+              <i class="fa fa-wordpress"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://fitorec.github.io">
+            <span class="icon">
+              <i class="fa fa-home"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">May 4, 2017</h2>
+    <h1 class="title">3.1. Definición de una Clase</h1>
+    
+    <div class="content">
+      
+
+<p>Una clase es un elemento abstracto compuesta de :</p>
+
+<ul>
+<li><strong>Atributos</strong>: o miembros de clases, los cuales son <code>variables</code> internas.</li>
+<li><strong>Métodos</strong>: Los cuales son funciones que ejecutan determinada tarea.</li>
+</ul>
+
+<h2 id="3-2-declaración-de-clases">3.2 Declaración de clases.</h2>
+
+<p>Ya vimos previamente que una clase se compone principalmeente de dos partes <code>atributos</code>(o miembros de clase) y <code>métodos</code> o funcionalidades.</p>
+
+<p>Por ejemplo imaginemos que queremos modelar a un <strong>Alumno</strong> para un sistema de Control Escolar, entonces podemos indentificar los siguientes:</p>
+
+<ul>
+<li><strong>Atributos :</strong>
+
+<ul>
+<li>Matricula</li>
+<li>Nombre</li>
+</ul></li>
+<li><strong>Metodos :</strong>
+
+<ul>
+<li>setMatricula(matricula)</li>
+<li>getMatricula()</li>
+<li>setNombre(nombre)</li>
+<li>getNombre()</li>
+<li>darDeBaja()</li>
+</ul></li>
+</ul>
+
+<h3 id="3-2-1-uml">3.2.1 UML</h3>
+
+<p><strong>UML</strong> nos proporciona un mecanismo grafico de representar las clases, a dicho mecanismo es conocido como <strong>diagrama UML de clases</strong>, veamos como quedaría este ejemplo:</p>
+
+<p><img src="/itsmigra/programacion_orientada_objetos/img/03_uml_clase_alumno.png" alt="UML Ejemplo clase Alumno" /></p>
+
+<h3 id="3-2-1-uml-descripción">3.2.1 UML Descripción:</h3>
+
+<p>Vamos a ver como se compone en este caso la clase Alumno en este ejemplo:</p>
+
+<p><img src="/itsmigra/programacion_orientada_objetos/img/03_uml_clases_explicacion.png" alt="UML Imagen de una clase" /></p>
+
+<blockquote>
+<p>Como podemos ver <strong>UML</strong> nos permite definir una clase, dejando la implementación abierta a cualquier lenguaje de programación que soporte el paradigma de programación orientada a objetos.</p>
+</blockquote>
+
+<h2 id="3-3-miembros-de-una-clase">3.3 Miembros de una clase.</h2>
+
+<p>Para este ejemplo podemos ver que la clase contiene dos miembros o atributos:</p>
+
+<ul>
+<li>Matricula</li>
+<li>Nombre</li>
+</ul>
+
+<h2 id="3-4-ámbito-referente-a-una-clase">3.4 Ámbito referente a una clase.</h2>
+
+<p>Una clase por lo general tiene un ambito (<em>&ldquo;o espacio de vida&rdquo;</em>),esto depende del lenguaje de programación pero por regular se encuentra limitada por dos factores:</p>
+
+<ul>
+<li>Herencia.</li>
+<li>Pertenencia de paquete.</li>
+</ul>
+
+<blockquote>
+<p><strong>Nota</strong>: Podemos interpretar un paquete como un conjunto de clases que tienen como objetivo cumplir determinada funcionalidad.</p>
+</blockquote>
+
+<h2 id="3-5-especificadores-de-acceso">3.5 Especificadores de acceso.</h2>
+
+<p>Los especificadores de acceso permiten restringir el acceso a los atributos o métodos, permitiendo controlar la lógica del flujo de información, revisemos el ejemplo nuevamente:</p>
+
+<p>Podemos ver que en la clase <strong>Alumno</strong> el atributo <code>nombre</code> es del tipo privado (<code>-</code>), lo cual nos indica que nadien puede acceder a dicho atributo mas que la clase misma, esto impide que el valor sea modificado desde el exterior de la clase, sin embargo para la lectura contiene el método publico (<code>+</code>) <code>getNombre()</code> lo cual nos indica que cualquiera puede acceder al nombre, por otra parte contiene un método protegido(<code>#</code>) <code>setNombre(nombre)</code> el cual permite cambiar el nombre y al ser protegido solo los elementos que pertenezcan al paquete o que de alguna forma compartan la herencia pueden acceder a este método.</p>
+
+<h2 id="fuentes">Fuentes:</h2>
+
+<ul>
+<li><a href="https://msdn.microsoft.com/es-es/library/dd409416.aspx"><i class="fa fa-link"></i> MSDN Microsoft, Diagramas de clases de UML: Instrucciones</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Licencia Creative Commons Atribución 4.0 Internacional</a>.<br>Sientete libre de compartir y redistribuir</p>
+  </div>
+</section>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+

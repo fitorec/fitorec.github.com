@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="es-mx">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="3.6 Creación de Objetos - Programación Orientada a Objetos" property="og:title">
+<title>3.6 Creación de Objetos | Programación Orientada a Objetos</title>
+<link rel="stylesheet" href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/css/style.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css" integrity="sha256-Zd1icfZ72UBmsId/mUcagrmN7IN5Qkrvh75ICHIQVTk=" crossorigin="anonymous" />
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos"><h1 class="title is-4">Programación Orientada a Objetos</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/fitorec">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/fitorec">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://fitorec.wordpress.com">
+            <span class="icon">
+              <i class="fa fa-wordpress"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://fitorec.github.io">
+            <span class="icon">
+              <i class="fa fa-home"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">May 4, 2017</h2>
+    <h1 class="title">3.6 Creación de Objetos</h1>
+    
+    <div class="content">
+      
+
+<h2 id="3-6-1-creancion-de-objetos-con-java">3.6.1 Creancion de objetos con Java:</h2>
+
+<p>Con java para definir una clase se ocupa la palabra reservada <code>class</code> una clase es un segmento de código por lo cual se encuentra delimitada por los separadores de segmento de código(<code>{}</code>), veamos como quedaría esta clase con solamente los atributos:</p>
+
+<pre><code>public class Alumno {
+	public String matricula;
+	private String nombre;
+}
+</code></pre>
+
+<p>Dentro de una clase podemos agregar métodos los cuales son segmentos de código por lo cual van delimitados por sus separadores(<code>{}</code>) veamos como quedaría la clase <strong>Alumno</strong> al agregar los métodos:</p>
+
+<pre><code>public class Alumno {
+	public String matricula;
+	private String nombre;
+        // Métodos
+        protected void setMatricula(String m) {
+            matricula = m;
+        }
+        public String getMatricula() {
+            return matricula;
+        }
+        protected void setNombre(String n) {
+            nombre = n;
+        }
+        public String getNombre() {
+            return nombre;
+        }
+        private void darDeBaja() {
+            // Código de Baja para un Alumno
+        }
+}
+</code></pre>
+
+<h3 id="3-6-1-1-prueba-de-objetos-con-java">3.6.1.1 Prueba de objetos con Java</h3>
+
+<p>Una vez creadas las clases es necesarias instanciarlas a una instancia de una clase se conoce como objeto, para crear una instancia de una clase en java se usa la palabra reservada <code>new</code> como se puede ver a continuacion:</p>
+
+<pre><code>Alumno juan = new Alumno();
+juan.setNombre(&quot;Juan Garcia&quot;);
+System.out.println(juan.getNombre());
+// imprime:
+//	Juan Garcia
+</code></pre>
+
+<hr />
+
+<h2 id="3-6-2-creancion-de-objetos-con-python">3.6.2 Creancion de objetos con Python:</h2>
+
+<p>Con python para definir una clase se ocupa la palabra reservada <code>class</code> una clase es un segmento de código por lo cual se encuentra delimitada por los separadores de segmento de código(<code>{}</code>), veamos como quedaría esta clase con solamente los atributos:</p>
+
+<pre><code>public class Alumno {
+	public String matricula;
+	private String nombre;
+}
+</code></pre>
+
+<p>Dentro de una clase podemos agregar métodos los cuales son segmentos de código por lo cual van delimitados por sus separadores(<code>{}</code>) veamos como quedaría la clase <strong>Alumno</strong> al agregar los métodos:</p>
+
+<pre><code>public class Alumno {
+	public String matricula;
+	private String nombre;
+        // Métodos
+        protected void setMatricula(String m) {
+            matricula = m;
+        }
+        public String getMatricula() {
+            return matricula;
+        }
+        protected void setNombre(String n) {
+            nombre = n;
+        }
+        public String getNombre() {
+            return nombre;
+        }
+        private void darDeBaja() {
+            // Código de Baja para un Alumno
+        }
+}
+</code></pre>
+
+<h3 id="3-6-2-1-prueba-de-objetos-con-python">3.6.2.1 Prueba de objetos con Python</h3>
+
+<p>Una vez creadas las clases es necesarias instanciarlas a una instancia de una clase se conoce como objeto, para crear una instancia de una clase en java se usa la palabra reservada <code>new</code> como se puede ver a continuacion:</p>
+
+<pre><code>Alumno juan = new Alumno();
+juan.setNombre(&quot;Juan Garcia&quot;);
+System.out.println(juan.getNombre());
+// imprime:
+//	Juan Garcia
+</code></pre>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Licencia Creative Commons Atribución 4.0 Internacional</a>.<br>Sientete libre de compartir y redistribuir</p>
+  </div>
+</section>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+

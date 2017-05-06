@@ -2,6 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.6_creacion_de_objetos_python/</loc>
+    <lastmod>2017-05-04T19:12:04-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.6_creacion_de_objetos_java/</loc>
+    <lastmod>2017-05-04T19:11:04-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.1.defincion_de_una_clase/</loc>
+    <lastmod>2017-05-04T14:14:18-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_02/arreglos/</loc>
+    <lastmod>2017-05-03T05:11:18-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/temario/</loc>
     <lastmod>2017-05-02T09:32:14-05:00</lastmod>
   </url>
@@ -13,12 +33,24 @@
   
   <url>
     <loc>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/</loc>
-    <lastmod>2017-05-02T09:32:14-05:00</lastmod>
+    <lastmod>2017-05-04T19:12:04-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_02/</loc>
+    <lastmod>2017-05-03T05:11:18-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/</loc>
+    <lastmod>2017-05-04T19:12:04-05:00</lastmod>
     <priority>0</priority>
   </url>
   
