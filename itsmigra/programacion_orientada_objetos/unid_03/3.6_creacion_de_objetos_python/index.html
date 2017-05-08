@@ -78,24 +78,77 @@
 
 <h3 id="modificadores-de-acceso-en-python">¿Modificadores de acceso en Python?</h3>
 
-<p>En el lenguaje <strong>python</strong> no existen modificadores de acceso ya que en <strong>python</strong> no existen atributos o metodos privados, sin embargo en la <a href="https://docs.python.org/3/tutorial/classes.html#private-variables">documentación oficial</a> podemos encontrar una alternativa basada en la convención del doble guión bajo (<code>_ _</code>).</p>
+<p>En el lenguaje <strong>python</strong> no existen modificadores de acceso ya que en <strong>python</strong> no existen atributos o métodos privados, sin embargo en la <a href="https://docs.python.org/3/tutorial/classes.html#private-variables">documentación oficial</a> podemos encontrar una alternativa basada en la convención del doble guión bajo (<code>_ _</code>).</p>
 
 <p>Dentro de una clase podemos agregar métodos los cuales son segmentos de código por lo cual van delimitados por sus separadores(<code>{}</code>) veamos como quedaría la clase <strong>Alumno</strong> al agregar los métodos:</p>
 
 <pre><code class="language-python">class Alumno:
-	def __init(self)__
-		self.matricula = null
-		self.__nombre= null
+	def __init(self)__:
+		self.matricula = 'it20150012'
+		self.__nombre= 'default Nombre'
 </code></pre>
 
 <h3 id="3-6-2-1-prueba-de-objetos-con-python">3.6.2.1 Prueba de objetos con Python</h3>
 
-<p>Veamos el comportamiento del siguiente código</p>
+<p>Notar que tenemos dos atributos el primer atributo <code>matricula</code> y el segundo <code>__nombre</code>, veamos el comportamiento comportamiento del siguiente código</p>
 
 <pre><code class="language-python">juan = Alumno()
+''' esto es correcto y lo mas común'''
+print(&quot;Matricula: &quot;, juan.matricula, &quot;\n\n&quot;)
+
+''' Esto genera un error del tipo: AttributeError'''
 print(juan.__nombre)
 // Esto genera error por que no existe la variable __nombre
 </code></pre>
+
+<p>Esto nos produce la siguiente salida:</p>
+
+<pre><code class="language-shell">Matricula: it20150012
+
+Traceback (most recent call last):
+  File &quot;codigos/alumno.py&quot;, line 6, in &lt;module&gt;
+    print(juan.__nombre)
+AttributeError: 'Alumno' object has no attribute '__nombre'
+</code></pre>
+
+<p>Como podemos ver no existe ningún problema con acceder a <code>juan.matricula</code>, sin embargo al acceder a la linea <code>print(juan.__nombre)</code> se genero un error del tipo <code>AttributeError</code> indicando que Objeto del tipo Alumno no tiene el atributo <code>__nombre</code>.</p>
+
+<h4 id="que-es-lo-que-pasa">¿Que es lo que pasa?</h4>
+
+<p>En realidad lo que pasa es que <strong>Python</strong> la variable <code>__nombre</code> deja de ser accesible desde el exterior con ese nombre ya que existe un mecanismo denominado <a href="https://docs.python.org/3/tutorial/classes.html#private-variables"><em>name mangling</em></a>  el cual &ldquo;<em>convierte</em>&rdquo; a dicha variable como <code>_Alumno__nombre</code> para el acceso desde el exterior, como podemos ver en el siguiente código:</p>
+
+<pre><code class="language-python">class Alumno:
+	def __init__(self):
+		self.matricula = &quot;it20150012&quot;
+		self.__nombre= &quot;default Nombre&quot;
+juan = Alumno()
+# Accedemos para imprimir el nombre
+print(juan._Alumno__nombre, &quot;\n\n&quot;)
+# Modificando el nombre
+juan._Alumno__nombre = &quot;Juan&quot;
+# Accedemos para imprimir el nombre
+print(juan._Alumno__nombre, &quot;\n\n&quot;)
+</code></pre>
+
+<p>El cual nos genera la siguiente salida:</p>
+
+<pre><code class="language-shell">default Nombre
+
+Juan
+</code></pre>
+
+<p>Usted puede descargar el código de ejemplo para ver este comportamiento:</p>
+
+<blockquote>
+<p><a href="/itsmigra/programacion_orientada_objetos/codigos/unidad_03/alumno.py">alumno.py</a></p>
+</blockquote>
+
+<h3 id="referencias">Referencias:</h3>
+
+<ul>
+<li><a href="https://docs.python.org/3/tutorial/classes.html#private-variables">https://docs.python.org/3/tutorial/classes.html#private-variables</a></li>
+<li><a href="https://www.genbetadev.com/python/cazadores-de-mitos-las-propiedades-privadas-en-python">https://www.genbetadev.com/python/cazadores-de-mitos-las-propiedades-privadas-en-python</a></li>
+</ul>
 
     </div>
   </div>
@@ -107,6 +160,10 @@ print(juan.__nombre)
     <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Licencia Creative Commons Atribución 4.0 Internacional</a>.<br>Sientete libre de compartir y redistribuir</p>
   </div>
 </section>
+
+<script type="text/javascript" src="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/js/blog.js"></script>
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
 
 <script>hljs.initHighlightingOnLoad();</script>

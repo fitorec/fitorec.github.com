@@ -34,7 +34,17 @@ table > caption {
 	box-shadow:inset 0 5px 15px #CCC
 }
 
+div.container h1, 
+div.container h2, 
+div.container h3, 
+div.container h4, 
+div.container h5, 
+div.container h6,
 body > section:nth-child(1) > div > nav > div.nav-left > a > h1 {
 	color: #E34900;
 	font-weight: bold;
+}
+
+tr.actual {
+	background: #B4FE82;
 }

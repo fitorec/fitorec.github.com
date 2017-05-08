@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.7_puntero_this_and_self/</loc>
+    <lastmod>2017-05-06T11:44:26-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.6_creacion_de_objetos_python/</loc>
     <lastmod>2017-05-04T19:12:04-05:00</lastmod>
   </url>
@@ -33,7 +38,7 @@
   
   <url>
     <loc>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/</loc>
-    <lastmod>2017-05-04T19:12:04-05:00</lastmod>
+    <lastmod>2017-05-06T11:44:26-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -50,7 +55,7 @@
   
   <url>
     <loc>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/</loc>
-    <lastmod>2017-05-04T19:12:04-05:00</lastmod>
+    <lastmod>2017-05-06T11:44:26-05:00</lastmod>
     <priority>0</priority>
   </url>
   

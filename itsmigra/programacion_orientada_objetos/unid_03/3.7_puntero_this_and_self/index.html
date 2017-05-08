@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="es-mx">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="3.7 Puntero this y puntero self - Programación Orientada a Objetos" property="og:title">
+<title>3.7 Puntero this y puntero self | Programación Orientada a Objetos</title>
+<link rel="stylesheet" href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/css/style.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link rel="stylesheet" href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/css/highlightjs_agate.css"/>
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos"><h1 class="title is-4">Programación Orientada a Objetos</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/fitorec">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/fitorec">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://fitorec.wordpress.com">
+            <span class="icon">
+              <i class="fa fa-wordpress"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://fitorec.github.io">
+            <span class="icon">
+              <i class="fa fa-home"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">May 6, 2017</h2>
+    <h1 class="title">3.7 Puntero this y puntero self</h1>
+    
+    <div class="content">
+      
+
+<p><img src="/itsmigra/programacion_orientada_objetos/img/unidad_03/this_self_introduccion.png" alt="Comparación this y self" /></p>
+
+<p>En <strong>POO</strong> en ocasiones es necesario hacer referencia al objeto en cuestión, para esto los lenguajes de programación hacen uso de alguna referencia hacia si mismo, de esta forma que <code>this</code> (en <strong>Java</strong>) o <code>self</code>(en <strong>Python</strong>) está disponible cuando un método es invocado dentro del contexto de un objeto.</p>
+
+<blockquote>
+<p>Esta referencia hace alusión objeto invocador (el objeto al cual el método pertenece).</p>
+</blockquote>
+
+<h2 id="3-7-1-ejemplos">3.7.1 Ejemplos:</h2>
+
+<p>Para que quede mas claro veamos un ejemplo a partir de la clase <strong>Alumno</strong> vista previamente, pero versión simplificada para fines demostrativos:</p>
+
+<p><img src="/itsmigra/programacion_orientada_objetos/img/unidad_03/uml_clase_alumno_simplificada.png" alt="UML Ejemplo clase Alumno Simplificada" /></p>
+
+<h3 id="3-7-2-referencia-this-en-java">3.7.2 Referencia <code>this</code> en Java.</h3>
+
+<p>veamos como quedaría este ejemplo en Java:</p>
+
+<pre><code class="language-java">public class Alumno {
+	private String nombre;
+	// Constructor
+	public Alumno(String name) {
+		this.nombre = name;
+	}
+	protected void setNombre(String n) {
+		nombre = n;
+	}
+	public String getNombre() {
+	  return nombre;
+	}
+	//Probando ejemplo
+	public static void main(String args[]) {
+		Alumno j = new Alumno(&quot;Juan&quot;);
+		Alumno p = new Alumno(&quot;Pedro&quot;);
+		System.out.println(j.getNombre());
+		System.out.println(p.getNombre());
+	}
+}
+</code></pre>
+
+<p>Como podemos ver la clase <code>Alumno</code> tiene el atributo <code>nombre</code>, de esta clase generamos dos instancias(Objetos), cada uno con su propio valor &ldquo;Juan&rdquo; y &ldquo;Pedro&rdquo; al cual accedemos por medio del atributo <code>this.nombre</code>.</p>
+
+<blockquote>
+<p>Usted puede descargar y probar el código: <a href="/itsmigra/programacion_orientada_objetos/codigos/unidad_03/Alumno.java"><strong>Alumno.java</strong></a></p>
+</blockquote>
+
+<h3 id="3-7-3-referencia-self-en-python">3.7.3 Referencia <code>self</code> en Python.</h3>
+
+<p>En el lenguaje <strong>Python</strong> la referencia <code>self</code> tiene un comportamiento análogo a <code>this</code> en <strong>Java</strong>, veamos como quedaría el mismo ejemplo con python.</p>
+
+<pre><code class="language-python">class Alumno:
+	''' Constructor '''
+	def __init__(self, name):
+		self.__nombre= name
+	''' Método setNombre '''
+	def setNombre(self, name):
+		self.__nombre= name
+	''' Método getNombre '''
+	def getNombre(self):
+		return self.__nombre
+
+# Probando ejemplo
+j = Alumno(&quot;Juan&quot;)
+p = Alumno(&quot;Pedro&quot;)
+print(j.getNombre())
+print(p.getNombre())
+</code></pre>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Licencia Creative Commons Atribución 4.0 Internacional</a>.<br>Sientete libre de compartir y redistribuir</p>
+  </div>
+</section>
+
+<script type="text/javascript" src="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/js/blog.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+

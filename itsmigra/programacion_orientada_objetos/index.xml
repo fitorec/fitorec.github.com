@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es-mx</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by/4.0/&#34;&gt;&lt;img alt=&#34;Licencia Creative Commons&#34; style=&#34;border-width:0&#34; src=&#34;https://i.creativecommons.org/l/by/4.0/80x15.png&#34; /&gt;&lt;/a&gt;&lt;br /&gt;Esta obra está bajo una &lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by/4.0/&#34;&gt;Licencia Creative Commons Atribución 4.0 Internacional&lt;/a&gt;.&lt;br&gt;Sientete libre de compartir y redistribuir</copyright>
-    <lastBuildDate>Thu, 04 May 2017 19:12:04 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 06 May 2017 11:44:26 -0500</lastBuildDate>
     
 	<atom:link href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>3.7 Puntero this y puntero self</title>
+      <link>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.7_puntero_this_and_self/</link>
+      <pubDate>Sat, 06 May 2017 11:44:26 -0500</pubDate>
+      
+      <guid>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.7_puntero_this_and_self/</guid>
+      <description>En POO en ocasiones es necesario hacer referencia al objeto en cuestión, para esto los lenguajes de programación hacen uso de alguna referencia hacia si mismo, de esta forma que this (en Java) o self(en Python) está disponible cuando un método es invocado dentro del contexto de un objeto.
+ Esta referencia hace alusión objeto invocador (el objeto al cual el método pertenece).
+ 3.7.1 Ejemplos: Para que quede mas claro veamos un ejemplo a partir de la clase Alumno vista previamente, pero versión simplificada para fines demostrativos:</description>
+    </item>
     
     <item>
       <title>3.6.2 Creación de Objetos con Python</title>
@@ -20,7 +31,7 @@
       <guid>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.6_creacion_de_objetos_python/</guid>
       <description>Ahora veamos como definir la clase Alumno con Python.
 En python para definir una clase se ocupa la palabra reservada class una clase es un segmento de código por lo cual se encuentra delimitada por su correspondiente identación, veamos como quedaría esta clase con solamente los atributos:
-class Alumno: matricula nombre  ¿Modificadores de acceso en Python? En el lenguaje python no existen modificadores de acceso ya que en python no existen atributos o metodos privados, sin embargo en la documentación oficial podemos encontrar una alternativa basada en la convención del doble guión bajo (_ _).</description>
+class Alumno: matricula nombre  ¿Modificadores de acceso en Python? En el lenguaje python no existen modificadores de acceso ya que en python no existen atributos o métodos privados, sin embargo en la documentación oficial podemos encontrar una alternativa basada en la convención del doble guión bajo (_ _).</description>
     </item>
     
     <item>
