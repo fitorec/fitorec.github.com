@@ -86,7 +86,11 @@
 
 <h3 id="diseñando-la-lógica-del-acceso-a-la-bd">Diseñando la lógica del acceso a la BD.</h3>
 
-<p>En ocasiones el mal diseño de un sistema nos puede a generar múltiples conexiones una base de datos. Imaginemos un sistema que realice múltiples consultas y para cada consulta establezca una nueva conexión, de tal forma que en algún momento tendremos tantas conexiones que <strong>MySQL</strong> nos generaría el siguiente error:</p>
+<p>En ocasiones un mal diseño en el sistema que desarrollamos nos puede llegar a generar múltiples conexiones una base de datos.</p>
+
+<p>Imaginemos un sistema que tiene múltiples interfaces gráficas y que para cada interfaz realice varias consultas, a su vez para cada consulta establezca una nueva conexión.</p>
+
+<p>En este caso estamos hablando de un mal diseño ya que en en algún momento tendremos tantas conexiones de <strong>MySQL</strong> que rebasemos el número de conexiones disponibles y por lo cual el servidor nos mostrará el siguiente error:</p>
 
 <pre><code class="language-shell">&quot;Unable to connect to database: Too many connections&quot;
 </code></pre>
