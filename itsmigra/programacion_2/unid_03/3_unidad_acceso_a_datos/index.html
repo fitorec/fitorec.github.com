@@ -88,9 +88,9 @@
 
 <p>En ocasiones un mal diseño en el sistema que desarrollamos nos puede llegar a generar múltiples conexiones una base de datos.</p>
 
-<p>Imaginemos un sistema que tiene múltiples interfaces gráficas y que para cada interfaz realice varias consultas, a su vez para cada consulta establezca una nueva conexión.</p>
+<p>Por ejemplo imaginemos un sistema que tiene múltiples interfaces gráficas y que para cada interfaz realice varias consultas, a su vez para cada consulta establezca una nueva conexión.</p>
 
-<p>En este caso estamos hablando de un mal diseño ya que en en algún momento tendremos tantas conexiones de <strong>MySQL</strong> que rebasemos el número de conexiones disponibles y por lo cual el servidor nos mostrará el siguiente error:</p>
+<p>En este caso estamos hablando de un <strong>mal diseño</strong> ya que en en algún momento tendremos tantas conexiones de <strong>MySQL</strong> que se llega al limite del número de conexiones disponibles y por lo cual el servidor nos enviará el siguiente error:</p>
 
 <pre><code class="language-shell">&quot;Unable to connect to database: Too many connections&quot;
 </code></pre>
@@ -175,7 +175,7 @@ private static String password  = &quot;&quot;;
 
 <p>Queda al lector agregar un mecanismo que permita configurar los parámetros de la clase <strong>BD</strong>, de tal forma que obtengamos una clase mas reutilizable.</p>
 
-<p>En la siguiente sesión vamos a trabajar ya con consultas sobre la base de datos por lo cual se recomienda al lector darle una revisada a las clases:</p>
+<p>En la siguiente sesión vamos a trabajar consultas sobre la base de datos por lo cual se requiere tener funcionando la clase <strong>BD</strong>, a su vez se recomienda al lector darle una revisada a las clases:</p>
 
 <ul>
 <li><a href="https://docs.oracle.com/javase/8/docs/api/java/sql/Statement.html">Statement</a></li>
