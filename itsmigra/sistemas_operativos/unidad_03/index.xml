@@ -13,13 +13,13 @@
     
     
     <item>
-      <title>Administración de memoria - 3.1 Política y Filosofía</title>
+      <title>3.1 Política y Filosofía</title>
       <link>http://fitorec.github.io/itsmigra/sistemas_operativos/unidad_03/politica_y_filosofia/</link>
       <pubDate>Tue, 02 May 2017 09:48:52 -0500</pubDate>
       
       <guid>http://fitorec.github.io/itsmigra/sistemas_operativos/unidad_03/politica_y_filosofia/</guid>
       <description>3.1.1 Introducción: En informatica cuando hablamos de memoria, hacemos referencia a la capacidad de almacenamiento de datos(bits), un sistema de computo tiene varios tipos de memoria, de las cuales destacan las siguientes:
-   Tipo Costo Velocidad de Acceso     CacheMuy CaraLa mas rápida   RAMCaraRápida   SecundariaBarataLenta    Para entender el funcionamiento de los tipos de memoria, analizemos la analogia descrita en la siguiente imagen:</description>
+   Tipo Costo Velocidad de Acceso     Cache (Procesador)Muy CaraLa mas rápida   Principal (RAM)CaraRápida   SecundariaBarataLenta    Para entender el funcionamiento de los tipos de memoria, analizemos la analogia descrita en la siguiente imagen:</description>
     </item>
     
   </channel>

@@ -48,3 +48,10 @@ body > section:nth-child(1) > div > nav > div.nav-left > a > h1 {
 tr.actual {
 	background: #B4FE82;
 }
+
+@media print {
+    section:first-child {
+		display: none;
+	}
+;
+}

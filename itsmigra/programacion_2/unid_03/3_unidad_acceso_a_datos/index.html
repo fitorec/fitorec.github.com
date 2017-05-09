@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="es-mx">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="Unidad III - Acceso a Datos - Programación II" property="og:title">
+<title>Unidad III - Acceso a Datos | Programación II</title>
+<link rel="stylesheet" href="http://fitorec.github.io/itsmigra/programacion_2/css/style.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link rel="stylesheet" href="http://fitorec.github.io/itsmigra/programacion_2/css/highlightjs_agate.css"/>
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="http://fitorec.github.io/itsmigra/programacion_2"><h1 class="title is-4">Programación II</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/fitorec">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/fitorec">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://fitorec.wordpress.com">
+            <span class="icon">
+              <i class="fa fa-wordpress"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://fitorec.github.io">
+            <span class="icon">
+              <i class="fa fa-home"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">May 2, 2017</h2>
+    <h1 class="title">Unidad III - Acceso a Datos</h1>
+    
+    <div class="content">
+      
+
+<ul>
+<li>3.1. Introducción.</li>
+<li>3.2. Controles de acceso a datos.</li>
+<li>3.3. Herramientas de acceso a datos.</li>
+<li>3.4. Manipulación de datos.</li>
+</ul>
+
+<h2 id="3-2-controles-de-acceso-a-datos">3.2. Controles de acceso a datos.</h2>
+
+<p><strong>MySQL</strong> y <strong>Java</strong>(Oracle) nos proporciona un manejador(driver) conector a <strong>MySQL</strong> que podemos descargar para realizar nuestras conexiones:</p>
+
+<blockquote>
+<p><a href="https://dev.mysql.com/downloads/connector/j/5.1.html">https://dev.mysql.com/downloads/connector/j/5.1.html</a></p>
+</blockquote>
+
+<p>Una vez descargado descomprimimos el paquetes y agregamos la librería a nuestro proyecto, para esto extendemos el proyecto nos vamos a &ldquo;librerías&rdquo;(o libraries) y agregamos un jar, como se muestra en la siguiente imagen:</p>
+
+<p><img src="/itsmigra/programacion_2/img/unid_03/agregando_jar.png" alt="BD conexión" /></p>
+
+<h3 id="diseñando-la-lógica-del-acceso-a-la-bd">Diseñando la lógica del acceso a la BD.</h3>
+
+<p>En ocasiones el mal diseño de un sistema nos puede a generar múltiples conexiones una base de datos. Imaginemos un sistema que realice múltiples consultas y para cada consulta establezca una nueva conexión, de tal forma que en algún momento tendremos tantas conexiones que <strong>MySQL</strong> nos generaría el siguiente error:</p>
+
+<pre><code class="language-shell">&quot;Unable to connect to database: Too many connections&quot;
+</code></pre>
+
+<p>Una aparente <em>&ldquo;solución&rdquo;</em> es modificar el archivo de configuración en el archivo <code>my.cnf</code>(o <code>my.ini</code>) de <strong>MySQL</strong> en donde se define el atributo <code>max_connections</code> el cual podríamos modificar para que acepte mas conexiones, pero eso no resolvería el mal diseño de nuestro software.</p>
+
+<h2 id="pare-de-sufrir-llego-el-singletón">Pare de sufrir llego el singletón</h2>
+
+<p>En ingeniería de software, el patrón <em>singleton</em> (instancia única en inglés) es un patrón de diseño diseñado para restringir la creación de objetos pertenecientes a una clase o el valor de un tipo a un único objeto.</p>
+
+<p>Su intención consiste en garantizar que una clase sólo tenga una instancia y proporcionar un punto de acceso global a ella.</p>
+
+<p><img src="/itsmigra/programacion_2/img/unid_03/conexion_BD_clase_singleton.png" alt="BD conexión" /></p>
+
+<p>Veamos un primer acercamiento del como podría quedar esta clase:</p>
+
+<pre><code class="language-java">public class BD {
+    private static Connection conexion = null;
+
+    // El constructor privado no permite que se generen clases
+    private BD() {}
+    // Esta es la uníca función publica, la cual permite acceder a la conexión
+    public static Connection getConexion() {
+        if (BD.conexion == null) {
+            BD.conectar();
+        }
+        return BD.conexion;
+    }
+    
+    private static void conectar() {
+    }
+}
+</code></pre>
+
+<p>Como podemos ver la clase impide que se puedan generar instancias de ella al hacer privado su constructor, por otra parte tiene un <strong>atributo de clase</strong> con el nombre <code>conexion</code> del tipo <code>Connection</code>, y la unica forma de acceder a este atributo es por medio de la función <code>getConexion()</code>, la cual revisa si la conexión no esta abierta(Si <code>conexion</code> es <code>null</code>) entonces manda a llamar al otro método privado con nombre <code>conectar()</code>.</p>
+
+<h3 id="conexión-a-bases-de-datos">Conexión a bases de datos:</h3>
+
+<p>Una vez que definimos un ejemplo básico veamos como quedaría la función <code>conectar()</code>, antes de esto vamos a definir unos atributos a la clase <strong>BD</strong>, en donde pondremos los datos de la conexión.</p>
+
+<pre><code class="language-java">private static String host = &quot;localhost&quot;;
+private static String port = &quot;3306&quot;;
+private static String bd = &quot;test&quot;;
+private static String user = &quot;root&quot;;
+private static String password  = &quot;&quot;;
+</code></pre>
+
+<p>El proceso para realizar una conexión a una base de datos, es basicamente:</p>
+
+<pre><code class="language-shell">Registrar Driver MySQL &gt; Generar la Conexión
+</code></pre>
+
+<p>Una vez explicado el proceso veamos como quedaríafinalmente la función <code>conectar()</code>:</p>
+
+<pre><code class="language-java">private static void conectar() {
+        try {
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+                BD.conexion = DriverManager.getConnection (
+                &quot;jdbc:mysql://&quot; + BD.host + &quot;:&quot; + BD.port + &quot;/&quot; + BD.bd,
+                BD.user,
+                BD.password
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+    }
+}
+</code></pre>
+
+<!--
+ - <https://www.jooq.org/java-8-and-sql>
+ - <>
+ - <>
+-->
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Licencia Creative Commons Atribución 4.0 Internacional</a>.<br>Sientete libre de compartir y redistribuir</p>
+  </div>
+</section>
+
+<script type="text/javascript" src="http://fitorec.github.io/itsmigra/programacion_2/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="http://fitorec.github.io/itsmigra/programacion_2/js/blog.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
