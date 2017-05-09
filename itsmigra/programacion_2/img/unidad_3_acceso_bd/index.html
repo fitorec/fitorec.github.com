@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!-- saved from url=(0081)http://fitorec.github.io/itsmigra/programacion_2/unid_03/3_unidad_acceso_a_datos/ -->
+<html lang="es-mx"><script id="tinyhippos-injected">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="Unidad III - Acceso a Datos - Programación II" property="og:title">
+<title>Unidad III - Acceso a Datos | Programación II</title>
+<link rel="stylesheet" href="./index_files/style.css">
+<link href="./index_files/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link rel="stylesheet" href="./index_files/highlightjs_agate.css">
+
+
+</head><body><section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="http://fitorec.github.io/itsmigra/programacion_2"><h1 class="title is-4">Programación II</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/fitorec">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/fitorec">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://fitorec.wordpress.com/">
+            <span class="icon">
+              <i class="fa fa-wordpress"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://fitorec.github.io/">
+            <span class="icon">
+              <i class="fa fa-home"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="http://fitorec.github.io/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">May 2, 2017</h2>
+    <h1 class="title">Unidad III - Acceso a Datos</h1>
+    
+    <div class="content">
+      
+
+<ul>
+<li>3.1. Introducción.</li>
+<li>3.2. Controles de acceso a datos.</li>
+<li>3.3. Herramientas de acceso a datos.</li>
+<li>3.4. Manipulación de datos.</li>
+</ul>
+
+<h2 id="3-2-controles-de-acceso-a-datos">3.2. Controles de acceso a datos.</h2>
+
+<p><strong>MySQL</strong> y <strong>Java</strong>(Oracle) nos proporciona un manejador(driver) conector a <strong>MySQL</strong> que podemos descargar para realizar nuestras conexiones:</p>
+
+<blockquote>
+<p><a href="https://dev.mysql.com/downloads/connector/j/5.1.html">https://dev.mysql.com/downloads/connector/j/5.1.html</a></p>
+</blockquote>
+
+<p>Una vez descargado descomprimimos el paquetes y agregamos la librería a nuestro proyecto, para esto extendemos el proyecto nos vamos a “librerías”(o libraries) y agregamos un jar, como se muestra en la siguiente imagen:</p>
+
+<p><img src="./index_files/agregando_jar.png" alt="BD conexión"></p>
+
+<h3 id="diseñando-la-lógica-del-acceso-a-la-bd">Diseñando la lógica del acceso a la BD.</h3>
+
+<p>En ocasiones el mal diseño de un sistema nos puede a generar múltiples conexiones una base de datos. Imaginemos un sistema que realice múltiples consultas y para cada consulta establezca una nueva conexión, de tal forma que en algún momento tendremos tantas conexiones que <strong>MySQL</strong> nos generaría el siguiente error:</p>
+
+<pre><code class="language-shell">"Unable to connect to database: Too many connections"
+</code></pre>
+
+<p>Una aparente <em>“solución”</em> es modificar el archivo de configuración en el archivo <code>my.cnf</code>(o <code>my.ini</code>) de <strong>MySQL</strong> en donde se define el atributo <code>max_connections</code> el cual podríamos modificar para que acepte mas conexiones, pero eso no resolvería el mal diseño de nuestro software.</p>
+
+<h2 id="pare-de-sufrir-llego-el-singletón">Pare de sufrir llego el singletón</h2>
+
+<p>En ingeniería de software, el patrón <em>singleton</em> (instancia única en inglés) es un patrón de diseño diseñado para restringir la creación de objetos pertenecientes a una clase o el valor de un tipo a un único objeto.</p>
+
+<p>Su intención consiste en garantizar que una clase sólo tenga una instancia y proporcionar un punto de acceso global a ella.</p>
+
+<p><img src="./index_files/conexion_BD_clase_singleton.png" alt="BD conexión"></p>
+
+<p>Veamos un primer acercamiento del como podría quedar esta clase:</p>
+
+<pre><code class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BD</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Connection conexion = <span class="hljs-keyword">null</span>;
+
+    <span class="hljs-comment">// El constructor privado no permite que se generen clases</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">BD</span><span class="hljs-params">()</span> </span>{}
+    <span class="hljs-comment">// Esta es la uníca función publica, la cual permite acceder a la conexión</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Connection <span class="hljs-title">getConexion</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (BD.conexion == <span class="hljs-keyword">null</span>) {
+            BD.conectar();
+        }
+        <span class="hljs-keyword">return</span> BD.conexion;
+    }
+    
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">conectar</span><span class="hljs-params">()</span> </span>{
+    }
+}
+</code></pre>
+
+<p>Como podemos ver la clase impide que se puedan generar instancias de ella al hacer privado su constructor, por otra parte tiene un <strong>atributo de clase</strong> con el nombre <code>conexion</code> del tipo <code>Connection</code>, y la unica forma de acceder a este atributo es por medio de la función <code>getConexion()</code>, la cual revisa si la conexión no esta abierta(Si <code>conexion</code> es <code>null</code>) entonces manda a llamar al otro método privado con nombre <code>conectar()</code>.</p>
+
+<h3 id="conexión-a-bases-de-datos">Conexión a bases de datos:</h3>
+
+<p>Una vez que definimos un ejemplo básico veamos como quedaría la función <code>conectar()</code>, antes de esto vamos a definir unos atributos a la clase <strong>BD</strong>, en donde pondremos los datos de la conexión.</p>
+
+<pre><code class="language-java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String host = <span class="hljs-string">"localhost"</span>;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String port = <span class="hljs-string">"3306"</span>;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String bd = <span class="hljs-string">"test"</span>;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String user = <span class="hljs-string">"root"</span>;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String password  = <span class="hljs-string">""</span>;
+</code></pre>
+
+<p>El proceso para realizar una conexión a una base de datos, es basicamente:</p>
+
+<pre><code class="language-shell">Registrar Driver MySQL &gt; Generar la Conexión
+</code></pre>
+
+<p>Una vez explicado el proceso veamos como quedaríafinalmente la función <code>conectar()</code>:</p>
+
+<pre><code class="language-java hljs"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">conectar</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">try</span> {
+            DriverManager.registerDriver(<span class="hljs-keyword">new</span> com.mysql.jdbc.Driver());
+                BD.conexion = DriverManager.getConnection (
+                <span class="hljs-string">"jdbc:mysql://"</span> + BD.host + <span class="hljs-string">":"</span> + BD.port + <span class="hljs-string">"/"</span> + BD.bd,
+                BD.user,
+                BD.password
+            );
+        } <span class="hljs-keyword">catch</span> (Exception e) {
+            e.printStackTrace();
+    }
+}
+</code></pre>
+
+<!--
+ - <https://www.jooq.org/java-8-and-sql>
+ - <>
+ - <>
+-->
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="./index_files/80x15.png"></a><br>Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Licencia Creative Commons Atribución 4.0 Internacional</a>.<br>Sientete libre de compartir y redistribuir</p>
+  </div>
+</section>
+
+<script type="text/javascript" src="./index_files/jquery-3.2.1.min.js.descarga"></script>
+<script type="text/javascript" src="./index_files/blog.js.descarga"></script>
+
+<script src="./index_files/highlight.min.js.descarga" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body></html>

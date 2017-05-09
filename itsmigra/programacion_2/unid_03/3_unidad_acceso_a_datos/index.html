@@ -139,7 +139,7 @@ private static String password  = &quot;&quot;;
 <pre><code class="language-shell">Registrar Driver MySQL &gt; Generar la Conexión
 </code></pre>
 
-<p>Una vez explicado el proceso veamos como quedaríafinalmente la función <code>conectar()</code>:</p>
+<p>Una vez explicado el proceso veamos como quedaría finalmente la función <code>conectar()</code>:</p>
 
 <pre><code class="language-java">private static void conectar() {
         try {
@@ -154,6 +154,29 @@ private static String password  = &quot;&quot;;
     }
 }
 </code></pre>
+
+<h3 id="base-de-datos">Base de datos:</h3>
+
+<p>Vamos a trabajar con una base de datos que contenga una sola tabla, la cual tiene el siguiente esquema:</p>
+
+<pre><code class="language-sql">CREATE TABLE `usuarios` (
+	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`username` VARCHAR(15) NOT NULL UNIQUE KEY,
+	`password` CHAR(32) NOT NULL ,
+	`fecha_nacimiento` DATE NOT NULL 
+) ENGINE = InnoDB;
+</code></pre>
+
+<h3 id="actividad">Actividad:</h3>
+
+<p>Queda al lector agregar un mecanismo que permita configurar los parámetros de la clase <strong>BD</strong>, de tal forma que obtengamos una clase mas reutilizable.</p>
+
+<p>En la siguiente sesión vamos a trabajar ya con consultas sobre la base de datos por lo cual se recomienda al lector darle una revisada a las clases:</p>
+
+<ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/sql/Statement.html">Statement</a></li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a></li>
+</ul>
 
 <!--
  - <https://www.jooq.org/java-8-and-sql>
