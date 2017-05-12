@@ -60,34 +60,15 @@
   <div class="container">
     
     <article>
-      <h2 class="subtitle is-6">May 6, 2017</h2>
-      <h1 class="title"><a href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.7_puntero_this_and_self/">3.7 Puntero this y puntero self</a></h1>
-      
-      <div class="content">
-        En POO en ocasiones es necesario hacer referencia al objeto en cuestión, para esto los lenguajes de programación hacen uso de alguna referencia hacia si mismo, de esta forma que this (en Java) o self(en Python) está disponible cuando un método es invocado dentro del contexto de un objeto.
- Esta referencia hace alusión objeto invocador (el objeto al cual el método pertenece).
- 3.7.1 Ejemplos: Para que quede mas claro veamos un ejemplo a partir de la clase Alumno vista previamente, pero versión simplificada para fines demostrativos:
-        
-        ...<a class="button is-link" href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.7_puntero_this_and_self/" style="height:28px">
-          Leer más
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a>
-        
-      </div>
-    </article>
-    
-    <article>
       <h2 class="subtitle is-6">May 4, 2017</h2>
-      <h1 class="title"><a href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.6_creacion_de_objetos_python/">3.6.2 Creación de Objetos con Python</a></h1>
+      <h1 class="title"><a href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.1.defincion_de_una_clase/">3.1. Definición de una Clase</a></h1>
       
       <div class="content">
-        Ahora veamos como definir la clase Alumno con Python.
-En python para definir una clase se ocupa la palabra reservada class una clase es un segmento de código por lo cual se encuentra delimitada por su correspondiente identación, veamos como quedaría esta clase con solamente los atributos:
-class Alumno: matricula nombre  ¿Modificadores de acceso en Python? En el lenguaje python no existen modificadores de acceso ya que en python no existen atributos o métodos privados, sin embargo en la documentación oficial podemos encontrar una alternativa basada en la convención del doble guión bajo (_ _).
+        Una clase es un elemento abstracto compuesta de :
+ Atributos: o miembros de clases, los cuales son variables internas. Métodos: Los cuales son funciones que ejecutan determinada tarea.  3.2 Declaración de clases. Ya vimos previamente que una clase se compone principalmeente de dos partes atributos(o miembros de clase) y métodos o funcionalidades.
+Por ejemplo imaginemos que queremos modelar a un Alumno para un sistema de Control Escolar, entonces podemos indentificar los siguientes:
         
-        ...<a class="button is-link" href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.6_creacion_de_objetos_python/" style="height:28px">
+        ...<a class="button is-link" href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.1.defincion_de_una_clase/" style="height:28px">
           Leer más
           <span class="icon is-small">
             <i class="fa fa-angle-double-right"></i>
@@ -117,14 +98,33 @@ class Alumno: matricula nombre  ¿Modificadores de acceso en Python? En el lengu
     
     <article>
       <h2 class="subtitle is-6">May 4, 2017</h2>
-      <h1 class="title"><a href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.1.defincion_de_una_clase/">3.1. Definición de una Clase</a></h1>
+      <h1 class="title"><a href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.6_creacion_de_objetos_python/">3.6.2 Creación de Objetos con Python</a></h1>
       
       <div class="content">
-        Una clase es un elemento abstracto compuesta de :
- Atributos: o miembros de clases, los cuales son variables internas. Métodos: Los cuales son funciones que ejecutan determinada tarea.  3.2 Declaración de clases. Ya vimos previamente que una clase se compone principalmeente de dos partes atributos(o miembros de clase) y métodos o funcionalidades.
-Por ejemplo imaginemos que queremos modelar a un Alumno para un sistema de Control Escolar, entonces podemos indentificar los siguientes:
+        Ahora veamos como definir la clase Alumno con Python.
+En python para definir una clase se ocupa la palabra reservada class una clase es un segmento de código por lo cual se encuentra delimitada por su correspondiente identación, veamos como quedaría esta clase con solamente los atributos:
+class Alumno: matricula nombre  ¿Modificadores de acceso en Python? En el lenguaje python no existen modificadores de acceso ya que en python no existen atributos o métodos privados, sin embargo en la documentación oficial podemos encontrar una alternativa basada en la convención del doble guión bajo (_ _).
         
-        ...<a class="button is-link" href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.1.defincion_de_una_clase/" style="height:28px">
+        ...<a class="button is-link" href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.6_creacion_de_objetos_python/" style="height:28px">
+          Leer más
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <h2 class="subtitle is-6">May 6, 2017</h2>
+      <h1 class="title"><a href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.7_puntero_this_and_self/">3.7 Puntero this y puntero self</a></h1>
+      
+      <div class="content">
+        En POO en ocasiones es necesario hacer referencia al objeto en cuestión, para esto los lenguajes de programación hacen uso de alguna referencia hacia si mismo, de esta forma que this (en Java) o self(en Python) está disponible cuando un método es invocado dentro del contexto de un objeto.
+ Esta referencia hace alusión objeto invocador (el objeto al cual el método pertenece).
+ 3.7.1 Ejemplos: Para que quede mas claro veamos un ejemplo a partir de la clase Alumno vista previamente, pero versión simplificada para fines demostrativos:
+        
+        ...<a class="button is-link" href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.7_puntero_this_and_self/" style="height:28px">
           Leer más
           <span class="icon is-small">
             <i class="fa fa-angle-double-right"></i>
@@ -145,11 +145,12 @@ Por ejemplo imaginemos que queremos modelar a un Alumno para un sistema de Contr
     </article>
     
     <article>
-      <h2 class="subtitle is-6">May 2, 2017</h2>
+      <h2 class="subtitle is-6">January 29, 2017</h2>
       <h1 class="title"><a href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/temario/">temario</a></h1>
       
       <div class="content">
-        Lu Ma Mie Jue Vie       Unidad Temas      01 Fundamentos del lenguaje. 30 - 01 06 - 03    1.1 Entorno de desarrollo. 1.2 Configuración del entorno de desarrollo. 1.3 Palabras reservadas. 1.4 Comentarios. 1.5 Tipos de datos. 1.6 Variables. 1.7 Constantes. 1.8 Operadores. 1.9 Sentencias. 1.10 Conversión de tipos de datos (cast). 1.11 Estructuras de control.
+        Lu Ma Mie Jue Vie    
+  Unidad Temas      01 Fundamentos del lenguaje. 30 - 01 06 - 03    1.1 Entorno de desarrollo. 1.2 Configuración del entorno de desarrollo. 1.3 Palabras reservadas. 1.4 Comentarios. 1.5 Tipos de datos. 1.6 Variables. 1.7 Constantes. 1.8 Operadores. 1.9 Sentencias. 1.10 Conversión de tipos de datos (cast). 1.11 Estructuras de control.
         
         ...<a class="button is-link" href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/temario/" style="height:28px">
           Leer más
