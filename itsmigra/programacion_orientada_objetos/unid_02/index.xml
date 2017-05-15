@@ -13,12 +13,14 @@
     
     
     <item>
-      <title>arreglos</title>
+      <title>2.0 arreglos</title>
       <link>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_02/arreglos/</link>
       <pubDate>Wed, 03 May 2017 05:11:18 -0500</pubDate>
       
       <guid>http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_02/arreglos/</guid>
-      <description>Un arreglo es un contenedor de un conjunto de datos,</description>
+      <description>Un arreglo es un contenedor de un conjunto de datos, a los que podemos acceder por medio de un indice,
+Arreglos en Java. Los arreglos en java tiene una serie de características:
+ Un arreglo solo puede contener elementos de un mismo tipo. Un arreglo es un Objeto, esto implica que tiene tanto métodos como atributos. El tamaño de un arreglo es fijo y se determina en el momento que se inicializa.</description>
     </item>
     
   </channel>

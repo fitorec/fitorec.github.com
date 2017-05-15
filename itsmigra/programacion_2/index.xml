@@ -7,10 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es-mx</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by/4.0/&#34;&gt;&lt;img alt=&#34;Licencia Creative Commons&#34; style=&#34;border-width:0&#34; src=&#34;https://i.creativecommons.org/l/by/4.0/80x15.png&#34; /&gt;&lt;/a&gt;&lt;br /&gt;Esta obra está bajo una &lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by/4.0/&#34;&gt;Licencia Creative Commons Atribución 4.0 Internacional&lt;/a&gt;.&lt;br&gt;Sientete libre de compartir y redistribuir</copyright>
-    <lastBuildDate>Tue, 02 May 2017 04:40:58 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 12 May 2017 09:27:26 -0500</lastBuildDate>
     
 	<atom:link href="http://fitorec.github.io/itsmigra/programacion_2/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2 Controles, eventos y métodos básicos</title>
+      <link>http://fitorec.github.io/itsmigra/programacion_2/unid_02/2_controles_eventos_y_metodos_basicos/</link>
+      <pubDate>Fri, 12 May 2017 09:27:26 -0500</pubDate>
+      
+      <guid>http://fitorec.github.io/itsmigra/programacion_2/unid_02/2_controles_eventos_y_metodos_basicos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>3.2.1_controles_accedo_datos</title>
+      <link>http://fitorec.github.io/itsmigra/programacion_2/unid_03/3.2.1_controles_accedo_datos/</link>
+      <pubDate>Tue, 09 May 2017 09:39:54 -0500</pubDate>
+      
+      <guid>http://fitorec.github.io/itsmigra/programacion_2/unid_03/3.2.1_controles_accedo_datos/</guid>
+      <description>Introducción: De momento vamos a trabajar con una base de datos que contenga una sola tabla, la cual tiene el siguiente esquema:
+CREATE TABLE `usuarios` ( `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY, `username` VARCHAR(15) NOT NULL UNIQUE KEY, `password` CHAR(32) NOT NULL , `fecha_nacimiento` DATE NOT NULL ) ENGINE = InnoDB; -- Agregando dos usuarios INSERT INTO `usuarios` (`id`, `username`, `password`, `fecha_nacimiento`) VALUES (NULL, &#39;juanito&#39;, &#39;ABC123456...&#39;, NOW()), (NULL, &#39;pepe_grillo&#39;, &#39;ABC123456.</description>
+    </item>
     
     <item>
       <title>Unidad III - Acceso a Datos</title>

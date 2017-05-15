@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://fitorec.github.io/itsmigra/tecnologias_inalambricas/capitulo_03/</loc>
+    <loc>http://fitorec.github.io/itsmigra/tecnologias_inalambricas/unid_03/03_estandares_para_sistemas_comunicacion_inalambrica/</loc>
     <lastmod>2017-05-04T08:26:15-05:00</lastmod>
   </url>
   
@@ -23,6 +23,12 @@
   
   <url>
     <loc>http://fitorec.github.io/itsmigra/tecnologias_inalambricas/</loc>
+    <lastmod>2017-05-04T08:26:15-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://fitorec.github.io/itsmigra/tecnologias_inalambricas/unid_03/</loc>
     <lastmod>2017-05-04T08:26:15-05:00</lastmod>
     <priority>0</priority>
   </url>

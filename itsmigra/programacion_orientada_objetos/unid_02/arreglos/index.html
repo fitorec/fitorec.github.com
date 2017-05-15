@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta content="" name="keywords">
-<meta content="arreglos - Programación Orientada a Objetos" property="og:title">
-<title>arreglos | Programación Orientada a Objetos</title>
+<meta content="2.0 arreglos - Programación Orientada a Objetos" property="og:title">
+<title>2.0 arreglos | Programación Orientada a Objetos</title>
 <link rel="stylesheet" href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/css/style.css">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
@@ -57,19 +57,120 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" itemscope itemtype="http://schema.org/ScholarlyArticle">
   <div class="container">
-    <h2 class="subtitle is-6">May 3, 2017</h2>
-    <h1 class="title">arreglos</h1>
+    <h2 class="subtitle is-6" itemprop="dateCreated">May 3, 2017</h2>
+    <h1 class="title" itemprop="name">2.0 arreglos</h1>
     
     <div class="content">
-      <p>Un arreglo es un contenedor de un conjunto de datos,</p>
+      
+
+<p>Un arreglo es un contenedor de un conjunto de datos, a los que podemos acceder por medio de un <strong>indice</strong>,</p>
+
+<h2 id="arreglos-en-java">Arreglos en Java.</h2>
+
+<p>Los arreglos en java tiene una serie de características:</p>
+
+<ul>
+<li>Un arreglo solo puede contener elementos de un mismo tipo.</li>
+<li>Un arreglo es un Objeto, esto implica que tiene tanto métodos como atributos.</li>
+<li>El tamaño de un arreglo es fijo y se determina en el momento que se inicializa.</li>
+<li>Un arreglo de tamaño <code>n</code> sus indices validos son del <code>1</code> al <code>n-1</code>.</li>
+</ul>
+
+<h4 id="ejemplo-declarando-un-arreglo">Ejemplo declarando un arreglo:</h4>
+
+<pre><code class="language-java">tipoDato[] nombreArreglo;   // Sintaxis recomendada.
+tipoDato nombreArreglo[];  // Funciona pero no se recomienda.
+</code></pre>
+
+<p>Como podemos ver es valido declarar un arreglo sin tamaño, posteriormente definir el tamaño al momento de inicializar la variable <code>nombreArreglo</code>, como se muestra a continuación.</p>
+
+<pre><code class="language-java">nombreArreglo = new tipoDato[Tamaño];
+</code></pre>
+
+<p>Veamos como quedaría un ejemplo para un tipo de dato especifico(<code>int</code>) y de un tamaño especifico <code>5</code>:</p>
+
+<pre><code class="language-java">int[] arregloNumerico;
+arregloNumerico = new int[5];
+</code></pre>
+
+<p>De forma análoga podríamos definir arreglos de cualquier tipo:</p>
+
+<pre><code class="language-java">byte[] unArregloDeBytes;
+short[] unArregloDeShorts;
+long[] unArregloDeLongs;
+float[] unArregloDeFloats;
+double[] unArregloDeDoubles;
+boolean[] unArregloDeBooleans;
+char[] unArregloDeChars;
+String[] unArregloDeStrings;
+</code></pre>
+
+<h3 id="asignación-de-datos">Asignación de datos:</h3>
+
+<p>Una vez creado y definido el arreglo podemos asignarle valores a sus elementos:</p>
+
+<pre><code class="language-java">int[] arregloNumerico;
+arregloNumerico = new int[5];
+// Asignación
+arregloNumerico[0] = 8;
+arregloNumerico[1] = 7;
+arregloNumerico[2] = 6;
+arregloNumerico[3] = 5;
+arregloNumerico[4] = 4;
+</code></pre>
+
+<p>Ahora podemos acceder a cada elemento por su posición:</p>
+
+<pre><code class="language-java">System.out.println(arregloNumerico[0]) // imprime 8;
+System.out.println(arregloNumerico[1]) // imprime 7;
+System.out.println(arregloNumerico[2]) // imprime 6;
+System.out.println(arregloNumerico[3]) // imprime 5;
+System.out.println(arregloNumerico[4]) // imprime 4;
+</code></pre>
+
+<p>Una forma alternativa de inialización y asignación es la sintaxis reducida, como se muestra acontinuación:</p>
+
+<pre><code class="language-java">int arregloNumerico[] = {8,7,6,5,4};
+System.out.println(arregloNumerico[0]) // imprime 8;
+</code></pre>
+
+<h2 id="arreglos-en-python">Arreglos en python.</h2>
+
+<pre><code class="language-python">miArreglo=[1,2,3,4,5,6]
+print miArreglo[2]
+miArreglo[2]=100
+</code></pre>
+
+<p>Podemos extraer una parte del arreglo:</p>
+
+<pre><code class="language-python">print miArreglo[2:5]
+# [3,4,5]
+print miArreglo[2:]
+# [3,4,5,6]
+print miArreglo[:3]
+# [1,2,3]
+print miArreglo[:]
+# [1,2,3,4,5,6]
+</code></pre>
 
     </div>
-    <div itemscope itemtype="http://schema.org/Person" class="content author">
+    <div itemscope itemprop="author" itemtype="http://schema.org/Person" class="content author">
 	  <h5 itemprop="name">Miguel Angel Marcial - Fitorec</h5>
+	  <a href="http://fitorec.github.io/" itemprop="url">fitorec.github.io</a>
   </div>
   </div>
+  
+  <div>
+        
+          <a class="previous" href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/unid_03/3.1.defincion_de_una_clase/"> 3.1. Definición de una Clase</a>
+        
+        
+          <a class="next" href="http://fitorec.github.io/itsmigra/programacion_orientada_objetos/temario/"> temario</a>
+        
+    </div>
+  
 </section>
 
 

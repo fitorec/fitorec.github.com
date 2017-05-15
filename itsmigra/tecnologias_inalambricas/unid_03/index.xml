@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tecnologías inalámbricas</title>
-    <link>http://fitorec.github.io/itsmigra/tecnologias_inalambricas/</link>
-    <description>Recent content on Tecnologías inalámbricas</description>
+    <title>Unid_03s on Tecnologías inalámbricas</title>
+    <link>http://fitorec.github.io/itsmigra/tecnologias_inalambricas/unid_03/</link>
+    <description>Recent content in Unid_03s on Tecnologías inalámbricas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-mx</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by/4.0/&#34;&gt;&lt;img alt=&#34;Licencia Creative Commons&#34; style=&#34;border-width:0&#34; src=&#34;https://i.creativecommons.org/l/by/4.0/80x15.png&#34; /&gt;&lt;/a&gt;&lt;br /&gt;Esta obra está bajo una &lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by/4.0/&#34;&gt;Licencia Creative Commons Atribución 4.0 Internacional&lt;/a&gt;.&lt;br&gt;Sientete libre de compartir y redistribuir</copyright>
     <lastBuildDate>Thu, 04 May 2017 08:26:15 -0500</lastBuildDate>
     
-	<atom:link href="http://fitorec.github.io/itsmigra/tecnologias_inalambricas/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://fitorec.github.io/itsmigra/tecnologias_inalambricas/unid_03/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,16 +20,6 @@
       <guid>http://fitorec.github.io/itsmigra/tecnologias_inalambricas/unid_03/03_estandares_para_sistemas_comunicacion_inalambrica/</guid>
       <description>Bluetooth Tecnología de radio de corto alcance que permite las comunicaciones y la sincronización de datos entre ordenadores personales, PDAs, teléfonos móviles y dispositivos periféricos así como también entre los dispositivos e Internet.
 ZigBee Zigbee Es un estándar de transmisión de datos de baja velocidad, en dos direcciones, para redes de automatización industriales y domésticas. Utiliza dispositivos pequeños y de muy poca potencia para su conexión conjunta con el fin de formar una web de control inalámbrica.</description>
-    </item>
-    
-    <item>
-      <title>Temario</title>
-      <link>http://fitorec.github.io/itsmigra/tecnologias_inalambricas/temario/</link>
-      <pubDate>Thu, 04 May 2017 04:13:45 -0500</pubDate>
-      
-      <guid>http://fitorec.github.io/itsmigra/tecnologias_inalambricas/temario/</guid>
-      <description>Lu Ma Mie Jue Vie    
-  Unidad Temas      01 Introducción a las tecnologías inalámbricas 30 - 01 27 - 02    1.1 Evolución de la tecnología inalámbrica 1.2 El medio de comunicación inalámbrico 1.3 Ejemplos de sistemas de redes inalámbricas fijas y móviles 1.4 Propiedades físicas que rigen la propagación de ondas, deterioro de transmisión y pérdidas de propagación.</description>
     </item>
     
   </channel>

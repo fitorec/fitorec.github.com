@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="es-mx">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="3.2.1_controles_accedo_datos - Programación II" property="og:title">
+<title>3.2.1_controles_accedo_datos | Programación II</title>
+<link rel="stylesheet" href="http://fitorec.github.io/itsmigra/programacion_2/css/style.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link rel="stylesheet" href="http://fitorec.github.io/itsmigra/programacion_2/css/highlightjs_agate.css"/>
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="http://fitorec.github.io/itsmigra/programacion_2"><h1 class="title is-4">Programación II</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/fitorec">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/fitorec">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://fitorec.wordpress.com">
+            <span class="icon">
+              <i class="fa fa-wordpress"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://fitorec.github.io">
+            <span class="icon">
+              <i class="fa fa-home"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section" itemscope itemtype="http://schema.org/ScholarlyArticle">
+  <div class="container">
+    <h2 class="subtitle is-6" itemprop="dateCreated">May 9, 2017</h2>
+    <h1 class="title" itemprop="name">3.2.1_controles_accedo_datos</h1>
+    
+    <div class="content">
+      
+
+<h2 id="introducción">Introducción:</h2>
+
+<p>De momento vamos a trabajar con una base de datos que contenga una sola tabla, la cual tiene el siguiente esquema:</p>
+
+<pre><code class="language-sql">CREATE TABLE `usuarios` (
+	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`username` VARCHAR(15) NOT NULL UNIQUE KEY,
+	`password` CHAR(32) NOT NULL ,
+	`fecha_nacimiento` DATE NOT NULL 
+) ENGINE = InnoDB;
+
+
+-- Agregando dos usuarios
+
+INSERT INTO `usuarios`
+	(`id`, `username`, `password`, `fecha_nacimiento`) VALUES
+	(NULL, 'juanito', 'ABC123456...', NOW()),
+	(NULL, 'pepe_grillo', 'ABC123456...', NOW());
+
+</code></pre>
+
+<h2 id="creando-consultas-del-tipo-select">Creando consultas del tipo <code>SELECT</code>:</h2>
+
+<p>El proceso recomendado para realizar una consulta del tipo <code>SELECT</code> es el siguiente:</p>
+
+<pre><code class="language-shell">1.- A partir de la conexión crear una preparación de consulta (PreparedStatement)
+2.- Definir argumentos del PreparedStatement
+3.- Ejecutar la consulta en el PreparedStatement y recibir un resultado(ResultSet)
+4.- Finalmente con el ResultSet se obtienen los datos.
+</code></pre>
+
+<h3 id="ejemplo-de-un-modelo">Ejemplo de un Modelo:</h3>
+
+<pre><code class="language-java">import com.mysql.jdbc.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javafxbd.BD;
+
+
+public class Usuario {
+    protected String tableName = &quot;usuarios&quot;;
+    private Integer id = null;
+    private String username = null;
+    private String password = null;
+    private String fecha_nacimiento = null;
+
+    /**
+     * Constructor carga a un usuario a partir de su ID
+     * @param _id 
+     */
+    public Usuario(int _id) {
+        try {
+            PreparedStatement preparedStatement = (PreparedStatement) BD.getConexion().prepareStatement(
+                        &quot;SELECT * FROM &quot;+this.tableName+&quot; WHERE id = ?&quot;
+            );
+            preparedStatement.setInt(1, _id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                this.id = _id;
+                this.username = resultSet.getString(&quot;username&quot;);
+                this.username = resultSet.getString(&quot;password&quot;);
+                this.username = resultSet.getString(&quot;fecha_nacimiento&quot;);
+                System.out.println(resultSet);
+            } else {
+                System.out.println(&quot;No hay datos&quot;);
+                System.out.println(resultSet);
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    /**
+     * Constructor vacio, no hace nada
+     */
+    public Usuario() {}
+
+    /**
+     * Carga a un usuario a partir de campo username.
+     * 
+     * @param _username
+     * @return true si pudo cargar de forma exitosa, false en caso contrario
+     */
+    public boolean loadByUsername(String _username) {return false;}
+    public String toString() {
+        return &quot;Clase:Alumno Model\n&quot;+
+               &quot;username:&quot; + this.username+&quot;\n&quot;;
+    }
+}
+</code></pre>
+
+<p>Faltaria enviar estos datos a un <strong>GUI</strong>.</p>
+
+<ul>
+<li><a href="http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html">http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html</a></li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/sql/Statement.html">https://docs.oracle.com/javase/8/docs/api/java/sql/Statement.html</a></li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/sql/PreparedStatement.html">https://docs.oracle.com/javase/8/docs/api/java/sql/PreparedStatement.html</a></li>
+</ul>
+
+    </div>
+    <div itemscope itemprop="author" itemtype="http://schema.org/Person" class="content author">
+	  <h5 itemprop="name">Miguel Angel Marcial - Fitorec</h5>
+	  <a href="http://fitorec.github.io/" itemprop="url">fitorec.github.io</a>
+  </div>
+  </div>
+  
+  <div>
+        
+          <a class="previous" href="http://fitorec.github.io/itsmigra/programacion_2/unid_02/2_controles_eventos_y_metodos_basicos/"> 2 Controles, eventos y métodos básicos</a>
+        
+        
+          <a class="next" href="http://fitorec.github.io/itsmigra/programacion_2/unid_03/3_unidad_acceso_a_datos/"> Unidad III - Acceso a Datos</a>
+        
+    </div>
+  
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Licencia Creative Commons Atribución 4.0 Internacional</a>.<br>Sientete libre de compartir y redistribuir</p>
+  </div>
+</section>
+
+<script type="text/javascript" src="http://fitorec.github.io/itsmigra/programacion_2/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="http://fitorec.github.io/itsmigra/programacion_2/js/blog.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
